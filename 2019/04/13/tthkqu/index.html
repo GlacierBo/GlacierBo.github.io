@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="傅皮蛋的日志">
 <meta property="og:description" content="场景：假设你这条消息已经消费过了，然后你重启了服务，消费过的消息没有同步到MQ，产生了二次消费。 思路：  比如你拿个数据要写库，你先根据主键查一下，如果这数据都有了，你就别插入了，update 一下好吧。 比如你是写 Redis，那没问题了，反正每次都是 set，天然幂等性。 比如你不是上面两个场景，那做的稍微复杂一点，你需要让生产者发送每条数据的时候，里面加一个全局唯一的 id，类似订单 id">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-09T14:32:07.000Z">
+<meta property="og:updated_time" content="2019-07-31T08:37:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MQ保证消息消费的幂等性">
 <meta name="twitter:description" content="场景：假设你这条消息已经消费过了，然后你重启了服务，消费过的消息没有同步到MQ，产生了二次消费。 思路：  比如你拿个数据要写库，你先根据主键查一下，如果这数据都有了，你就别插入了，update 一下好吧。 比如你是写 Redis，那没问题了，反正每次都是 set，天然幂等性。 比如你不是上面两个场景，那做的稍微复杂一点，你需要让生产者发送每条数据的时候，里面加一个全局唯一的 id，类似订单 id">
