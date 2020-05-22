@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>好的代码应该是便于维护的 | 傅皮蛋的日志</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="glacier,前端,设计,Hexo主题,前端开发,用户体验,设计,python,linux,nodejs,JavaScript">
+  
+
+  <meta name="description" content="好的命名比注释要好1234# 团队统一定义标记：TODO  待处理的问题FIXME  已知有问题的代码HACK 不得不采用的粗糙的解决方案 样式修改 - 要么原生 JS 要么 JQuery  用 submit 事件 复制过来不用的代码都删掉 源代码中的 html 注释是一种厌物, 增加阅读难度 注释注释模板 不要留空 123456# 典型的烂注释：不恰当的信息废弃的注释冗余注释糟糕的注释注释掉的代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="好的代码应该是便于维护的">
+<meta property="og:url" content="glacierbo.github.io/2019/01/12/yuque/好的代码应该是便于维护的/index.html">
+<meta property="og:site_name" content="傅皮蛋的日志">
+<meta property="og:description" content="好的命名比注释要好1234# 团队统一定义标记：TODO  待处理的问题FIXME  已知有问题的代码HACK 不得不采用的粗糙的解决方案 样式修改 - 要么原生 JS 要么 JQuery  用 submit 事件 复制过来不用的代码都删掉 源代码中的 html 注释是一种厌物, 增加阅读难度 注释注释模板 不要留空 123456# 典型的烂注释：不恰当的信息废弃的注释冗余注释糟糕的注释注释掉的代">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-05-22T13:13:48.167Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="好的代码应该是便于维护的">
+<meta name="twitter:description" content="好的命名比注释要好1234# 团队统一定义标记：TODO  待处理的问题FIXME  已知有问题的代码HACK 不得不采用的粗糙的解决方案 样式修改 - 要么原生 JS 要么 JQuery  用 submit 事件 复制过来不用的代码都删掉 源代码中的 html 注释是一种厌物, 增加阅读难度 注释注释模板 不要留空 123456# 典型的烂注释：不恰当的信息废弃的注释冗余注释糟糕的注释注释掉的代">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#好的命名比注释要好"><span class="toc-text">好的命名比注释要好</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注释"><span class="toc-text">注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命名"><span class="toc-text">命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#commit"><span class="toc-text">commit</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-yuque/好的代码应该是便于维护的" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">好的代码应该是便于维护的</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.01.12</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>glacier</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h4 id="好的命名比注释要好"><a href="#好的命名比注释要好" class="headerlink" title="好的命名比注释要好"></a>好的命名比注释要好</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 团队统一定义标记：</span><br><span class="line">TODO  待处理的问题</span><br><span class="line">FIXME  已知有问题的代码</span><br><span class="line">HACK 不得不采用的粗糙的解决方案</span><br></pre></td></tr></table></figure>
+<p>样式修改 - 要么原生 JS 要么 JQuery  用 submit 事件</p>
+<p>复制过来不用的代码都删掉</p>
+<p>源代码中的 html 注释是一种厌物, 增加阅读难度</p>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p>注释模板 不要留空</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 典型的烂注释：</span><br><span class="line">不恰当的信息</span><br><span class="line">废弃的注释</span><br><span class="line">冗余注释</span><br><span class="line">糟糕的注释</span><br><span class="line">注释掉的代码</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 唯一真正好的注释是你想办法不去写的注释：</span><br><span class="line">不要有循规式注释，比如 setter/getter 注释</span><br><span class="line">不要添加日志式注释，比如修改时间等信息（ git 可以做的事情）</span><br><span class="line">注释一定是表达代码之外的东西，代码可以包含的内容，注释中一定不要出现</span><br><span class="line">如果有必要注释，请注释意图（why），而不要去注释实现（how)，大家都会看代码</span><br><span class="line">适当添加警示注释</span><br></pre></td></tr></table></figure>
+<h4 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h4><p>了解一些设计模式，这样看到名字里有 proxy，builder，factory 之类的，就心领神会了</p>
+<p>代码都是分模块的，有的是 core，有的是 util，parser 之类的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">尽可能使用标准命名方法，比如设计模式，通用学术名词等</span><br><span class="line">命名要找更有表现力的词</span><br><span class="line">使用更专业的词，比如不用 get 而使用 fetch 或者 download</span><br><span class="line">避免空泛的名字，像 tmp</span><br><span class="line">使用具体的名字来细致的描述事物</span><br><span class="line">给变量名带上重要的细节，比如加上单位ms等</span><br><span class="line">为作用域大的名字采用更长的名字，作用域小的使用短名字</span><br><span class="line">变量类型为布尔值表达加上 is，has ，can ，should 这样的词会更明确</span><br><span class="line">变量名称长短应该与其作用域对应</span><br><span class="line">别害怕长名称，长而具有描述性的名称比短而令人费解的名称好</span><br><span class="line">函数名称应该说明副作用，名称应该表达函数，变量或类的一切信息，请不要掩盖副作用，比如 CreateAndReturnXXX</span><br></pre></td></tr></table></figure>
+<h4 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h4><blockquote>
+<p>commit 的 message 一定要规范</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">feat：新功能（feature）</span><br><span class="line">fix：修补bug</span><br><span class="line">docs：文档（documentation）</span><br><span class="line">style： 格式（不影响代码运行的变动）</span><br><span class="line">refactor：重构（即不是新增功能，也不是修改bug的代码变动）</span><br><span class="line">test：增加测试</span><br><span class="line">chore：构建过程或辅助工具的变动</span><br></pre></td></tr></table></figure>
+<p><a href="https://mp.weixin.qq.com/s/W9VOXPPZgChwi9daJKIH2A" target="_blank" rel="noopener">如何避免自己写的代码成为别人眼中的一坨屎！</a></p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">赞赏</span>
+      <div class="donation-body">
+        <div class="tip text-center">谢谢你请我吃糖</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信 wechat</span>
+            
+            <img src="/images/qr-wechat.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝 alipay</span>
+            
+            <img src="/images/qr-alipay.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/01/12/yuque/Python 数据库操作/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/01/12/yuque/Hexo 搭建博客/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
+    <script>
+        var notify = 'false' == true ? true : false;
+        var verify = 'false' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "D2rj7iH2VkIeDrBwk55nXmFO-gzGzoHsz",
+            appKey: "zErsMXnzXGbbboYloOQB9S9N",
+            avatar:'mm',
+            placeholder: "基佬，留下你的留言",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

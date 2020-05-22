@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Collections 工具类和 Arrays 工具类常见方法 | 傅皮蛋的日志</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="glacier,前端,设计,Hexo主题,前端开发,用户体验,设计,python,linux,nodejs,JavaScript">
+  
+
+  <meta name="description" content="Collections 排序操作 查找,替换操作 同步控制  排序操作123456void reverse(List list)//反转void shuffle(List list)//随机排序void sort(List list)//按自然排序的升序排序void sort(List list, Comparator c)//定制排序，由Comparator控制排序逻辑void swap(Lis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Collections 工具类和 Arrays 工具类常见方法">
+<meta property="og:url" content="glacierbo.github.io/2019/06/04/yuque/Collections 工具类和 Arrays 工具类常见方法/index.html">
+<meta property="og:site_name" content="傅皮蛋的日志">
+<meta property="og:description" content="Collections 排序操作 查找,替换操作 同步控制  排序操作123456void reverse(List list)//反转void shuffle(List list)//随机排序void sort(List list)//按自然排序的升序排序void sort(List list, Comparator c)//定制排序，由Comparator控制排序逻辑void swap(Lis">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-05-22T13:13:47.897Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Collections 工具类和 Arrays 工具类常见方法">
+<meta name="twitter:description" content="Collections 排序操作 查找,替换操作 同步控制  排序操作123456void reverse(List list)//反转void shuffle(List list)//随机排序void sort(List list)//按自然排序的升序排序void sort(List list, Comparator c)//定制排序，由Comparator控制排序逻辑void swap(Lis">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Collections"><span class="toc-text">Collections</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#排序操作"><span class="toc-text">排序操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查找-替换操作"><span class="toc-text">查找,替换操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同步控制"><span class="toc-text">同步控制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arrays"><span class="toc-text">Arrays</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#binarySearch"><span class="toc-text">binarySearch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#equals"><span class="toc-text">equals</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-yuque/Collections 工具类和 Arrays 工具类常见方法" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Collections 工具类和 Arrays 工具类常见方法</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.06.04</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>glacier</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h3><ul>
+<li>排序操作</li>
+<li>查找,替换操作</li>
+<li>同步控制</li>
+</ul>
+<h4 id="排序操作"><a href="#排序操作" class="headerlink" title="排序操作"></a>排序操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(List list)</span><span class="comment">//反转</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shuffle</span><span class="params">(List list)</span><span class="comment">//随机排序</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(List list)</span><span class="comment">//按自然排序的升序排序</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(List list, Comparator c)</span><span class="comment">//定制排序，由Comparator控制排序逻辑</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(List list, <span class="keyword">int</span> i , <span class="keyword">int</span> j)</span><span class="comment">//交换两个索引位置的元素</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(List list, <span class="keyword">int</span> distance)</span><span class="comment">//旋转。当distance为正数时，将list后distance个元素整体移到前面。当distance为负数时，将 list的前distance个元素整体移到后面。</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="查找-替换操作"><a href="#查找-替换操作" class="headerlink" title="查找,替换操作"></a>查找,替换操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(List list, Object key)</span><span class="comment">//对List进行二分查找，返回索引，注意List必须是有序的</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(Collection coll)</span><span class="comment">//根据元素的自然顺序，返回最大的元素。 类比int min(Collection coll)</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(Collection coll, Comparator c)</span><span class="comment">//根据定制排序，返回最大元素，排序规则由Comparatator类控制。类比int min(Collection coll, Comparator c)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fill</span><span class="params">(List list, Object obj)</span><span class="comment">//用指定的元素代替指定list中的所有元素。</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">frequency</span><span class="params">(Collection c, Object o)</span><span class="comment">//统计元素出现次数</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOfSubList</span><span class="params">(List list, List target)</span><span class="comment">//统计target在list中第一次出现的索引，找不到则返回-1，类比int lastIndexOfSubList(List source, list target).</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">replaceAll</span><span class="params">(List list, Object oldVal, Object newVal)</span>, 用新元素替换旧元素</span></span><br></pre></td></tr></table></figure>
+<h4 id="同步控制"><a href="#同步控制" class="headerlink" title="同步控制"></a>同步控制</h4><p>Collections 提供了多个 synchronizedXxx()方法·，该方法可以将指定集合包装成线程同步的集合，从而解决多线程并发访问集合时的线程安全问题。<br>我们知道 HashSet，TreeSet，ArrayList,LinkedList,HashMap,TreeMap 都是线程不安全的。Collections 提供了多个静态方法可以把他们包装成线程同步的集合。<br><strong>最好不要用下面这些方法，效率非常低，需要线程安全的集合类型时请考虑使用 JUC 包下的并发集合。</strong><br>方法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">synchronizedCollection(Collection  c) <span class="comment">//返回指定 collection 支持的同步（线程安全的）collection。</span></span><br><span class="line">synchronizedList(List list)<span class="comment">//返回指定列表支持的同步（线程安全的）List。</span></span><br><span class="line">synchronizedMap(Map&lt;K,V&gt; m) <span class="comment">//返回由指定映射支持的同步（线程安全的）Map。</span></span><br><span class="line">synchronizedSet(Set s) <span class="comment">//返回指定 set 支持的同步（线程安全的）set。</span></span><br></pre></td></tr></table></figure>
+<h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><ul>
+<li>排序 : <code>sort()</code></li>
+<li>查找 : <code>binarySearch()</code></li>
+<li>比较: <code>equals()</code></li>
+<li>填充 : <code>fill()</code></li>
+<li>转列表  <code>asList()</code></li>
+<li>转字符串  <code>toString()</code></li>
+<li>复制  <code>copyOf()</code></li>
+</ul>
+<h4 id="binarySearch"><a href="#binarySearch" class="headerlink" title="binarySearch"></a>binarySearch</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// *************查找 binarySearch()****************</span></span><br><span class="line"><span class="keyword">char</span>[] e = &#123; <span class="string">'a'</span>, <span class="string">'f'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>, <span class="string">'A'</span>, <span class="string">'C'</span>, <span class="string">'B'</span> &#125;;</span><br><span class="line"><span class="comment">// 排序后再进行二分查找，否则找不到</span></span><br><span class="line">Arrays.sort(e);</span><br><span class="line">System.out.println(<span class="string">"Arrays.sort(e)"</span> + Arrays.toString(e));</span><br><span class="line">System.out.println(<span class="string">"Arrays.binarySearch(e, 'c')："</span>);</span><br><span class="line"><span class="keyword">int</span> s = Arrays.binarySearch(e, <span class="string">'c'</span>);</span><br><span class="line">System.out.println(<span class="string">"字符c在数组的位置："</span> + s);</span><br></pre></td></tr></table></figure>
+<h4 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// *************比较 equals****************</span></span><br><span class="line"><span class="keyword">char</span>[] e = &#123; <span class="string">'a'</span>, <span class="string">'f'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>, <span class="string">'A'</span>, <span class="string">'C'</span>, <span class="string">'B'</span> &#125;;</span><br><span class="line"><span class="keyword">char</span>[] f = &#123; <span class="string">'a'</span>, <span class="string">'f'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>, <span class="string">'A'</span>, <span class="string">'C'</span>, <span class="string">'B'</span> &#125;;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 元素数量相同，并且相同位置的元素相同。 另外，如果两个数组引用都是null，则它们被认为是相等的 。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// 输出true</span></span><br><span class="line">System.out.println(<span class="string">"Arrays.equals(e, f):"</span> + Arrays.equals(e, f));</span><br></pre></td></tr></table></figure>
+<p>参考：<a href="https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/Basis/Arrays,CollectionsCommonMethods.md#%E5%90%8C%E6%AD%A5%E6%8E%A7%E5%88%B6" target="_blank" rel="noopener">https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/Basis/Arrays,CollectionsCommonMethods.md#%E5%90%8C%E6%AD%A5%E6%8E%A7%E5%88%B6</a></p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">赞赏</span>
+      <div class="donation-body">
+        <div class="tip text-center">谢谢你请我吃糖</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信 wechat</span>
+            
+            <img src="/images/qr-wechat.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝 alipay</span>
+            
+            <img src="/images/qr-alipay.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/05/21/yuque/AOP 接口日志/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/06/04/yuque/转发(Forward)和重定向(Redirect)的区别/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
+    <script>
+        var notify = 'false' == true ? true : false;
+        var verify = 'false' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "D2rj7iH2VkIeDrBwk55nXmFO-gzGzoHsz",
+            appKey: "zErsMXnzXGbbboYloOQB9S9N",
+            avatar:'mm',
+            placeholder: "基佬，留下你的留言",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

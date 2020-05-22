@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>233333大佬的qq音乐爬虫 | 傅皮蛋的日志</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="glacier,前端,设计,Hexo主题,前端开发,用户体验,设计,python,linux,nodejs,JavaScript">
+  
+
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:type" content="article">
+<meta property="og:title" content="233333大佬的qq音乐爬虫">
+<meta property="og:url" content="glacierbo.github.io/2020/05/22/yuque/233333大佬的qq音乐爬虫/index.html">
+<meta property="og:site_name" content="傅皮蛋的日志">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-05-22T13:13:47.409Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="233333大佬的qq音乐爬虫">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-yuque/233333大佬的qq音乐爬虫" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">233333大佬的qq音乐爬虫</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2020.05.22</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>glacier</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests, json, re</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"><span class="comment"># 文件路径</span></span><br><span class="line">MUSIC_PATH=<span class="string">'music/'</span></span><br><span class="line"><span class="comment"># chrome driver路径</span></span><br><span class="line">DRIVERS_PATH=<span class="string">'drivers/chromedriver-mac'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ParseQQmusic</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,ranking)</span>:</span></span><br><span class="line">        self.url =ranking</span><br><span class="line">        self.music_name =<span class="literal">None</span></span><br><span class="line">        self.headers = &#123;</span><br><span class="line">            <span class="string">'user-agent'</span>: <span class="string">'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1'</span>,</span><br><span class="line">            <span class="string">'Referer'</span>: <span class="string">'https://u.y.qq.com'</span></span><br><span class="line">        &#125;</span><br><span class="line">        self.session = requests.session()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">download_music</span><span class="params">(self,songmid)</span>:</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">"req"</span>: &#123;</span><br><span class="line">                <span class="string">"module"</span>: <span class="string">"CDN.SrfCdnDispatchServer"</span>,</span><br><span class="line">                <span class="string">"method"</span>: <span class="string">"GetCdnDispatch"</span>,</span><br><span class="line">                <span class="string">"param"</span>: &#123;</span><br><span class="line">                    <span class="string">"guid"</span>: <span class="string">''</span>,</span><br><span class="line">                    <span class="string">"calltype"</span>: <span class="number">0</span>,</span><br><span class="line">                    <span class="string">"userip"</span>: <span class="string">""</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">"req_0"</span>: &#123;</span><br><span class="line">                <span class="string">"module"</span>: <span class="string">"vkey.GetVkeyServer"</span>,</span><br><span class="line">                <span class="string">"method"</span>: <span class="string">"CgiGetVkey"</span>,</span><br><span class="line">                <span class="string">"param"</span>: &#123;</span><br><span class="line">                    <span class="string">"guid"</span>: str(random_with_N_digits(<span class="number">9</span>)),</span><br><span class="line">                    <span class="string">"songmid"</span>: [songmid],</span><br><span class="line">                    <span class="string">"songtype"</span>: [<span class="number">0</span>],</span><br><span class="line">                    <span class="string">"uin"</span>: <span class="string">"0"</span>,</span><br><span class="line">                    <span class="string">"loginflag"</span>: <span class="number">1</span>,</span><br><span class="line">                    <span class="string">"platform"</span>: <span class="string">"20"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">"comm"</span>: &#123;</span><br><span class="line">                <span class="string">"uin"</span>: <span class="number">0</span>,</span><br><span class="line">                <span class="string">"format"</span>: <span class="string">"json"</span>,</span><br><span class="line">                <span class="string">"ct"</span>: <span class="number">24</span>,</span><br><span class="line">                <span class="string">"cv"</span>: <span class="number">0</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        api = <span class="string">'http://u.y.qq.com/cgi-bin/musicu.fcg'</span></span><br><span class="line">        jsondata = json.dumps(data)</span><br><span class="line">        response = self.session.post(api, data=jsondata)</span><br><span class="line">        resJson = json.loads(response.content, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">        sip = resJson.get(<span class="string">'req_0'</span>).get(<span class="string">'data'</span>).get(<span class="string">'sip'</span>)[<span class="number">0</span>]</span><br><span class="line">        purl = resJson.get(<span class="string">'req_0'</span>).get(<span class="string">'data'</span>).get(<span class="string">'midurlinfo'</span>)[<span class="number">0</span>].get(<span class="string">'purl'</span>)</span><br><span class="line">        <span class="keyword">if</span> purl != <span class="literal">None</span> <span class="keyword">and</span> purl.strip():</span><br><span class="line">            print(self.music_name)</span><br><span class="line">            download_url= sip + purl</span><br><span class="line">            <span class="comment"># 下载到本地</span></span><br><span class="line">            music = self.session.get(download_url,headers=self.headers)</span><br><span class="line">            <span class="comment"># 文件名去除特殊符号</span></span><br><span class="line">            <span class="keyword">with</span> open(MUSIC_PATH + <span class="string">"&#123;&#125;.m4a"</span>.format(re.sub(<span class="string">r'[\s+|@&lt;&gt;:\\"/]'</span>, <span class="string">''</span>, self.music_name)), <span class="string">"wb"</span>) <span class="keyword">as</span> m:</span><br><span class="line">                m.write(music.content)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">view_html</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># qq音乐页面是js加载的，这里用chrome headless模式访问</span></span><br><span class="line">        option = webdriver.ChromeOptions()</span><br><span class="line">        option.add_argument(<span class="string">'headless'</span>)</span><br><span class="line">        driver = webdriver.Chrome(DRIVERS_PATH, chrome_options=option)</span><br><span class="line">        <span class="comment"># 排行榜页面</span></span><br><span class="line">        driver.get(self.url)</span><br><span class="line">        print(driver.title)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment"># 等待播放列表加载完毕</span></span><br><span class="line">            WebDriverWait(driver, <span class="number">10</span>).until(EC.presence_of_element_located((By.CLASS_NAME, <span class="string">"songlist__songname_txt"</span>)))</span><br><span class="line">            lis = driver.find_elements_by_class_name(<span class="string">'songlist__songname_txt'</span>)</span><br><span class="line">            pattern = re.compile(<span class="string">r'https://y.qq.com/n/yqq/song/(\S+).html'</span>)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(lis.__len__()):</span><br><span class="line">                li = lis.__getitem__(i)</span><br><span class="line">                a = li.find_element_by_class_name(<span class="string">'js_song'</span>)</span><br><span class="line">                <span class="comment"># 获得songid</span></span><br><span class="line">                href = a.get_attribute(<span class="string">'href'</span>)</span><br><span class="line">                music_name = a.get_attribute(<span class="string">'title'</span>)</span><br><span class="line">                self.music_name=music_name</span><br><span class="line"></span><br><span class="line">                m = pattern.match(href)</span><br><span class="line">                self.download_music(m.group(<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            driver.quit()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.view_html()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">random_with_N_digits</span><span class="params">(n)</span>:</span></span><br><span class="line">    range_start = <span class="number">10</span>**(n<span class="number">-1</span>)</span><br><span class="line">    range_end = (<span class="number">10</span>**n)<span class="number">-1</span></span><br><span class="line">    <span class="keyword">return</span> randint(range_start, range_end)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># 目标 抖音排行榜</span></span><br><span class="line">    qm = ParseQQmusic(<span class="string">'https://y.qq.com/n/yqq/toplist/60.html#stat=y_new.toplist.menu.60'</span>)</span><br><span class="line">    qm.start()</span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">赞赏</span>
+      <div class="donation-body">
+        <div class="tip text-center">谢谢你请我吃糖</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信 wechat</span>
+            
+            <img src="/images/qr-wechat.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝 alipay</span>
+            
+            <img src="/images/qr-alipay.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2020/05/22/yuque/Scrapy 实现豆瓣电影爬虫/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
+    <script>
+        var notify = 'false' == true ? true : false;
+        var verify = 'false' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "D2rj7iH2VkIeDrBwk55nXmFO-gzGzoHsz",
+            appKey: "zErsMXnzXGbbboYloOQB9S9N",
+            avatar:'mm',
+            placeholder: "基佬，留下你的留言",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

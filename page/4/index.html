@@ -1,16 +1,213 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>傅皮蛋的日志 | 一个程序员的修行</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">傅皮蛋的日志</h1><a id="logo" href="/.">傅皮蛋的日志</a><p class="description">一个程序员的修行</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Start</i></a><a href="/archives/"><i class="fa fa-archive"> Archiv</i></a><a href="/about/"><i class="fa fa-user"> Über</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2019/04/13/tthkqu/">MQ保证消息消费的幂等性</a></h1><div class="post-meta">2019-04-13</div><div class="post-content"><p>场景：<br>假设你这条消息已经消费过了，然后你重启了服务，消费过的消息没有同步到MQ，产生了二次消费。</p>
-<p>思路：</p>
-<ul>
-<li>比如你拿个数据要写库，你先根据主键查一下，如果这数据都有了，你就别插入了，update 一下好吧。</li>
-<li>比如你是写 Redis，那没问题了，反正每次都是 set，天然幂等性。</li></ul></div><p class="readmore"><a href="/2019/04/13/tthkqu/">Mehr lesen</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/04/13/ol6we2/">Rabbit MQ 和 Kafka 如何保证高可用？</a></h1><div class="post-meta">2019-04-13</div><div class="post-content"><p><a name="345f7519"></a></p>
-<h3 id="Rabbit-MQ-3种模式"><a href="#Rabbit-MQ-3种模式" class="headerlink" title="Rabbit MQ 3种模式"></a>Rabbit MQ 3种模式</h3><p><a name="fdd8e0fe"></a></p></div><p class="readmore"><a href="/2019/04/13/ol6we2/">Mehr lesen</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/04/13/whicyg/">Rabbit MQ 和 Erlang 版本不匹配</a></h1><div class="post-meta">2019-04-13</div><div class="post-content"><p><a href="http://www.erlang.org/downloads" target="_blank" rel="noopener">安装Erlang</a><br><a href="http://www.rabbitmq.com/download.html" target="_blank" rel="noopener">安装RabbitMQ</a><br><strong>安装的时候版本需要匹配</strong>  <a href="http://www.rabbitmq.com/which-erlang.html" target="_blank" rel="noopener">传送门</a> <br>之前因为版本不匹配的问题，搞环境搞了一上午。</p></div><p class="readmore"><a href="/2019/04/13/whicyg/">Mehr lesen</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/04/08/ipg6ut/">Python 异常捕捉</a></h1><div class="post-meta">2019-04-08</div><div class="post-content"><p>打印出异常</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	function()</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> msg:</span><br><span class="line">    print(msg)</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2019/04/08/ipg6ut/">Mehr lesen</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/03/08/tr0vha/">Liqiubase 已有表添加字段</a></h1><div class="post-meta">2019-03-08</div><div class="post-content"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">changeSet</span> <span class="attr">id</span>=<span class="string">"20181214081250-1"</span> <span class="attr">author</span>=<span class="string">"jhipster"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">addColumn</span> <span class="attr">tableName</span>=<span class="string">"jhi_rx"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"place"</span> <span class="attr">type</span>=<span class="string">"varchar(255)"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">constraints</span> <span class="attr">nullable</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"mobile_phone"</span> <span class="attr">type</span>=<span class="string">"varchar(255)"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">constraints</span> <span class="attr">nullable</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">column</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">addColumn</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">addColumn</span> <span class="attr">tableName</span>=<span class="string">"drug"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"brand"</span> <span class="attr">type</span>=<span class="string">"varchar(255)"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">constraints</span> <span class="attr">nullable</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">column</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">addColumn</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">addColumn</span> <span class="attr">tableName</span>=<span class="string">"hospital"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"qy_code"</span> <span class="attr">type</span>=<span class="string">"varchar(255)"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">constraints</span> <span class="attr">nullable</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">column</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">addColumn</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">changeSet</span>&gt;</span></span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2019/03/08/tr0vha/">Mehr lesen</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/03/04/odrvx9/">Csrf 过滤</a></h1><div class="post-meta">2019-03-04</div><div class="post-content"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.netmatch.drug.admin.shiro;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.google.common.collect.Maps;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.support.RequestDataValueProcessor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(<span class="string">"requestDataValueProcessor"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CsrfRequestDataValueProcessor</span> <span class="keyword">implements</span> <span class="title">RequestDataValueProcessor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Pattern DISABLE_CSRF_TOKEN_PATTERN = Pattern.compile(<span class="string">"(?i)^(GET|HEAD|TRACE|OPTIONS)$"</span>);</span><br><span class="line">    <span class="keyword">private</span> String DISABLE_CSRF_TOKEN_ATTR = <span class="string">"DISABLE_CSRF_TOKEN_ATTR"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">processAction</span><span class="params">(HttpServletRequest request, String action, String method)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (method != <span class="keyword">null</span> &amp;&amp; <span class="keyword">this</span>.DISABLE_CSRF_TOKEN_PATTERN.matcher(method).matches()) &#123;</span><br><span class="line">            request.setAttribute(<span class="keyword">this</span>.DISABLE_CSRF_TOKEN_ATTR, Boolean.TRUE);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            request.removeAttribute(<span class="keyword">this</span>.DISABLE_CSRF_TOKEN_ATTR);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> action;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">processFormFieldValue</span><span class="params">(HttpServletRequest request, String name, String value, String type)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 原样返回value</span></span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, String&gt; <span class="title">getExtraHiddenFields</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 此处是当使用spring的taglib标签&lt;form:form&gt;创建表单时候，增加的隐藏域参数</span></span><br><span class="line">        Map&lt;String, String&gt; hiddenFields = Maps.newHashMap();</span><br><span class="line">        hiddenFields.put(CsrfTokenManager.CSRF_PARAM_NAME,</span><br><span class="line">            CsrfTokenManager.createTokenForSession(request.getSession()));</span><br><span class="line">        <span class="keyword">return</span> hiddenFields;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">processUrl</span><span class="params">(HttpServletRequest request, String url)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 原样返回url</span></span><br><span class="line">        <span class="keyword">return</span> url;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2019/03/04/odrvx9/">Mehr lesen</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/02/28/zt1sir/">B+树</a></h1><div class="post-meta">2019-02-28</div><div class="post-content"><p>MySQL索引底层实现。</p>
-<p><a name="b271e427"></a></p>
-<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><p><strong>目的</strong>：提高查询效率</p></div><p class="readmore"><a href="/2019/02/28/zt1sir/">Mehr lesen</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/02/27/nymfrm/">Shiro csrf 拦截请求</a></h1><div class="post-meta">2019-02-27</div><div class="post-content"><p>今天遇到一个问题，我的 form 表单写的没有错，用 js 生成的 action，不知道什么原因一直提交不上去。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">class</span>=<span class="string">"form-horizontal"</span> <span class="attr">role</span>=<span class="string">"form"</span> <span class="attr">id</span>=<span class="string">"form"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2019/02/27/nymfrm/">Mehr lesen</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/02/27/rm7t7v/">点击弹出模态框，显示详情</a></h1><div class="post-meta">2019-02-27</div><div class="post-content"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">onpenShowModal</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">            $(<span class="string">"#show"</span>).modal(<span class="string">'show'</span>);</span><br><span class="line">            <span class="keyword">var</span> title = $(obj).data(<span class="string">"title"</span>)</span><br><span class="line">            $(<span class="string">"#modalContent"</span>).html(title);</span><br><span class="line">        &#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2019/02/27/rm7t7v/">Mehr lesen</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/02/27/oek0m9/">Python 下载图片</a></h1><div class="post-meta">2019-02-27</div><div class="post-content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="comment"># 'Host': 'i.meizitu.net',</span></span><br><span class="line">    <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55.0'</span>,</span><br><span class="line">    <span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'</span>,</span><br><span class="line">    <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">    <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate'</span>,</span><br><span class="line">    <span class="string">'Upgrade-Insecure-Requests'</span>: <span class="string">'1'</span>,</span><br><span class="line">    <span class="string">'content-type'</span>: <span class="string">"application/json"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">s = requests.session()  <span class="comment"># 保留会话</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载图片</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">downIMG</span><span class="params">(url, fileName)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        url = str(url).split(<span class="string">"?"</span>)[<span class="number">0</span>]</span><br><span class="line">        LAST = str(url).split(<span class="string">"."</span>)[<span class="number">-1</span>]</span><br><span class="line">				<span class="comment"># 没有文件夹，则创建文件夹</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="string">'D:/Image/'</span> + fileName):  </span><br><span class="line">            os.mkdir(<span class="string">'D:/Image/'</span> + fileName)</span><br><span class="line"></span><br><span class="line">        url_re = s.get(url.strip(), headers=headers)</span><br><span class="line">        <span class="keyword">if</span> url_re.status_code == <span class="number">200</span>:</span><br><span class="line">            open(<span class="string">"D:/Image/"</span> + fileName + <span class="string">"/"</span> + initImageName() + <span class="string">"."</span> + LAST, <span class="string">'wb'</span>).write(url_re.content)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">"image-run-error.csv"</span>, <span class="string">"a"</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span>  csvfile:</span><br><span class="line">            writer = csv.writer(csvfile)</span><br><span class="line">            writer.writerow(fileName, url)</span><br><span class="line">            </span><br><span class="line"> <span class="comment"># 随机生成文件名           </span></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">initImageName</span><span class="params">()</span>:</span></span><br><span class="line">    ran_str = <span class="string">''</span>.join(random.sample(string.ascii_letters + string.digits, <span class="number">8</span>))</span><br><span class="line">    <span class="keyword">return</span> ran_str</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    images = pd.read_csv(<span class="string">"drug-image-url.csv"</span>)</span><br><span class="line">    images.fillna(<span class="string">''</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">    images = np.array(images).tolist()</span><br><span class="line">    <span class="keyword">for</span> image <span class="keyword">in</span> images:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            downIMG(image[<span class="number">2</span>], image[<span class="number">0</span>] + <span class="string">","</span> + str(image[<span class="number">1</span>]).replace(<span class="string">"*"</span>, <span class="string">"_"</span>))</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">          <span class="keyword">continue</span></span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2019/02/27/oek0m9/">Mehr lesen</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/3/">Vorheriger</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Nächster</a></nav></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Kategorien</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Letzte</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/12/gafgge/">位运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/07/pnfmh0/">Linux 资源管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/05/gr2pq2/">Linux 下 node cnpm 无法使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/05/nwgg1b/">ApplicationContextAware</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/02/fak17b/">Docker Nginx 简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/gu6azt/">Docker 搭建 RabbitMQ</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/alubrd/">Redis 在 SpringBoot 中简单应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/dwh2ym/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/gngugl/">HashMap</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/gkzd5g/">Docker 搭建 Redis</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="http://www.cy520.site/" title="weijiawei92" target="_blank">weijiawei92</a><ul></ul><a href="https://pizerliu.github.io/" title="Pizer" target="_blank">Pizer</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">傅皮蛋的日志.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
-if (search_path.length == 0) {
-   search_path = 'search.xml';
-}
-var path = '/' + search_path;
-searchFunc(path, 'local-search-input', 'local-search-result');
-</script><script type="text/javascript" color="100,99,98" opacity="0.7" zindex="-1" count="150" src="//lib.baomitu.com/canvas-nest.js/2.0.4/canvas-nest.umd.js"></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+<!DOCTYPE html>
+
+
+  <html class="light page-home">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>傅皮蛋的日志</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="glacier,前端,设计,Hexo主题,前端开发,用户体验,设计,python,linux,nodejs,JavaScript">
+  
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="傅皮蛋的日志">
+<meta property="og:url" content="glacierbo.github.io/page/4/index.html">
+<meta property="og:site_name" content="傅皮蛋的日志">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="傅皮蛋的日志">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+
+  
+  <div class="content-home text-center">
+  <a class="avatar" href="/">
+    <img src="/images/avatar.jpg" alt="" />
+  </a>
+  <h1 class="name" style="font-family: calligraffittiregular">
+    傅皮蛋
+  </h1>
+  <div class="slogan">
+    愿年华与你相衬
+  </div>
+
+  <hr>
+
+  <ul class="text-center nav">
+    
+      <li class="item">
+        
+          <a href="/archives">日志</a>
+        
+        <span>|</span>
+      </li>
+    
+      <li class="item">
+        
+          <a href="/about/">关于</a>
+        
+        <span>|</span>
+      </li>
+    
+  </ul>
+
+</div>
+
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
