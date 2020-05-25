@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Docker 部署说明 - 无人问津的自留地 >>></title><meta name="description" content="环境要求 oracle：版本 11g 及以上 mysql：8.0 及以上 docker：17.12.0 及以上 Docker 镜像构建（可选） 服务端镜像构建 在项目根目录下执行如下语句构建应用 Docker 镜像： ./mvnw -Pprod verify -DskipTests jib:dockerBuild 导出 docker save smarttrain &gt; smarttrain.tar 或直接执行下面语句导出 Tar 文件： ./mvnw -Pprod verify -DskipTests jib:buildTar 在项目编译的 target 目录下便能找到对应版本的 Tar 文件。 客户端镜像构建： 在项目根目录下执行如下语句构建应用 Docker 镜像： docker build . -t smart-train-web 导出 docker save smart-train-web &gt; smart-train-web.tar 开始-导入 在未使用 Docker 仓库的情况下，我们直接导入 Image 文件： 镜像的地址为当前目录的 images...."/><meta property="og:description" content="环境要求 oracle：版本 11g 及以上 mysql：8.0 及以上 docker：17.12.0 及以上 Docker 镜像构建（可选） 服务端镜像构建 在项目根目录下执行如下语句构建应用 Docker 镜像： ./mvnw -Pprod verify -DskipTests jib:dockerBuild 导出 docker save smarttrain &gt; smarttrain.tar 或直接执行下面语句导出 Tar 文件： ./mvnw -Pprod verify -DskipTests jib:buildTar 在项目编译的 target 目录下便能找到对应版本的 Tar 文件。 客户端镜像构建： 在项目根目录下执行如下语句构建应用 Docker 镜像： docker build . -t smart-train-web 导出 docker save smart-train-web &gt; smart-train-web.tar 开始-导入 在未使用 Docker 仓库的情况下，我们直接导入 Image 文件： 镜像的地址为当前目录的 images...."/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://blog.fpdan.cn"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://blog.fpdan.cn"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Docker 部署说明 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Docker 部署说明 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html">        <link rel="stylesheet"
+              href="https://blog.fpdan.cn/skins/Bubble/css/base.css?1590414724020"/>
+            <link rel="prev" title="233333大佬的qq音乐爬虫" href="https://blog.fpdan.cn/articles/2020/05/23/1590168229000.html">
+    </head>
+<body class="fn__flex-column">
+<div id="pjax" class="fn__flex-1">
+    
+    <progress class="fn__progress"></progress>
+    <header class="header header--article">
+        <div class="wrapper header__title">
+            <h1 class="header__h1 fn__flex-inline">
+                <a href="https://blog.fpdan.cn" rel="start">无人问津的自留地 >>></a>
+            </h1>
+            <h2 class="header__desc header__desc--title">我始终相信，走过平湖烟雨，岁月山河，<br/>那些经历劫数，尝遍百味的人，会更加生动而干净。</h2>
+            <div class="header__desc">
+                <!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </div>
+            <svg class="header__down" id="headerDown" viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M15.992 25.304c-0 0-0 0-0.001 0-0.516 0-0.981-0.216-1.31-0.563l-0.001-0.001-14.187-14.996c-0.306-0.323-0.494-0.76-0.494-1.241 0-0.998 0.809-1.807 1.807-1.807 0.517 0 0.983 0.217 1.313 0.565l0.001 0.001 12.875 13.612 12.886-13.612c0.331-0.348 0.797-0.565 1.314-0.565 0.481 0 0.918 0.187 1.242 0.493l-0.001-0.001c0.723 0.687 0.755 1.832 0.072 2.555l-14.201 14.996c-0.33 0.348-0.795 0.564-1.311 0.564-0.001 0-0.003 0-0.004 0h0z"></path>
+            </svg>
+        </div>
+    </header>
+    <div class="side__menu">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path d="M30 18h-28c-1.1 0-2-0.9-2-2s0.9-2 2-2h28c1.1 0 2 0.9 2 2s-0.9 2-2 2zM30 6.25h-28c-1.1 0-2-0.9-2-2s0.9-2 2-2h28c1.1 0 2 0.9 2 2s-0.9 2-2 2zM2 25.75h28c1.1 0 2 0.9 2 2s-0.9 2-2 2h-28c-1.1 0-2-0.9-2-2s0.9-2 2-2z"></path>
+        </svg>
+        <span>
+            &nbsp; menu
+        </span>
+    </div>
+    <div class="side__main">
+        <div class="side__bg"></div>
+        <div class="side__panel">
+            <svg class="side__close ft__a" version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                 viewBox="0 0 20 20">
+                <path d="M18.362 19.324c-0.902 0.902-2.363 0.902-3.263 0l-5.098-5.827-5.098 5.825c-0.902 0.902-2.363 0.902-3.263 0-0.902-0.902-0.902-2.363 0-3.263l5.304-6.057-5.306-6.061c-0.902-0.902-0.902-2.361 0-3.263s2.361-0.902 3.263 0l5.1 5.829 5.098-5.829c0.902-0.902 2.361-0.902 3.263 0s0.902 2.363 0 3.263l-5.304 6.061 5.304 6.057c0.902 0.902 0.902 2.363 0 3.265z"></path>
+            </svg>
+
+            <div class="side__header">
+                <a href="https://blog.fpdan.cn" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
+
+                <div class="side__meta">
+                    49 文章 <br>
+                    <span data-uvstaturl="https://blog.fpdan.cn">0</span> 浏览
+                    
+                </div>
+            </div>
+
+            <div class="side__title">
+                <span>ღゝ◡╹)ノ❤️</span>
+            </div>
+            <ul class="side__nav">
+                <li>
+                    <a href="https://blog.fpdan.cn" rel="start">
+                            无人问津的自留地 >>>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://blog.fpdan.cn/categories.html">分类</a>
+                </li>
+                <li>
+                    <a href="https://blog.fpdan.cn/tags.html">标签墙</a>
+                </li>
+                <li>
+                    <a href="https://blog.fpdan.cn/archives.html">存档</a>
+                </li>
+                <li>
+                    <a href="https://blog.fpdan.cn/links.html">友情链接</a>
+                </li>
+                <li>
+                    <a rel="alternate" href="https://blog.fpdan.cn/rss.xml">RSS</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="article__top" style="background-image: url(https://b3logfile.com/bing/20191028.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)">
+        <div style="background-image: url(https://b3logfile.com/bing/20191028.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
+        <canvas id="articleTop"></canvas>
+    </div>
+    <div class="article">
+        <div class="ft__center">
+            <div class="article__meta">
+                <time>
+                    2020-05-25
+                </time>
+                /
+                    <a rel="tag"
+                       href="https://blog.fpdan.cn/tags/docker">docker</a> &nbsp;
+            </div>
+            <h2 class="article__title">
+                Docker 部署说明
+            </h2>
+<div class="article__share"
+     data-title="Docker 部署说明"
+     data-blogtitle="无人问津的自留地 >>>"
+     data-url="https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html"
+     data-avatar="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
+    <span class="item" data-type="qqz">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path d="M22.824 13.989l-8.348 6.287s3.351 0.522 8.404 0.461l-0.23-1.040 7.2-6.549c0.132-0.12 0.183-0.312 0.129-0.487s-0.203-0.299-0.377-0.314l-9.492-0.856-3.708-9.213c-0.068-0.169-0.226-0.279-0.401-0.279s-0.333 0.11-0.401 0.279l-3.708 9.213-9.492 0.856c-0.174 0.015-0.323 0.139-0.377 0.314s-0.004 0.366 0.129 0.487l7.2 6.549-2.158 9.742c-0.040 0.178 0.026 0.365 0.168 0.474 0.142 0.107 0.331 0.115 0.481 0.021l8.158-5.165 8.158 5.165c0.070 0.045 0.147 0.066 0.225 0.066 0.090 0 0.18-0.029 0.256-0.086 0.142-0.109 0.208-0.295 0.168-0.474l-1.707-7.704c0.732-0.386 1.538-1.040 1.538-1.040s-3.195 1.638-14.664 0.838l8.312-6.325s-0.327-0.534-10.744-0.914c-0.697-0.026 8.493-1.83 15.281-0.305z"></path>
+        </svg>
+    </span>
+    <span class="item" data-type="wechat">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path d="M9.062 9.203c0-0.859-0.562-1.422-1.422-1.422-0.844 0-1.703 0.562-1.703 1.422 0 0.844 0.859 1.406 1.703 1.406 0.859 0 1.422-0.562 1.422-1.406zM20.672 17.125c0-0.562-0.562-1.125-1.422-1.125-0.562 0-1.125 0.562-1.125 1.125 0 0.578 0.562 1.141 1.125 1.141 0.859 0 1.422-0.562 1.422-1.141zM16.984 9.203c0-0.859-0.562-1.422-1.406-1.422-0.859 0-1.703 0.562-1.703 1.422 0 0.844 0.844 1.406 1.703 1.406 0.844 0 1.406-0.562 1.406-1.406zM26.906 17.125c0-0.562-0.578-1.125-1.422-1.125-0.562 0-1.125 0.562-1.125 1.125 0 0.578 0.562 1.141 1.125 1.141 0.844 0 1.422-0.562 1.422-1.141zM22.75 10.922c-0.359-0.047-0.719-0.063-1.094-0.063-5.375 0-9.625 4.016-9.625 8.953 0 0.828 0.125 1.625 0.359 2.375-0.359 0.031-0.703 0.047-1.063 0.047-1.422 0-2.547-0.281-3.969-0.562l-3.953 1.984 1.125-3.406c-2.828-1.984-4.531-4.547-4.531-7.656 0-5.391 5.094-9.625 11.328-9.625 5.563 0 10.453 3.391 11.422 7.953zM32 19.687c0 2.547-1.688 4.813-3.969 6.516l0.859 2.828-3.109-1.703c-1.141 0.281-2.281 0.578-3.406 0.578-5.391 0-9.625-3.688-9.625-8.219s4.234-8.219 9.625-8.219c5.094 0 9.625 3.688 9.625 8.219z"></path>
+        </svg>
+    </span>
+    <span class="item" data-type="weibo">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path d="M13.444 27.064c-5.3 0.525-9.875-1.875-10.219-5.35-0.344-3.481 3.675-6.719 8.969-7.244 5.3-0.525 9.875 1.875 10.212 5.35 0.35 3.481-3.669 6.725-8.963 7.244zM24.038 15.521c-0.45-0.137-0.762-0.225-0.525-0.819 0.512-1.287 0.563-2.394 0.006-3.188-1.038-1.481-3.881-1.406-7.137-0.037 0 0-1.025 0.444-0.762-0.363 0.5-1.613 0.425-2.956-0.356-3.737-1.769-1.769-6.469 0.069-10.5 4.1-3.013 3.006-4.763 6.212-4.763 8.981 0 5.287 6.787 8.506 13.425 8.506 8.7 0 14.494-5.056 14.494-9.069 0-2.431-2.044-3.806-3.881-4.375z"></path>
+            <path d="M29.819 5.833c-2.1-2.331-5.2-3.219-8.063-2.612v0c-0.663 0.144-1.081 0.794-0.938 1.45 0.144 0.662 0.788 1.081 1.45 0.938 2.038-0.431 4.238 0.2 5.731 1.856s1.9 3.913 1.256 5.888v0c-0.206 0.644 0.144 1.331 0.788 1.544 0.644 0.206 1.331-0.144 1.544-0.787v-0.006c0.9-2.762 0.331-5.938-1.769-8.269z"></path>
+            <path d="M26.588 8.752c-1.025-1.138-2.538-1.569-3.925-1.269-0.569 0.119-0.931 0.688-0.813 1.256 0.125 0.569 0.688 0.931 1.25 0.806v0c0.681-0.144 1.419 0.069 1.919 0.619 0.5 0.556 0.637 1.313 0.419 1.975v0c-0.175 0.55 0.125 1.15 0.681 1.331 0.556 0.175 1.15-0.125 1.331-0.681 0.438-1.356 0.163-2.906-0.863-4.037z"></path>
+            <path d="M13.738 20.771c-0.188 0.319-0.594 0.469-0.912 0.337-0.319-0.125-0.412-0.488-0.231-0.794 0.188-0.306 0.581-0.456 0.894-0.337 0.313 0.113 0.425 0.469 0.25 0.794zM12.044 22.933c-0.512 0.819-1.613 1.175-2.438 0.8-0.813-0.369-1.056-1.319-0.544-2.119 0.506-0.794 1.569-1.15 2.388-0.806 0.831 0.356 1.1 1.3 0.594 2.125zM13.969 17.146c-2.519-0.656-5.369 0.6-6.463 2.819-1.119 2.262-0.037 4.781 2.506 5.606 2.638 0.85 5.75-0.456 6.831-2.894 1.069-2.394-0.262-4.85-2.875-5.531z"></path>
+        </svg>
+    </span>
+    <span class="item" data-type="twitter">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path d="M32.003 6.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z"></path>
+        </svg>
+    </span>
+    <span class="item__qr"></span>
+</div>        </div>
+        <div class="wrapper">
+            <section class="vditor-reset articles article__content">
+                <h2 id="toc_h2_0">环境要求</h2>
+<ul>
+<li>oracle：版本 11g 及以上</li>
+<li>mysql：8.0 及以上</li>
+<li>docker：17.12.0 及以上</li>
+</ul>
+<h2 id="toc_h2_1">Docker 镜像构建（可选）</h2>
+<h3 id="toc_h3_2">服务端镜像构建</h3>
+<p>在项目根目录下执行如下语句构建应用 Docker 镜像：</p>
+<pre><code class="language-bash">./mvnw -Pprod verify -DskipTests jib:dockerBuild
+</code></pre>
+<h4 id="toc_h4_3">导出</h4>
+<pre><code class="language-shell">docker save smarttrain &gt; smarttrain.tar
+</code></pre>
+<p>或直接执行下面语句导出 Tar 文件：</p>
+<pre><code class="language-shell">./mvnw -Pprod verify -DskipTests jib:buildTar
+</code></pre>
+<p>在项目编译的 target 目录下便能找到对应版本的 Tar 文件。</p>
+<h3 id="toc_h3_4">客户端镜像构建：</h3>
+<p>在项目根目录下执行如下语句构建应用 Docker 镜像：</p>
+<pre><code class="language-shell">docker build . -t smart-train-web
+</code></pre>
+<h4 id="toc_h4_5">导出</h4>
+<pre><code class="language-shell">docker save smart-train-web &gt; smart-train-web.tar
+</code></pre>
+<h2 id="toc_h2_6">开始-导入</h2>
+<p>在未使用 Docker 仓库的情况下，我们直接导入 Image 文件：</p>
+<p>镜像的地址为当前目录的 <strong><em>images</em></strong> 文件夹，基于当前说明文件地址，则前端镜像导入指令为：</p>
+<pre><code class="language-shell">docker load -i images/smart-train-web.tar
+</code></pre>
+<p>后端导入指令为：</p>
+<pre><code class="language-shell">docker load -i images/smarttrain.tar
+</code></pre>
+<p>使用 <code>docker image ls</code> 查看导入镜像为如下，TAG 为当前镜像版本号，则为成功：</p>
+<pre><code class="language-shell">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+smart-train-web     latest              62ff51dfed1f        3 hours ago         667MB
+smarttrain          latest              03b22b8f799a        3 hours ago         289MB
+</code></pre>
+<h2 id="toc_h2_7">服务端启动</h2>
+<h3 id="toc_h3_8">配置文件</h3>
+<p>后端部署文件位于当前目录的 <strong><em>api</em></strong> 下：</p>
+<ul>
+<li><a href="api/app.yml" target="_blank">app.yml</a> ：服务端应用部署配置</li>
+</ul>
+<h4 id="toc_h4_9">镜像版本设置：</h4>
+<p>默认 docker-compose 文件内使用镜像不带版本号，即使用 latest 版本；</p>
+<p>如需修改特定版本，修改镜像名为：镜像名:版本号，如下：</p>
+<p><code>image: smarttrain:1.1.0</code></p>
+<h4 id="toc_h4_10">关于环境变量的解释：</h4>
+<blockquote>
+<p>系统启动时会受环境变量影响，环境变量的配置地方比较多：<br>
+docker 部署文档中的环境变量相当于系统环境变量，变量名都为大写和下滑线组成；这里仅列出一些必须的配置；系统变量会优先生效；<br>
+除了 docker 部署文档列出的环境变量外，还可以通过配置文件去修改环境变量，完整的配置文件放在 <a href="api/config" target="_blank">api/config</a> 目录下，<code>application.yml</code> 为基础配置文档，<code>application-*.yml</code> 不同配置文档配合 <code>SPRING_PROFILES_ACTIVE</code> 环境变量使用；</p>
+</blockquote>
+<p>docker 部署文档环境变量解释：</p>
+<ul>
+<li><code>_JAVA_OPTIONS</code>：jvm 启动参数，Xmx：最大内存使用；Xms：最小内存使用；</li>
+<li><code>SPRING_PROFILES_ACTIVE</code>：当前激活的配置文档；</li>
+</ul>
+<p>可选值：swagger：开启 api 文档；prod：正式环境启动；dev：测试环境启动；no-liquibase：不使用 liquibase 管理数据库版本，这意味着不使用自动建表，修改表等操作；tls：https 部署；</p>
+<blockquote>
+<p>不同配置文档可组合使用，比如：<code>prod, swagger, no-liquibase</code> 代表 prod 环境启动，开启 swagger 文档，不需要自动建表</p>
+</blockquote>
+<ul>
+<li><code>MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED</code>：是否启用 PROMETHEUS 指标监控接口</li>
+<li><code>SPRING_JPA_DATABASE_PLATFORM</code>：数据库平台使用的方言版本</li>
+<li><code>SPRING_JPA_DATABASE</code>：数据库连接使用的数据库类型</li>
+<li><code>SPRING_DATASOURCE_URL</code>：数据库连接地址</li>
+<li><code>SPRING_DATASOURCE_USERNAME</code>：数据库用户名</li>
+<li><code>SPRING_DATASOURCE_PASSWORD</code>：数据库密码</li>
+<li><code>SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE</code>：数据库连接池最大连接数</li>
+<li><code>APPLICATION_LOGIN_TYPE</code>：授权类型，默认：local，可选值：local，uac</li>
+</ul>
+<h4 id="toc_h4_11">文件映射解释：</h4>
+<blockquote>
+<p>要修改映射到不同地方，只需改动前面的地址到宿主机的相应位置</p>
+</blockquote>
+<ul>
+<li>~/volumes/smartTrain/file/:/upload/ # 映射上传文件到宿主机</li>
+<li>~/volumes/smartTrain/config/:/config/ # 需要额外配置覆盖默认配置的，可以在宿主机映射位置放置配置文件</li>
+<li>~/volumes/smartTrain/logs/:/logs/ # 映射日志文件到宿主机</li>
+<li>/etc/localtime:/etc/localtime:ro # 保持容器时区于宿主机一致</li>
+</ul>
+<h4 id="toc_h4_12">端口映射解释：</h4>
+<blockquote>
+<p>应用默认启动端口为：8080</p>
+</blockquote>
+<p>部署文档默认配置为：<code>8080:8080</code> 宿主机：8080 映射容器内部 8080 端口;</p>
+<p>如果想要修改外部对外端口，则只需修改前面的端口号；例如：</p>
+<p><code>9999:8080</code></p>
+<p>则外部访问地址变为：宿主机 ip:9999</p>
+<h4 id="toc_h4_13">数据库配置：</h4>
+<p><strong>后台 <code>prod</code> 环境 默认使用 mysql 镜像数据库，支持 oracle 远程数据库</strong>：</p>
+<ul>
+<li><a href="api/mysql.yml" target="_blank">mysql.yml</a> ：mysql 数据库配置文件
+<blockquote>
+<p>数据库的配置文件默认会挂载在宿主机根目录的 <strong><em>volumes</em></strong> 目录下：~/volumes/smartTrain/mysql/:/var/lib/mysql/</p>
+</blockquote>
+</li>
+<li></li>
+</ul>
+<p>可以通过环境变量设置数据库 root 密码，或者添加用户；</p>
+<p>默认数据库开放端口：<code>3306</code></p>
+<p><strong>DEMO：使用 oracle 数据库时 <a href="api/app.yml" target="_blank">app.yml</a> 环境变量配置如下：</strong></p>
+<pre><code class="language-yaml">- _JAVA_OPTIONS=-Xmx2048m -Xms256m # jvm 启动参数，Xmx：最大内存使用；Xms：最小内存使用
+# swagger：开启 api 文档；prod：正式环境启动；dev：测试环境启动；no-liquibase：不使用 liquibase 管理数据库版本，这意味着不使用自动建表，修改表等操作；
+- SPRING_PROFILES_ACTIVE=prod,swagger
+- MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true # 启用 PROMETHEUS 指标监控接口
+- SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.Oracle10gDialect
+- SPRING_JPA_DATABASE=ORACLE
+- SPRING_DATASOURCE_URL=jdbc:oracle:thin:@101.132.190.28:1521:xe
+- SPRING_DATASOURCE_USERNAME=smarttraindev
+- SPRING_DATASOURCE_PASSWORD=smarttraindev
+- SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE=2 # 数据库连接池最大连接数
+#      - APPLICATION_LOGIN_TYPE=  # 授权类型，默认：local，可选值：local, uac
+- JHIPSTER_SLEEP=30 # 留出时间让其他服务在应用程序启动之前
+</code></pre>
+<p>oracle 不使用自动建表语句时需要手动执行建表语句，语句脚本放在 <a href="sql" target="_blank">sql</a> 目录下：</p>
+<ul>
+<li><a href="sql/SMARTTRAIN.sql" target="_blank">SMARTTRAIN.sql</a> 建表语句</li>
+<li><a href="sql/FACTORY.sql" target="_blank">FACTORY.sql</a> 工厂初始化数据</li>
+<li><a href="sql/EVALUATION_ERROR_TYPE.sql" target="_blank">EVALUATION_ERROR_TYPE.sql</a> 考核错误类型初始化数据</li>
+<li><a href="sql/TRAIN_TYPE.sql" target="_blank">TRAIN_TYPE.sql</a> 受训类型初始化数据</li>
+</ul>
+<h4 id="toc_h4_14">语音配置：</h4>
+<blockquote>
+<p><strong>语音会按当前配置的 <code>application.api-type</code> 类型生效</strong><br>
+可选的类型值包括：</p>
+<ul>
+<li>baidu-api（百度语音）</li>
+<li>asr-tts-api（内部语音）</li>
+<li>alibaba-api（阿里语音）</li>
+</ul>
+<p>如需实现其它语音解析，需实现接口：</p>
+</blockquote>
+<pre><code class="language-java">/**
+ * 音频和文字转换接口
+ *
+ * @author zeral
+ * @date 2019/09/21
+ */
+public interface AudioTextTransform {
+    /**
+     * 音频字节流转文字
+     *
+     * @param attachment 附件信息
+     * @return 识别的文本
+     */
+    String audioToText(Attachment attachment);
+
+    /**
+     * 文字转音频
+     *
+     * @param text 需要转换的文本
+     * @return Attachment 附件信息
+     * @throws BadRequestAlertException 请求异常错误
+     */
+    Attachment textToAudio(String text) throws BadRequestAlertException;
+}
+</code></pre>
+<p>完整的配置属性如下：</p>
+<ul>
+<li>内部语音：见 <a href="api/config/application-prod.yml" target="_blank">api/config/application-prod.yml</a> 的 <code>application.asr-tts-api</code> 配置</li>
+</ul>
+<p>完整配置如下：</p>
+<pre><code>/**
+ * 语音地址，必填
+ */
+base-url:
+/**
+ * 产品标识，必填
+ */
+product-id:
+
+/**
+ * api 唯一标识，必填
+ */
+api-key:
+
+/**
+ * 指定第⼀路语⾔模型
+ */
+res: airobot
+
+language：zh-CN
+
+/**
+ * ⾳频类型，不⽀持ogg vorbis，只⽀持ogg speex
+ * ogg, wav,mp3,flv,amr,opus,adpcm
+ */
+audio-type: wav
+
+/**
+ * ⾳频数据采样率,推荐使⽤16000; （ogg⽀持
+ * 8000,16000；wav⽀持8000,16000;mp3⽀持
+ * 16000,22050,44100;amr⽀持8000）
+ */
+sample-rate: 16000
+
+/**
+ * 声道
+ */
+channel: 1
+
+/**
+ * ⾳频数据每采样点⼤⼩
+ */
+sample-bytes: 2
+
+/**
+ * 指定发⾳⼈
+ * 可选值：gqlanf、xijunma、kaolaf
+ */
+voice-id: lucyfa
+
+speed: 1f
+
+text-type: text
+</code></pre>
+<ul>
+<li>百度语音：见 <a href="api/config/application-dev.yml" target="_blank">api/config/application-dev.yml</a> 的 <code>application.baidu-api</code> 配置</li>
+</ul>
+<p>完整配置如下：</p>
+<pre><code>/**
+ * 产品唯一标识，必填
+ */
+appId:
+/**
+ * api 唯一标识，必填
+ */
+api-key:
+/**
+ * api 密钥，必填
+ */
+secret-key:
+
+connection-timeout-in-millis: 2000
+
+socket-timeout-in-millis: 60000
+
+/**
+ * 语音模型 Id
+ */
+dev-pid: 1536
+
+/**
+ * 采样率
+ */
+rate: 16000
+
+/**
+ * 语音文件的格式，pcm 或者 wav 或者 amr。不区分大小写。推荐pcm文件
+ */
+audio-type: wav
+</code></pre>
+<ul>
+<li>阿里语音</li>
+</ul>
+<pre><code>alibaba-api:
+  # 语音识别key
+  audio-key: aS2KlVvio6QgVI8K
+  # 语音合成key
+  text-key: aS2KlVvio6QgVI8K
+  # 认证token
+  token: a84743d6a22d40ad9afc02fd3f6d026f
+  # 若为外网置为空
+  url: ws://nls-gateway.cn-shanghai-internal.aliyuncs.com:80/ws/v1
+</code></pre>
+<h3 id="toc_h3_15">启动</h3>
+<p>在当前目录执行启动后端服务：</p>
+<pre><code class="language-shell">docker-compose -f api/app.yml up -d
+</code></pre>
+<p>使用 <code>docker container ls</code> 便看到如下信息：</p>
+<pre><code class="language-shell">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                               NAMES
+17263e575449        smarttrain          "sh -c 'chmod +x /en…"   2 minutes ago       Up 2 minutes        0.0.0.0:8080-&gt;8080/tcp              smarttrain-app
+50dcae3fa880        mysql:8.0.16        "docker-entrypoint.s…"   2 minutes ago       Up 2 minutes        0.0.0.0:3306-&gt;3306/tcp, 33060/tcp   smarttrain-mysql
+</code></pre>
+<p>使用 <code>docker logs {容器 ID} -f</code> 查看 <code>smarttrain</code> 后端服务日志：</p>
+<p>看到如下信息表示启动成功：</p>
+<pre><code class="language-shell">----------------------------------------------------------
+	Application 'smartTrain' is running! Access URLs:
+	Local: 		http://localhost:8080/
+	External: 	http://172.23.0.3:8080/
+	Profile(s): 	[prod, swagger]
+----------------------------------------------------------
+</code></pre>
+<p>访问 <code>http://localhost:8080/</code> 便可查看后端服务监控页面。</p>
+<p>##客户端启动</p>
+<h3 id="toc_h3_16">配置文件</h3>
+<p>前端配置文件为当前目录下的：<a href="docker-compose-web.yml" target="_blank">docker-compose-web.yml</a> 文件：</p>
+<blockquote>
+<ul>
+<li>默认开放端口为 4000，如需修改前端暴露给外部端口，则只需修改前面的端口号；例如：</li>
+</ul>
+</blockquote>
+<p><code>4010:4000</code></p>
+<p>则外部访问地址变为：宿主机 ip:4010</p>
+<blockquote>
+<ul>
+<li>前端默认使用和后端同一网络环境，并使用后端接口作为请求地址：</li>
+</ul>
+<p><strong>如果前后不在同一网络环境下，请修改为后端容器 <code>ip:端口号</code></strong></p>
+</blockquote>
+<pre><code class="language-shell">environment:
+  - API_URL=http://smarttrain-app:8080
+  # uaa 或 uac 地址，如果地址有变
+  # - BASE_URL=http://t-uaa.mega-insight.com
+</code></pre>
+<h3 id="toc_h3_17">启动</h3>
+<p>在当前目录执行启动前端服务：</p>
+<pre><code class="language-shell">docker-compose -f docker-compose-web.yml up -d
+</code></pre>
+<p>使用 <code>docker container ls</code> 查看容器启动状况：</p>
+<pre><code class="language-shell">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                               NAMES
+50dcae3fa880        mysql:8.0.16        "docker-entrypoint.s…"   10 minutes ago      Up 10 minutes       0.0.0.0:3306-&gt;3306/tcp, 33060/tcp   smarttrain-mysql
+</code></pre>
+<p>查看 docker 日志 <code>docker logs {容器 ID} -f</code> 看到如下信息表示启动成功：</p>
+<pre><code class="language-shell">&gt; smartrain@1.0.0 start /usr/src/smart-train
+&gt; nuxt start
+ℹ Listening on: http://172.23.0.4:4000/
+</code></pre>
+<p>访问 <code>http://localhost:4000</code> 便可查看前端页面。</p>
+<h2 id="toc_h2_18">默认初始化测试账号及密码（开发环境适用）</h2>
+<ul>
+<li>助教：assistant/assistant</li>
+<li>讲师：teacher/teacher</li>
+<li>学员：student/student</li>
+<li>智训管理员：train_manager/train_manager</li>
+<li>审核者：reviewer/reviewer</li>
+<li>超级管理员：admin/admin</li>
+</ul>
+<p>更多账号可以使用超级管理员登录后端监控页面添加用户。</p>
+<h2 id="toc_h2_19">关于网络</h2>
+<p>默认情况下，后端服务会创建自己的网络为 <code>api_backend</code>，并使用桥接模式；</p>
+<p>前端服务共享后端网络，请通过环境变量 <code>API_URL</code> 请求后端服务：</p>
+<pre><code class="language-shell">API_URL=http://smarttrain-app:8080
+</code></pre>
+<h2 id="toc_h2_20">更多</h2>
+<p>前端服务使用 <code>pm2</code> 守护管理前端服务：</p>
+<p>查看前端服务监控情况：</p>
+<pre><code class="language-shell">docker exec -it smart-train-web pm2 monit
+</code></pre>
+<p>查看项目详情：</p>
+<pre><code class="language-shell">docker exec -it smart-train-web pm2 show smart-train
+</code></pre>
+<h3 id="toc_h3_21">指标监控</h3>
+<p>后端服务默认开启了指标监控端口 <code>/management/prometheus</code>，并开启了超级管理员认证；</p>
+<p>你可以使用 <strong><em>api/monitor/monitoring.yml</em></strong> docker 配置启动指标收集和监控。</p>
+<h3 id="toc_h3_22">查看后台服务版本及构件信息</h3>
+<p>可以使用 <code>spring boot</code> 监控接口查看：</p>
+<pre><code>http://后台地址:端口号/management/info
+</code></pre>
+<hr>
+                    <div>
+                        
+<hr>
+<small>标题：Docker 部署说明</small><br>
+<small>版权声明：本文为博主「<a href="https://blog.fpdan.cn" target="_blank">fpdan</a>」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</small><br>
+<small>原文链接：<a href="https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html" target="_blank">https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html</a></small><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                    </div>
+            </section>
+        </div>
+
+    </div>
+        <div class="post__toc">
+<ul class="article__toc">
+        <li class="toc__h2">
+            <a href="#toc_h2_0">环境要求</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_1">Docker 镜像构建（可选）</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_2">服务端镜像构建</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_3">导出</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_4">客户端镜像构建：</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_5">导出</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_6">开始-导入</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_7">服务端启动</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_8">配置文件</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_9">镜像版本设置：</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_10">关于环境变量的解释：</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_11">文件映射解释：</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_12">端口映射解释：</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_13">数据库配置：</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_14">语音配置：</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_15">启动</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_16">配置文件</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_17">启动</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_18">默认初始化测试账号及密码（开发环境适用）</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_19">关于网络</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_20">更多</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_21">指标监控</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_22">查看后台服务版本及构件信息</a>
+        </li>
+</ul>        </div>
+        <div id="b3logsolocomments"></div>
+        <div class="wrapper">
+            <div id="vcomment"
+                 style="    margin-bottom: 40px; margin-top: 80px;
+        border: 1px solid rgba(255,255,255,0.8);
+        border-radius: 5px;
+        background: rgba(255,255,255,0.9);
+        box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        padding: 20px;"
+                 data-name="fpdan" data-postId="1590412157000"></div>
+        </div>
+    <div class="article__bottom">
+        <div class="wrapper">
+            <div class="fn__flex">
+                <div class="item" id="randomArticles"></div>
+                <div class="item" id="relevantArticles"></div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<script type="text/javascript"
+        src="https://blog.fpdan.cn/skins/Bubble/js/TweenMax.min.js?1590414724020"
+        charset="utf-8"></script>
+<footer class="footer">
+    <div class="wrapper">
+            <a href="https://hacpai.com/member/fpdan"
+       title="https://hacpai.com/member/fpdan"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/GlacierBo"
+           title="https://github.com/GlacierBo"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+ <br>
+        &copy; 2020
+        <a href="https://blog.fpdan.cn">无人问津的自留地 >>></a>
+        
+        <span class="footer__heart">❤️</span>
+    </div>
+</footer>
+<svg class="side__top" id="sideTop" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <path d="M26.562 13.958c0 0.72 0.583 1.303 1.303 1.303s1.303-0.583 1.303-1.303v0c0-0.72-0.583-1.303-1.303-1.303s-1.303 0.583-1.303 1.303v0zM23.305 10.7c0 0 0 0 0 0 0 0.72 0.583 1.303 1.303 1.303s1.303-0.583 1.303-1.303c0-0 0-0 0-0v0c0-0 0-0 0-0 0-0.72-0.583-1.303-1.303-1.303s-1.303 0.583-1.303 1.303c0 0 0 0 0 0v0zM20.022 7.417c0 0 0 0 0 0 0 0.72 0.583 1.303 1.303 1.303s1.303-0.583 1.303-1.303c0-0 0-0 0-0v0c0-0 0-0 0-0 0-0.72-0.583-1.303-1.303-1.303s-1.303 0.583-1.303 1.303c0 0 0 0 0 0v0zM29.67 0h-27.339c-0.677 0-1.228 0.551-1.228 1.228s0.551 1.228 1.228 1.228h11.151l-10.725 10.725c-0.476 0.476-0.476 1.253 0 1.729 0.226 0.226 0.551 0.351 0.852 0.351s0.626-0.125 0.852-0.351l10.074-10.074v25.936c0 0.677 0.551 1.228 1.228 1.228s1.228-0.551 1.228-1.228v-26.011c0.476 0.426 1.203 0.426 1.679-0.050s0.476-1.253 0-1.729l-0.576-0.576h11.577c0.677 0 1.228-0.551 1.228-1.228 0-0.626-0.551-1.178-1.228-1.178z"></path>
+</svg>
+<script>
+  var Label = {
+    servePath: "https://blog.fpdan.cn",
+    staticServePath: "https://blog.fpdan.cn",
+    luteAvailable: false,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "4.1.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript"
+        src="https://blog.fpdan.cn/skins/Bubble/js/common.min.js?1590414724020"
+        charset="utf-8"></script>
+<script type="text/javascript"
+        src="https://blog.fpdan.cn/skins/Bubble/js/circleMagic.min.js?1590414724020"
+        charset="utf-8"></script>
+
+    <svg viewBox="0 0 32 32" width="100%" height="100%" class="side__top side__top--toc">
+        <path d="M30 18h-28c-1.1 0-2-0.9-2-2s0.9-2 2-2h28c1.1 0 2 0.9 2 2s-0.9 2-2 2zM30 6.25h-28c-1.1 0-2-0.9-2-2s0.9-2 2-2h28c1.1 0 2 0.9 2 2s-0.9 2-2 2zM2 25.75h28c1.1 0 2 0.9 2 2s-0.9 2-2 2h-28c-1.1 0-2-0.9-2-2s0.9-2 2-2z"></path>
+    </svg>
+
+<script type="text/javascript">
+    Util.addScript('https://blog.fpdan.cn/js/page.min.js?1590414724020', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1590412157000",
+        "blogHost": "https://blog.fpdan.cn",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 41ms, 2020/05/25 22:45:37 -->
