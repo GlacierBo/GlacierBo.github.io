@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Kafka 集群 - 无人问津的自留地 >>></title><meta name="description" content="192.168.2.128 Kafka # 192.168.2.129 Kafka # 192.168.2.130 Redis Zookeeper Kafka 配置源 deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted...."/><meta property="og:description" content="192.168.2.128 Kafka # 192.168.2.129 Kafka # 192.168.2.130 Redis Zookeeper Kafka 配置源 deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted...."/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://blog.fpdan.cn"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://blog.fpdan.cn"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Kafka 集群 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2019/09/18/1568822102000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Kafka 集群 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2019/09/18/1568822102000.html">        <link rel="stylesheet"
-              href="https://blog.fpdan.cn/skins/Bubble/css/base.css?1590414724020"/>
+              href="https://blog.fpdan.cn/skins/Bubble/css/base.css?1590495386848"/>
             <link rel="prev" title="bash 脚本模板" href="https://blog.fpdan.cn/articles/2019/09/18/1568800416000.html">
             <link rel="next" title="git open /dev/null" href="https://blog.fpdan.cn/articles/2019/09/28/1569620256000.html">
     </head>
@@ -18,6 +18,7 @@
             <h2 class="header__desc header__desc--title">我始终相信，走过平湖烟雨，岁月山河，<br/>那些经历劫数，尝遍百味的人，会更加生动而干净。</h2>
             <div class="header__desc">
                 <!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+
             </div>
             <svg class="header__down" id="headerDown" viewBox="0 0 32 32" width="100%" height="100%">
                 <path d="M15.992 25.304c-0 0-0 0-0.001 0-0.516 0-0.981-0.216-1.31-0.563l-0.001-0.001-14.187-14.996c-0.306-0.323-0.494-0.76-0.494-1.241 0-0.998 0.809-1.807 1.807-1.807 0.517 0 0.983 0.217 1.313 0.565l0.001 0.001 12.875 13.612 12.886-13.612c0.331-0.348 0.797-0.565 1.314-0.565 0.481 0 0.918 0.187 1.242 0.493l-0.001-0.001c0.723 0.687 0.755 1.832 0.072 2.555l-14.201 14.996c-0.33 0.348-0.795 0.564-1.311 0.564-0.001 0-0.003 0-0.004 0h0z"></path>
@@ -260,7 +261,7 @@ $ docker pull wurstmeister/kafka
     
 </div>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/TweenMax.min.js?1590414724020"
+        src="https://blog.fpdan.cn/skins/Bubble/js/TweenMax.min.js?1590495386848"
         charset="utf-8"></script>
 <footer class="footer">
     <div class="wrapper">
@@ -307,10 +308,10 @@ $ docker pull wurstmeister/kafka
   }
 </script>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/common.min.js?1590414724020"
+        src="https://blog.fpdan.cn/skins/Bubble/js/common.min.js?1590495386848"
         charset="utf-8"></script>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/circleMagic.min.js?1590414724020"
+        src="https://blog.fpdan.cn/skins/Bubble/js/circleMagic.min.js?1590495386848"
         charset="utf-8"></script>
 
     <svg viewBox="0 0 32 32" width="100%" height="100%" class="side__top side__top--toc">
@@ -318,7 +319,7 @@ $ docker pull wurstmeister/kafka
     </svg>
 
 <script type="text/javascript">
-    Util.addScript('https://blog.fpdan.cn/js/page.min.js?1590414724020', 'soloPageScript')
+    Util.addScript('https://blog.fpdan.cn/js/page.min.js?1590495386848', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1568822102000",
@@ -336,4 +337,4 @@ $ docker pull wurstmeister/kafka
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 15ms, 2020/05/25 22:45:37 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 16ms, 2020/05/26 20:26:43 -->
