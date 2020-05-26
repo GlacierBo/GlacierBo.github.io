@@ -6,8 +6,35 @@
     <atom:link href="https://blog.fpdan.cn/rss.xml" rel="self" type="application/rss+xml"/>
     <description>我始终相信，走过平湖烟雨，岁月山河，&lt;br/&gt;那些经历劫数，尝遍百味的人，会更加生动而干净。</description>
     <generator>Solo, v4.1.0, https://solo.b3log.org</generator>
-    <lastBuildDate>Tue, 26 May 2020 20:26:43 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2020 23:47:41 +0800</lastBuildDate>
     <language>zh-cn</language>
+    <item>
+      <title>RULE | 好的代码应该是便于维护的</title>
+      <link>https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html</link>
+      <description/>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html</guid>
+      <category>代码规范</category>
+      <pubDate>Tue, 26 May 2020 23:12:33 +0800</pubDate>
+    </item>
+    <item>
+      <title>BLOG | Hexo + GitHub Pages 搭建静态博客</title>
+      <link>https://blog.fpdan.cn/articles/2019/01/12/1547297894000.html</link>
+      <description><![CDATA[<p>Hexo + GitHub Pages 搭建静态博客</p>]]></description>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/articles/2019/01/12/1547297894000.html</guid>
+      <category>blog</category>
+      <pubDate>Tue, 26 May 2020 23:10:56 +0800</pubDate>
+    </item>
+    <item>
+      <title>JAVA | 常用的几种注入方式</title>
+      <link>https://blog.fpdan.cn/articles/2020/05/26/1590490512000.html</link>
+      <description><![CDATA[<p>由 IDEA @Autowired 警告引起的思考</p>]]></description>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/articles/2020/05/26/1590490512000.html</guid>
+      <category>JAVA</category>
+      <pubDate>Tue, 26 May 2020 23:02:39 +0800</pubDate>
+    </item>
     <item>
       <title>Linux 配置定时任务</title>
       <link>https://blog.fpdan.cn/articles/2019/01/12/1547295057000.html</link>
@@ -65,15 +92,6 @@ taskkill /f /pid 13236
       <pubDate>Mon, 25 May 2020 22:33:14 +0800</pubDate>
     </item>
     <item>
-      <title>233333大佬的qq音乐爬虫</title>
-      <link>https://blog.fpdan.cn/articles/2020/05/23/1590168229000.html</link>
-      <description><![CDATA[<h1>-<em>- coding: UTF-8 -</em>- import requests, json, re from selenium import webdriver from selenium.webdriver.common.by import By from selenium.webdriver.support.ui import WebDriverWait from selenium.webdriver.support import expected_conditions as EC from random import randint # 文件路径 MUSIC_PATH='music/' # chrome driver路径 DRIVERS_PATH='drivers/chromedriver-mac' class ParseQQmusic: def <strong>init</strong>(self,ranking): self.url =ranking self.music_name =None self.headers = { 'user-agent': 'Mozilla/5.0 (iPhone; C....</h1>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/articles/2020/05/23/1590168229000.html</guid>
-      <category>Note</category>
-      <pubDate>Sat, 23 May 2020 01:23:49 +0800</pubDate>
-    </item>
-    <item>
       <title>vue 循环map</title>
       <link>https://blog.fpdan.cn/articles/2020/05/07/1588788905000.html</link>
       <description><![CDATA[<p>&lt;el-collapse&gt; &lt;el-collapse-item v-for="(val, key) in forbiddenFieldData" :key="val.id"&gt; &lt;template slot="title"&gt; &lt;el-checkbox&gt; {{ key }} &lt;/el-checkbox&gt; &lt;/template&gt; &lt;el-row&gt; &lt;el-col v-for="(option) in val" :key="option.id" :span="8"&gt; &lt;el-checkbox &gt; {{ option.name }} &lt;/el-checkbox&gt; &lt;/el-col&gt; &lt;/el-row&gt; &lt;/el-collapse-item&gt; &lt;/el-collapse&gt;</p>]]></description>
@@ -81,24 +99,6 @@ taskkill /f /pid 13236
       <guid>https://blog.fpdan.cn/articles/2020/05/07/1588788905000.html</guid>
       <category>Note</category>
       <pubDate>Thu, 07 May 2020 02:15:05 +0800</pubDate>
-    </item>
-    <item>
-      <title>zsh shell 环境配置不生效</title>
-      <link>https://blog.fpdan.cn/articles/2020/01/26/1580048570000.html</link>
-      <description><![CDATA[<p>在终端输入vim ~/.zshrc 加一句 &nbsp;source ~/.bash_profile</p>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/articles/2020/01/26/1580048570000.html</guid>
-      <category>Note</category>
-      <pubDate>Sun, 26 Jan 2020 22:22:50 +0800</pubDate>
-    </item>
-    <item>
-      <title>interface default method/static method</title>
-      <link>https://blog.fpdan.cn/articles/2019/11/12/1573547551000.html</link>
-      <description><![CDATA[<p>default 可以实现可以不实现，向前兼容性 1.8 的改动比较大，stream 的引入让所有接口都需要实现 stream 改动是比较大的所以引入了 default 方法。</p>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/articles/2019/11/12/1573547551000.html</guid>
-      <category>Note</category>
-      <pubDate>Tue, 12 Nov 2019 16:32:31 +0800</pubDate>
     </item>
   </channel>
 </rss>

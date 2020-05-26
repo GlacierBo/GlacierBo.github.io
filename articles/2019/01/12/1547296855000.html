@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>好的代码应该是便于维护的 - 无人问津的自留地 >>></title><meta name="description" content="好的命名比注释要好 # 团队统一定义标记： TODO 待处理的问题 FIXME 已知有问题的代码 HACK 不得不采用的粗糙的解决方案 样式修改 - 要么原生 JS 要么 JQuery 用 submit 事件 复制过来不用的代码都删掉 源代码中的 html 注释是一种厌物, 增加阅读难度 注释 注释模板 不要留空 # 典型的烂注释： 不恰当的信息 废弃的注释 冗余注释 糟糕的注释 注释掉的代码 # 唯一真正好的注释是你想办法不去写的注释： 不要有循规式注释，比如 setter/getter 注释 不要添加日志式注释，比如修改时间等信息（ git 可以做的事情） 注释一定是表达代码之外的东西，代码可以包含的内容，注释中一定不要出现 如果有必要注释，请注释意图（why），而不要去注释实现（how)，大家都会看代码 适当添加警示注释 命名 了解一些设计模式，这样看到名字里有 proxy，builder，factory 之类的，就心领神会了 代码都是分模块的，有的是 core，有的是 util，parser 之类的 尽可能使用标准命名方法，比如设计模式，通用学术名词等 命名要...."/><meta property="og:description" content="好的命名比注释要好 # 团队统一定义标记： TODO 待处理的问题 FIXME 已知有问题的代码 HACK 不得不采用的粗糙的解决方案 样式修改 - 要么原生 JS 要么 JQuery 用 submit 事件 复制过来不用的代码都删掉 源代码中的 html 注释是一种厌物, 增加阅读难度 注释 注释模板 不要留空 # 典型的烂注释： 不恰当的信息 废弃的注释 冗余注释 糟糕的注释 注释掉的代码 # 唯一真正好的注释是你想办法不去写的注释： 不要有循规式注释，比如 setter/getter 注释 不要添加日志式注释，比如修改时间等信息（ git 可以做的事情） 注释一定是表达代码之外的东西，代码可以包含的内容，注释中一定不要出现 如果有必要注释，请注释意图（why），而不要去注释实现（how)，大家都会看代码 适当添加警示注释 命名 了解一些设计模式，这样看到名字里有 proxy，builder，factory 之类的，就心领神会了 代码都是分模块的，有的是 core，有的是 util，parser 之类的 尽可能使用标准命名方法，比如设计模式，通用学术名词等 命名要...."/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://blog.fpdan.cn"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://blog.fpdan.cn"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="好的代码应该是便于维护的 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="好的代码应该是便于维护的 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html">        <link rel="stylesheet"
-              href="https://blog.fpdan.cn/skins/Bubble/css/base.css?1590495386848"/>
-            <link rel="prev" title="Python 数据库操作" href="https://blog.fpdan.cn/articles/2019/01/12/1547296789000.html">
-            <link rel="next" title="Hexo 搭建博客" href="https://blog.fpdan.cn/articles/2019/01/12/1547297894000.html">
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>RULE | 好的代码应该是便于维护的 - 无人问津的自留地 >>></title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://blog.fpdan.cn"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://blog.fpdan.cn"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="RULE | 好的代码应该是便于维护的 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="RULE | 好的代码应该是便于维护的 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html">        <link rel="stylesheet"
+              href="https://blog.fpdan.cn/skins/Bubble/css/base.css?1590507972043"/>
+            <link rel="prev" title="Git 常用命令" href="https://blog.fpdan.cn/articles/2019/01/12/1547296577000.html">
+            <link rel="next" title="BLOG | Hexo + GitHub Pages 搭建静态博客" href="https://blog.fpdan.cn/articles/2019/01/12/1547297894000.html">
     </head>
 <body class="fn__flex-column">
 <div id="pjax" class="fn__flex-1">
@@ -45,7 +45,7 @@
                 <a href="https://blog.fpdan.cn" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
 
                 <div class="side__meta">
-                    49 文章 <br>
+                    44 文章 <br>
                     <span data-uvstaturl="https://blog.fpdan.cn">0</span> 浏览
                     
                 </div>
@@ -78,25 +78,25 @@
             </ul>
         </div>
     </div>
-    <div class="article__top" style="background-image: url(https://b3logfile.com/bing/20190331.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)">
-        <div style="background-image: url(https://b3logfile.com/bing/20190331.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
+    <div class="article__top" style="background-image: url(https://b3logfile.com/bing/20200310.jpg?imageView2/1/w/960/h/540/interlace/1/q/100)">
+        <div style="background-image: url(https://b3logfile.com/bing/20200310.jpg?imageView2/1/w/960/h/540/interlace/1/q/100)"></div>
         <canvas id="articleTop"></canvas>
     </div>
     <div class="article">
         <div class="ft__center">
             <div class="article__meta">
                 <time>
-                    2019-01-12
+                    2020-05-26
                 </time>
                 /
                     <a rel="tag"
-                       href="https://blog.fpdan.cn/tags/Note">Note</a> &nbsp;
+                       href="https://blog.fpdan.cn/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83">代码规范</a> &nbsp;
             </div>
             <h2 class="article__title">
-                好的代码应该是便于维护的
+                RULE | 好的代码应该是便于维护的
             </h2>
 <div class="article__share"
-     data-title="好的代码应该是便于维护的"
+     data-title="RULE | 好的代码应该是便于维护的"
      data-blogtitle="无人问津的自留地 >>>"
      data-url="https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html"
      data-avatar="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
@@ -127,7 +127,8 @@
 </div>        </div>
         <div class="wrapper">
             <section class="vditor-reset articles article__content">
-                <h4 id="toc_h4_0">好的命名比注释要好</h4>
+                <p><img src="https://b3logfile.com/bing/20200310.jpg?imageView2/1/w/960/h/540/interlace/1/q/100" alt=""></p>
+<h4 id="toc_h4_0">好的命名比注释要好</h4>
 <pre><code class="language-shell"># 团队统一定义标记：
 TODO  待处理的问题
 FIXME  已知有问题的代码
@@ -183,7 +184,7 @@ chore：构建过程或辅助工具的变动
                     <div>
                         
 <hr>
-<small>标题：好的代码应该是便于维护的</small><br>
+<small>标题：RULE | 好的代码应该是便于维护的</small><br>
 <small>版权声明：本文为博主「<a href="https://blog.fpdan.cn" target="_blank">fpdan</a>」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</small><br>
 <small>原文链接：<a href="https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html" target="_blank">https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html</a></small><br>
 
@@ -231,7 +232,7 @@ chore：构建过程或辅助工具的变动
     
 </div>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/TweenMax.min.js?1590495386848"
+        src="https://blog.fpdan.cn/skins/Bubble/js/TweenMax.min.js?1590507972043"
         charset="utf-8"></script>
 <footer class="footer">
     <div class="wrapper">
@@ -278,10 +279,10 @@ chore：构建过程或辅助工具的变动
   }
 </script>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/common.min.js?1590495386848"
+        src="https://blog.fpdan.cn/skins/Bubble/js/common.min.js?1590507972043"
         charset="utf-8"></script>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/circleMagic.min.js?1590495386848"
+        src="https://blog.fpdan.cn/skins/Bubble/js/circleMagic.min.js?1590507972043"
         charset="utf-8"></script>
 
     <svg viewBox="0 0 32 32" width="100%" height="100%" class="side__top side__top--toc">
@@ -289,7 +290,7 @@ chore：构建过程或辅助工具的变动
     </svg>
 
 <script type="text/javascript">
-    Util.addScript('https://blog.fpdan.cn/js/page.min.js?1590495386848', 'soloPageScript')
+    Util.addScript('https://blog.fpdan.cn/js/page.min.js?1590507972043', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1547296855000",
@@ -307,4 +308,4 @@ chore：构建过程或辅助工具的变动
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 16ms, 2020/05/26 20:26:43 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 20ms, 2020/05/26 23:47:42 -->

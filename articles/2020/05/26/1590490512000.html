@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>位运算 - 无人问津的自留地 >>></title><meta name="description" content="0s 表示一串 0，1s 表示一串 1。 x ^ 0s = x x &amp; 0s = 0 x | 0s = x x ^ 1s = ~x x &amp; 1s = x x | 1s = 1s x ^ x = 0 x &amp; x = x x | x = x 利用 x ^ 1s = ~x 的特点，可以将位级表示翻转；利用 x ^ x = 0 的特点，可以将三个数中重复的两个数去除，只留下另一个数。 利用 x &amp; 0s = 0 和 x &amp; 1s = x 的特点，可以实现掩码操作。一个数 num 与 mask：00111100 进行位与操作，只保留 num 中与 mask 的 1 部分相对应的位。 利用 x | 0s = x 和 x | 1s = 1s 的特点，可以实现设值操作。一个数 num 与 mask：00111100 进行位或操作，将 num 中与 mask 的 1 部分相对应的位都设置为 1。 位与运算技巧： n&amp;(n-1) 去除 n 的位级表示中最低的那一位。例如对于二进制表示 10110100，减去 1 得到 10110011，这两个数相与得...."/><meta property="og:description" content="0s 表示一串 0，1s 表示一串 1。 x ^ 0s = x x &amp; 0s = 0 x | 0s = x x ^ 1s = ~x x &amp; 1s = x x | 1s = 1s x ^ x = 0 x &amp; x = x x | x = x 利用 x ^ 1s = ~x 的特点，可以将位级表示翻转；利用 x ^ x = 0 的特点，可以将三个数中重复的两个数去除，只留下另一个数。 利用 x &amp; 0s = 0 和 x &amp; 1s = x 的特点，可以实现掩码操作。一个数 num 与 mask：00111100 进行位与操作，只保留 num 中与 mask 的 1 部分相对应的位。 利用 x | 0s = x 和 x | 1s = 1s 的特点，可以实现设值操作。一个数 num 与 mask：00111100 进行位或操作，将 num 中与 mask 的 1 部分相对应的位都设置为 1。 位与运算技巧： n&amp;(n-1) 去除 n 的位级表示中最低的那一位。例如对于二进制表示 10110100，减去 1 得到 10110011，这两个数相与得...."/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://blog.fpdan.cn"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://blog.fpdan.cn"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="位运算 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2019/08/13/1565628096000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="位运算 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2019/08/13/1565628096000.html">        <link rel="stylesheet"
-              href="https://blog.fpdan.cn/skins/Bubble/css/base.css?1590495386848"/>
-            <link rel="prev" title="Linux 下 node cnpm 无法使用" href="https://blog.fpdan.cn/articles/2019/08/05/1565001035000.html">
-            <link rel="next" title="Java 进制转化" href="https://blog.fpdan.cn/articles/2019/08/13/1565689552000.html">
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>JAVA | 常用的几种注入方式 - 无人问津的自留地 >>></title><meta name="description" content="由 IDEA @Autowired 警告引起的思考"/><meta property="og:description" content="由 IDEA @Autowired 警告引起的思考"/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://blog.fpdan.cn"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://blog.fpdan.cn"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="JAVA | 常用的几种注入方式 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2020/05/26/1590490512000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="JAVA | 常用的几种注入方式 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2020/05/26/1590490512000.html">        <link rel="stylesheet"
+              href="https://blog.fpdan.cn/skins/Bubble/css/base.css?1590507972043"/>
+            <link rel="prev" title="Docker 部署说明" href="https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html">
     </head>
 <body class="fn__flex-column">
 <div id="pjax" class="fn__flex-1">
@@ -45,7 +44,7 @@
                 <a href="https://blog.fpdan.cn" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
 
                 <div class="side__meta">
-                    49 文章 <br>
+                    44 文章 <br>
                     <span data-uvstaturl="https://blog.fpdan.cn">0</span> 浏览
                     
                 </div>
@@ -78,27 +77,27 @@
             </ul>
         </div>
     </div>
-    <div class="article__top" style="background-image: url(https://b3logfile.com/bing/20190413.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)">
-        <div style="background-image: url(https://b3logfile.com/bing/20190413.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
+    <div class="article__top" style="background-image: url(https://b3logfile.com/bing/20190424.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)">
+        <div style="background-image: url(https://b3logfile.com/bing/20190424.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
         <canvas id="articleTop"></canvas>
     </div>
     <div class="article">
         <div class="ft__center">
             <div class="article__meta">
                 <time>
-                    2019-08-13
+                    2020-05-26
                 </time>
                 /
                     <a rel="tag"
-                       href="https://blog.fpdan.cn/tags/Note">Note</a> &nbsp;
+                       href="https://blog.fpdan.cn/tags/JAVA">JAVA</a> &nbsp;
             </div>
             <h2 class="article__title">
-                位运算
+                JAVA | 常用的几种注入方式
             </h2>
 <div class="article__share"
-     data-title="位运算"
+     data-title="JAVA | 常用的几种注入方式"
      data-blogtitle="无人问津的自留地 >>>"
-     data-url="https://blog.fpdan.cn/articles/2019/08/13/1565628096000.html"
+     data-url="https://blog.fpdan.cn/articles/2020/05/26/1590490512000.html"
      data-avatar="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
     <span class="item" data-type="qqz">
         <svg viewBox="0 0 32 32" width="100%" height="100%">
@@ -127,53 +126,67 @@
 </div>        </div>
         <div class="wrapper">
             <section class="vditor-reset articles article__content">
-                <p>0s 表示一串 0，1s 表示一串 1。</p>
-<pre><code>x ^ 0s = x      x &amp; 0s = 0      x | 0s = x
-x ^ 1s = ~x     x &amp; 1s = x      x | 1s = 1s
-x ^ x = 0       x &amp; x = x       x | x = x
+                <h3 id="toc_h3_0">最后执行</h3>
+<p>@PostConstruct 该注解被用来修饰一个非静态的 void()  方法。被 @PostConstruct 修饰的方法会在服务器加载 Servlet 的时候运行，并且只会被服务器执行一次。@PostConstruct 在构造函数之后执行，init() 方法之前执行。@PostConstruct 注解的方法将会在依赖注入完成后被自动调用。</p>
+<p><strong>执行顺序如下：</strong><br>
+Constructor &gt;&gt; @Autowired &gt;&gt; @PostConstruct</p>
+<pre><code class="language-java">public class FileUtil {
+
+    private static FileUtil fileUtil;
+
+    @Autowired
+    private AssetRepository assetRepository;
+
+    @PostConstruct
+    public void init() {
+        fileUtil = this;
+        fileUtil.assetRepository = this.assetRepository;
+    }
+
+}
 </code></pre>
-<ul>
-<li>利用 x ^ 1s = ~x 的特点，可以将位级表示翻转；利用 x ^ x = 0 的特点，可以将三个数中重复的两个数去除，只留下另一个数。</li>
-<li>利用 x &amp; 0s = 0 和 x &amp; 1s = x 的特点，可以实现掩码操作。一个数 num 与 mask：00111100 进行位与操作，只保留 num 中与 mask 的 1 部分相对应的位。</li>
-<li>利用 x | 0s = x 和 x | 1s = 1s 的特点，可以实现设值操作。一个数 num 与 mask：00111100 进行位或操作，将 num 中与 mask 的 1 部分相对应的位都设置为 1。</li>
-</ul>
-<p><strong>位与运算技巧：</strong></p>
-<ul>
-<li>n&amp;(n-1) 去除 n 的位级表示中最低的那一位。例如对于二进制表示 10110100，减去 1 得到 10110011，这两个数相与得到 10110000。</li>
-<li>n&amp;(-n) 得到 n 的位级表示中最低的那一位。-n 得到 n 的反码加 1，对于二进制表示 10110100，-n 得到 01001100，相与得到 00000100。</li>
-<li>n-n&amp;(~n+1) 去除 n 的位级表示中最高的那一位。</li>
-</ul>
-<p><strong>移位运算：</strong></p>
-<ul>
-<li>
-<blockquote>
-<blockquote>
-<p>n 为算术右移，相当于除以 2；</p>
-</blockquote>
-</blockquote>
-</li>
-<li>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>n 为无符号右移，左边会补上 0。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>&lt;&lt; n 为算术左移，相当于乘以 2。</li>
-</ul>
-<p><strong>mask 计算</strong><br>
-要获取 111111111，将 0 取反即可，~0。<br>
-要得到只有第 i 位为 1 的 mask，将 1 向左移动 i-1 位即可，1&lt;&lt;(i-1) 。例如 1&lt;&lt;4 得到只有第 5 位为 1 的 mask ：00010000。<br>
-要得到 1 到 i 位为 1 的 mask，1&lt;&lt;(i+1)-1 即可，例如将 1&lt;&lt;(4+1)-1 = 00010000-1 = 00001111。<br>
-要得到 1 到 i 位为 0 的 mask，只需将 1 到 i 位为 1 的 mask 取反，即 ~(1&lt;&lt;(i+1)-1)。</p>
+<h3 id="toc_h3_1">构造器</h3>
+<p>Spring Team 推荐的写法</p>
+<pre><code class="language-java">private final AssetRepository assetRepository;
+
+public AssetResource(AssetRepository assetRepository) {
+    this.assetRepository = assetRepository;
+}
+</code></pre>
+<h3 id="toc_h3_2">set 方式</h3>
+<p>比 <strong>autowired</strong> 注解安全。</p>
+<pre><code class="language-java">private UserDao userDao;
+
+@Autowired
+public void setUserDao (UserDao userDao) {
+    this.userDao = userDao;
+}
+</code></pre>
+<h3 id="toc_h3_3">最常用</h3>
+<pre><code class="language-java">@Autowired
+private AssetRepository assetRepository;
+</code></pre>
+<p><strong>@Resource</strong></p>
+<pre><code>默认按照 byName 自动注入，由 J2EE 提供，需要导入 javax.annotation.Resource
+它有两个重要的属性 name 和 type，而 Spring 将 @Resource 注解的 name 属性解析为 bean 的名字，而 type 属性则解析为 bean 的类型
+所以，如果使用 name 属性，则使用 byName 的自动注入策略，而使用 type 属性时则使用 byType 自动注入策略
+如果 name 和 type 属性都未指定，则默认 byName 注入，byName 未找到时，会继续采用 byType 注入
+</code></pre>
+<p><strong>@Autowired</strong></p>
+<pre><code>采用 byType 自动注入，由 Spring 提供，需要导入org.springframework.beans.factory.annotation.Autowired
+默认情况要求对象必须存在，如果需要为 null，可以设置它的 required=true 
+如果接口存在多个实现类，我们依然可以 byName 自动注入：通过与 @Qualifier 搭配使用
+即先 byType，byType 匹配到多个时，再通过 byName
+</code></pre>
+<h3 id="toc_h3_4">参考</h3>
+<p><a href="https://blog.csdn.net/qq360694660/article/details/82877222" target="_blank">@PostConstruct 注解</a><br>
+<a href="https://blog.csdn.net/qq_40913293/article/details/85299836" target="_blank">@Autowired 警告</a></p>
                     <div>
                         
 <hr>
-<small>标题：位运算</small><br>
+<small>标题：JAVA | 常用的几种注入方式</small><br>
 <small>版权声明：本文为博主「<a href="https://blog.fpdan.cn" target="_blank">fpdan</a>」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</small><br>
-<small>原文链接：<a href="https://blog.fpdan.cn/articles/2019/08/13/1565628096000.html" target="_blank">https://blog.fpdan.cn/articles/2019/08/13/1565628096000.html</a></small><br>
+<small>原文链接：<a href="https://blog.fpdan.cn/articles/2020/05/26/1590490512000.html" target="_blank">https://blog.fpdan.cn/articles/2020/05/26/1590490512000.html</a></small><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -182,6 +195,24 @@ x ^ x = 0       x &amp; x = x       x | x = x
         </div>
 
     </div>
+        <div class="post__toc">
+<ul class="article__toc">
+        <li class="toc__h3">
+            <a href="#toc_h3_0">最后执行</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_1">构造器</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_2">set 方式</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_3">最常用</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_4">参考</a>
+        </li>
+</ul>        </div>
         <div id="b3logsolocomments"></div>
         <div class="wrapper">
             <div id="vcomment"
@@ -191,7 +222,7 @@ x ^ x = 0       x &amp; x = x       x | x = x
         background: rgba(255,255,255,0.9);
         box-shadow: 0 1px 4px rgba(0,0,0,0.04);
         padding: 20px;"
-                 data-name="fpdan" data-postId="1565628096000"></div>
+                 data-name="fpdan" data-postId="1590490512000"></div>
         </div>
     <div class="article__bottom">
         <div class="wrapper">
@@ -204,7 +235,7 @@ x ^ x = 0       x &amp; x = x       x | x = x
     
 </div>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/TweenMax.min.js?1590495386848"
+        src="https://blog.fpdan.cn/skins/Bubble/js/TweenMax.min.js?1590507972043"
         charset="utf-8"></script>
 <footer class="footer">
     <div class="wrapper">
@@ -251,18 +282,21 @@ x ^ x = 0       x &amp; x = x       x | x = x
   }
 </script>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/common.min.js?1590495386848"
+        src="https://blog.fpdan.cn/skins/Bubble/js/common.min.js?1590507972043"
         charset="utf-8"></script>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/circleMagic.min.js?1590495386848"
+        src="https://blog.fpdan.cn/skins/Bubble/js/circleMagic.min.js?1590507972043"
         charset="utf-8"></script>
 
+    <svg viewBox="0 0 32 32" width="100%" height="100%" class="side__top side__top--toc">
+        <path d="M30 18h-28c-1.1 0-2-0.9-2-2s0.9-2 2-2h28c1.1 0 2 0.9 2 2s-0.9 2-2 2zM30 6.25h-28c-1.1 0-2-0.9-2-2s0.9-2 2-2h28c1.1 0 2 0.9 2 2s-0.9 2-2 2zM2 25.75h28c1.1 0 2 0.9 2 2s-0.9 2-2 2h-28c-1.1 0-2-0.9-2-2s0.9-2 2-2z"></path>
+    </svg>
 
 <script type="text/javascript">
-    Util.addScript('https://blog.fpdan.cn/js/page.min.js?1590495386848', 'soloPageScript')
+    Util.addScript('https://blog.fpdan.cn/js/page.min.js?1590507972043', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
-        "oId": "1565628096000",
+        "oId": "1590490512000",
         "blogHost": "https://blog.fpdan.cn",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
@@ -277,4 +311,4 @@ x ^ x = 0       x &amp; x = x       x | x = x
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 28ms, 2020/05/26 20:26:43 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 40ms, 2020/05/26 23:47:42 -->

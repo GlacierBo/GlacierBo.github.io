@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Docker 部署说明 - 无人问津的自留地 >>></title><meta name="description" content="环境要求 oracle：版本 11g 及以上 mysql：8.0 及以上 docker：17.12.0 及以上 Docker 镜像构建（可选） 服务端镜像构建 在项目根目录下执行如下语句构建应用 Docker 镜像： ./mvnw -Pprod verify -DskipTests jib:dockerBuild 导出 docker save smarttrain &gt; smarttrain.tar 或直接执行下面语句导出 Tar 文件： ./mvnw -Pprod verify -DskipTests jib:buildTar 在项目编译的 target 目录下便能找到对应版本的 Tar 文件。 客户端镜像构建： 在项目根目录下执行如下语句构建应用 Docker 镜像： docker build . -t smart-train-web 导出 docker save smart-train-web &gt; smart-train-web.tar 开始-导入 在未使用 Docker 仓库的情况下，我们直接导入 Image 文件： 镜像的地址为当前目录的 images...."/><meta property="og:description" content="环境要求 oracle：版本 11g 及以上 mysql：8.0 及以上 docker：17.12.0 及以上 Docker 镜像构建（可选） 服务端镜像构建 在项目根目录下执行如下语句构建应用 Docker 镜像： ./mvnw -Pprod verify -DskipTests jib:dockerBuild 导出 docker save smarttrain &gt; smarttrain.tar 或直接执行下面语句导出 Tar 文件： ./mvnw -Pprod verify -DskipTests jib:buildTar 在项目编译的 target 目录下便能找到对应版本的 Tar 文件。 客户端镜像构建： 在项目根目录下执行如下语句构建应用 Docker 镜像： docker build . -t smart-train-web 导出 docker save smart-train-web &gt; smart-train-web.tar 开始-导入 在未使用 Docker 仓库的情况下，我们直接导入 Image 文件： 镜像的地址为当前目录的 images...."/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://blog.fpdan.cn"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://blog.fpdan.cn"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Docker 部署说明 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Docker 部署说明 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html">        <link rel="stylesheet"
-              href="https://blog.fpdan.cn/skins/Bubble/css/base.css?1590495386848"/>
-            <link rel="prev" title="233333大佬的qq音乐爬虫" href="https://blog.fpdan.cn/articles/2020/05/23/1590168229000.html">
+              href="https://blog.fpdan.cn/skins/Bubble/css/base.css?1590507972043"/>
+            <link rel="prev" title="vue 循环map" href="https://blog.fpdan.cn/articles/2020/05/07/1588788905000.html">
+            <link rel="next" title="JAVA | 常用的几种注入方式" href="https://blog.fpdan.cn/articles/2020/05/26/1590490512000.html">
     </head>
 <body class="fn__flex-column">
 <div id="pjax" class="fn__flex-1">
@@ -44,7 +45,7 @@
                 <a href="https://blog.fpdan.cn" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
 
                 <div class="side__meta">
-                    49 文章 <br>
+                    44 文章 <br>
                     <span data-uvstaturl="https://blog.fpdan.cn">0</span> 浏览
                     
                 </div>
@@ -587,7 +588,7 @@ audio-type: wav
     
 </div>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/TweenMax.min.js?1590495386848"
+        src="https://blog.fpdan.cn/skins/Bubble/js/TweenMax.min.js?1590507972043"
         charset="utf-8"></script>
 <footer class="footer">
     <div class="wrapper">
@@ -634,10 +635,10 @@ audio-type: wav
   }
 </script>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/common.min.js?1590495386848"
+        src="https://blog.fpdan.cn/skins/Bubble/js/common.min.js?1590507972043"
         charset="utf-8"></script>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/circleMagic.min.js?1590495386848"
+        src="https://blog.fpdan.cn/skins/Bubble/js/circleMagic.min.js?1590507972043"
         charset="utf-8"></script>
 
     <svg viewBox="0 0 32 32" width="100%" height="100%" class="side__top side__top--toc">
@@ -645,7 +646,7 @@ audio-type: wav
     </svg>
 
 <script type="text/javascript">
-    Util.addScript('https://blog.fpdan.cn/js/page.min.js?1590495386848', 'soloPageScript')
+    Util.addScript('https://blog.fpdan.cn/js/page.min.js?1590507972043', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1590412157000",
@@ -663,4 +664,4 @@ audio-type: wav
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 31ms, 2020/05/26 20:26:43 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 32ms, 2020/05/26 23:47:42 -->

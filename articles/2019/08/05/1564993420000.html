@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>ApplicationContextAware - 无人问津的自留地 >>></title><meta name="description" content="遇到的问题：mqtt 回调 callback 方法时，Mapper 注入不成功。 解决方式：手动获取 spring 容器管理的 bean @Component public class SpringUtils implements ApplicationContextAware { private static ApplicationContext applicationContext = null; @Override public void setApplicationContext(ApplicationContext applicationContext) { if (SpringUtils.applicationContext == null) { SpringUtils.applicationContext = applicationContext; } } // 获取applicationContext public static ApplicationContext getApplicationContext() { return applicationContext;...."/><meta property="og:description" content="遇到的问题：mqtt 回调 callback 方法时，Mapper 注入不成功。 解决方式：手动获取 spring 容器管理的 bean @Component public class SpringUtils implements ApplicationContextAware { private static ApplicationContext applicationContext = null; @Override public void setApplicationContext(ApplicationContext applicationContext) { if (SpringUtils.applicationContext == null) { SpringUtils.applicationContext = applicationContext; } } // 获取applicationContext public static ApplicationContext getApplicationContext() { return applicationContext;...."/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://blog.fpdan.cn"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://blog.fpdan.cn"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="ApplicationContextAware - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2019/08/05/1564993420000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="ApplicationContextAware - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2019/08/05/1564993420000.html">        <link rel="stylesheet"
-              href="https://blog.fpdan.cn/skins/Bubble/css/base.css?1590495386848"/>
+              href="https://blog.fpdan.cn/skins/Bubble/css/base.css?1590507972043"/>
             <link rel="prev" title="关于我" href="https://blog.fpdan.cn/about.html">
             <link rel="next" title="Linux 下 node cnpm 无法使用" href="https://blog.fpdan.cn/articles/2019/08/05/1565001035000.html">
     </head>
@@ -45,7 +45,7 @@
                 <a href="https://blog.fpdan.cn" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
 
                 <div class="side__meta">
-                    49 文章 <br>
+                    44 文章 <br>
                     <span data-uvstaturl="https://blog.fpdan.cn">0</span> 浏览
                     
                 </div>
@@ -201,7 +201,7 @@ public class SpringUtils implements ApplicationContextAware {
     
 </div>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/TweenMax.min.js?1590495386848"
+        src="https://blog.fpdan.cn/skins/Bubble/js/TweenMax.min.js?1590507972043"
         charset="utf-8"></script>
 <footer class="footer">
     <div class="wrapper">
@@ -248,15 +248,15 @@ public class SpringUtils implements ApplicationContextAware {
   }
 </script>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/common.min.js?1590495386848"
+        src="https://blog.fpdan.cn/skins/Bubble/js/common.min.js?1590507972043"
         charset="utf-8"></script>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/circleMagic.min.js?1590495386848"
+        src="https://blog.fpdan.cn/skins/Bubble/js/circleMagic.min.js?1590507972043"
         charset="utf-8"></script>
 
 
 <script type="text/javascript">
-    Util.addScript('https://blog.fpdan.cn/js/page.min.js?1590495386848', 'soloPageScript')
+    Util.addScript('https://blog.fpdan.cn/js/page.min.js?1590507972043', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1564993420000",
@@ -274,4 +274,4 @@ public class SpringUtils implements ApplicationContextAware {
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 28ms, 2020/05/26 20:26:43 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 58ms, 2020/05/26 23:47:42 -->
