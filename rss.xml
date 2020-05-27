@@ -2,101 +2,101 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>无人问津的自留地 &gt;&gt;&gt;</title>
-    <link>https://glacierbo.github.io</link>
-    <atom:link href="https://glacierbo.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <link>https://blog.fpdan.cn</link>
+    <atom:link href="https://blog.fpdan.cn/rss.xml" rel="self" type="application/rss+xml"/>
     <description>我始终相信，走过平湖烟雨，岁月山河，&lt;br/&gt;那些经历劫数，尝遍百味的人，会更加生动而干净。</description>
     <generator>Solo, v4.1.0, https://solo.b3log.org</generator>
-    <lastBuildDate>Wed, 27 May 2020 20:03:05 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2020 20:17:13 +0800</lastBuildDate>
     <language>zh-cn</language>
     <item>
       <title>RULE | 好的代码应该是便于维护的</title>
-      <link>https://glacierbo.github.io/articles/2019/01/12/1547296855000.html</link>
+      <link>https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html</link>
       <description/>
       <author>fpdan</author>
-      <guid>https://glacierbo.github.io/articles/2019/01/12/1547296855000.html</guid>
+      <guid>https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html</guid>
       <category>代码规范</category>
       <pubDate>Tue, 26 May 2020 23:12:33 +0800</pubDate>
     </item>
     <item>
       <title>BLOG | Hexo + GitHub Pages 搭建静态博客</title>
-      <link>https://glacierbo.github.io/articles/2019/01/12/1547297894000.html</link>
+      <link>https://blog.fpdan.cn/articles/2019/01/12/1547297894000.html</link>
       <description><![CDATA[<p>Hexo + GitHub Pages 搭建静态博客</p>]]></description>
       <author>fpdan</author>
-      <guid>https://glacierbo.github.io/articles/2019/01/12/1547297894000.html</guid>
+      <guid>https://blog.fpdan.cn/articles/2019/01/12/1547297894000.html</guid>
       <category>blog</category>
       <pubDate>Tue, 26 May 2020 23:10:56 +0800</pubDate>
     </item>
     <item>
       <title>JAVA | 常用的几种注入方式</title>
-      <link>https://glacierbo.github.io/articles/2020/05/26/1590490512000.html</link>
+      <link>https://blog.fpdan.cn/articles/2020/05/26/1590490512000.html</link>
       <description><![CDATA[<p>由 IDEA @Autowired 警告引起的思考</p>]]></description>
       <author>fpdan</author>
-      <guid>https://glacierbo.github.io/articles/2020/05/26/1590490512000.html</guid>
+      <guid>https://blog.fpdan.cn/articles/2020/05/26/1590490512000.html</guid>
       <category>JAVA</category>
       <pubDate>Tue, 26 May 2020 23:02:39 +0800</pubDate>
     </item>
     <item>
       <title>Linux 配置定时任务</title>
-      <link>https://glacierbo.github.io/articles/2019/01/12/1547295057000.html</link>
+      <link>https://blog.fpdan.cn/articles/2019/01/12/1547295057000.html</link>
       <description><![CDATA[<p>linux 配置定时任务 &amp; 定时备份 MySQL 数据库 demo</p>]]></description>
       <author>fpdan</author>
-      <guid>https://glacierbo.github.io/articles/2019/01/12/1547295057000.html</guid>
+      <guid>https://blog.fpdan.cn/articles/2019/01/12/1547295057000.html</guid>
       <category>linux</category>
       <pubDate>Mon, 25 May 2020 22:43:05 +0800</pubDate>
     </item>
     <item>
       <title>docker 搭建 Halo 博客</title>
-      <link>https://glacierbo.github.io/articles/2019/07/30/1564497654000.html</link>
+      <link>https://blog.fpdan.cn/articles/2019/07/30/1564497654000.html</link>
       <description><![CDATA[<p>halo 博客是一款轻量级的 java 博客 &nbsp;<a href="https://github.com/halo-dev/halo" target="_blank">https://github.com/halo-dev/halo</a> 在/usr/ 目录下下载 &nbsp;halo 的 jar 包 $ wget <a href="https://github.com/halo-dev/halo/releases/download/v1.0.3/halo-1.0.3.jar" target="_blank">https://github.com/halo-dev/halo/releases/download/v1.0.3/halo-1.0.3.jar</a> -O halo-latest.jar  halo 默认的端口是 8090 $ docker run -d -p 8090:8090 -v /usr/halo-latest.jar:/usr/halo-latest.jar --name halo_blog java:8u111 java -jar /usr/halo-latest.jar  打开浏览器：<a href="http://ip:8090" target="_blank">http://ip:8090</a> 就可以访问了</p>]]></description>
       <author>fpdan</author>
-      <guid>https://glacierbo.github.io/articles/2019/07/30/1564497654000.html</guid>
+      <guid>https://blog.fpdan.cn/articles/2019/07/30/1564497654000.html</guid>
       <category>docker</category>
       <pubDate>Mon, 25 May 2020 22:38:30 +0800</pubDate>
     </item>
     <item>
       <title>windows 杀进程</title>
-      <link>https://glacierbo.github.io/articles/2019/10/16/1571219390000.html</link>
+      <link>https://blog.fpdan.cn/articles/2019/10/16/1571219390000.html</link>
       <description><![CDATA[<pre><code>netstat -ano |findstr "8001"
 taskkill /f /pid 13236
 </code></pre>]]></description>
       <author>fpdan</author>
-      <guid>https://glacierbo.github.io/articles/2019/10/16/1571219390000.html</guid>
+      <guid>https://blog.fpdan.cn/articles/2019/10/16/1571219390000.html</guid>
       <category>os</category>
       <pubDate>Mon, 25 May 2020 22:37:21 +0800</pubDate>
     </item>
     <item>
       <title>关于我</title>
-      <link>https://glacierbo.github.io/about.html</link>
+      <link>https://blog.fpdan.cn/about.html</link>
       <description><![CDATA[<p>傅皮蛋儿 一位来自苏州的程序员  毕业于江苏理工学院，软件工程专业。 热爱运动，不善言辞。 这个博客同步自语雀，主要更新一些技术文章。 如果您在阅读过程中发现任何问题可以随时联系我。 当然也欢迎交换友链 <a href="mailto:邮件：heygalcier@gmail.com" target="_blank">邮件：heygalcier@gmail.com</a> qq：2284711614  微信： fxuk_0502</p>]]></description>
       <author>fpdan</author>
-      <guid>https://glacierbo.github.io/about.html</guid>
+      <guid>https://blog.fpdan.cn/about.html</guid>
       <category>about</category>
       <pubDate>Mon, 25 May 2020 22:36:39 +0800</pubDate>
     </item>
     <item>
       <title>nginx 基础配置</title>
-      <link>https://glacierbo.github.io/nginx-core.html</link>
+      <link>https://blog.fpdan.cn/nginx-core.html</link>
       <description><![CDATA[<p>nginx 核心功能：反向代理、负载均衡、动静分离。</p>]]></description>
       <author>fpdan</author>
-      <guid>https://glacierbo.github.io/nginx-core.html</guid>
+      <guid>https://blog.fpdan.cn/nginx-core.html</guid>
       <category>nginx</category>
       <pubDate>Mon, 25 May 2020 22:35:55 +0800</pubDate>
     </item>
     <item>
       <title>Docker 部署说明</title>
-      <link>https://glacierbo.github.io/articles/2020/05/25/1590412157000.html</link>
+      <link>https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html</link>
       <description><![CDATA[<p>环境要求  oracle：版本 11g 及以上 mysql：8.0 及以上 docker：17.12.0 及以上  Docker 镜像构建（可选） 服务端镜像构建 在项目根目录下执行如下语句构建应用 Docker 镜像： ./mvnw -Pprod verify -DskipTests jib:dockerBuild  导出 docker save smarttrain &gt; smarttrain.tar  或直接执行下面语句导出 Tar 文件： ./mvnw -Pprod verify -DskipTests jib:buildTar  在项目编译的 target 目录下便能找到对应版本的 Tar 文件。 客户端镜像构建： 在项目根目录下执行如下语句构建应用 Docker 镜像： docker build . -t smart-train-web  导出 docker save smart-train-web &gt; smart-train-web.tar  开始-导入 在未使用 Docker 仓库的情况下，我们直接导入 Image 文件： 镜像的地址为当前目录的 images....</p>]]></description>
       <author>fpdan</author>
-      <guid>https://glacierbo.github.io/articles/2020/05/25/1590412157000.html</guid>
+      <guid>https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html</guid>
       <category>docker</category>
       <pubDate>Mon, 25 May 2020 22:33:14 +0800</pubDate>
     </item>
     <item>
       <title>vue 循环map</title>
-      <link>https://glacierbo.github.io/articles/2020/05/07/1588788905000.html</link>
+      <link>https://blog.fpdan.cn/articles/2020/05/07/1588788905000.html</link>
       <description><![CDATA[<p>&lt;el-collapse&gt; &lt;el-collapse-item v-for="(val, key) in forbiddenFieldData" :key="val.id"&gt; &lt;template slot="title"&gt; &lt;el-checkbox&gt; {{ key }} &lt;/el-checkbox&gt; &lt;/template&gt; &lt;el-row&gt; &lt;el-col v-for="(option) in val" :key="option.id" :span="8"&gt; &lt;el-checkbox &gt; {{ option.name }} &lt;/el-checkbox&gt; &lt;/el-col&gt; &lt;/el-row&gt; &lt;/el-collapse-item&gt; &lt;/el-collapse&gt;</p>]]></description>
       <author>fpdan</author>
-      <guid>https://glacierbo.github.io/articles/2020/05/07/1588788905000.html</guid>
+      <guid>https://blog.fpdan.cn/articles/2020/05/07/1588788905000.html</guid>
       <category>Note</category>
       <pubDate>Thu, 07 May 2020 02:15:05 +0800</pubDate>
     </item>
