@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Redis 如何才能做到高可用 - 无人问津的自留地 >>></title><meta name="description" content="一个 slave 挂掉了，是不会影响可用性的，还有其它的 slave 在提供相同数据下的相同的对外的查询服务。 但是，如果 master node 死掉了，会怎么样？没法写数据了，写缓存的时候，全部失效了。slave node 还有什么用呢，没有 master 给它们复制数据了，系统相当于不可用了。 redis 的高可用架构，叫做 failover 故障转移，也可以叫做主备切换。 master node 在故障时，自动检测，并且将某个 slave node 自动切换为 master node 的过程，叫做主备切换。这个过程，实现了 redis 的主从架构下的高可用。"/><meta property="og:description" content="一个 slave 挂掉了，是不会影响可用性的，还有其它的 slave 在提供相同数据下的相同的对外的查询服务。 但是，如果 master node 死掉了，会怎么样？没法写数据了，写缓存的时候，全部失效了。slave node 还有什么用呢，没有 master 给它们复制数据了，系统相当于不可用了。 redis 的高可用架构，叫做 failover 故障转移，也可以叫做主备切换。 master node 在故障时，自动检测，并且将某个 slave node 自动切换为 master node 的过程，叫做主备切换。这个过程，实现了 redis 的主从架构下的高可用。"/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://blog.fpdan.cn"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://blog.fpdan.cn"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Redis 如何才能做到高可用 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2019/04/29/1556529773000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Redis 如何才能做到高可用 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2019/04/29/1556529773000.html">        <link rel="stylesheet"
-              href="https://blog.fpdan.cn/skins/Bubble/css/base.css?1590507972043"/>
-            <link rel="prev" title="MQ 保证消息消费的幂等性" href="https://blog.fpdan.cn/articles/2019/04/14/1555185688000.html">
-            <link rel="next" title="Shiro Filter 自定义异常" href="https://blog.fpdan.cn/articles/2019/05/16/1558018336000.html">
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Redis 如何才能做到高可用 - 无人问津的自留地 >>></title><meta name="description" content="一个 slave 挂掉了，是不会影响可用性的，还有其它的 slave 在提供相同数据下的相同的对外的查询服务。 但是，如果 master node 死掉了，会怎么样？没法写数据了，写缓存的时候，全部失效了。slave node 还有什么用呢，没有 master 给它们复制数据了，系统相当于不可用了。 redis 的高可用架构，叫做 failover 故障转移，也可以叫做主备切换。 master node 在故障时，自动检测，并且将某个 slave node 自动切换为 master node 的过程，叫做主备切换。这个过程，实现了 redis 的主从架构下的高可用。"/><meta property="og:description" content="一个 slave 挂掉了，是不会影响可用性的，还有其它的 slave 在提供相同数据下的相同的对外的查询服务。 但是，如果 master node 死掉了，会怎么样？没法写数据了，写缓存的时候，全部失效了。slave node 还有什么用呢，没有 master 给它们复制数据了，系统相当于不可用了。 redis 的高可用架构，叫做 failover 故障转移，也可以叫做主备切换。 master node 在故障时，自动检测，并且将某个 slave node 自动切换为 master node 的过程，叫做主备切换。这个过程，实现了 redis 的主从架构下的高可用。"/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://GlacierBo.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://GlacierBo.github.io"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Redis 如何才能做到高可用 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://GlacierBo.github.io/articles/2019/04/29/1556529773000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Redis 如何才能做到高可用 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://GlacierBo.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://GlacierBo.github.io/manifest.json">        <link rel="canonical" href="https://GlacierBo.github.io/articles/2019/04/29/1556529773000.html">        <link rel="stylesheet"
+              href="https://GlacierBo.github.io/skins/Bubble/css/base.css?1590580006391"/>
+            <link rel="prev" title="MQ 保证消息消费的幂等性" href="https://GlacierBo.github.io/articles/2019/04/14/1555185688000.html">
+            <link rel="next" title="Shiro Filter 自定义异常" href="https://GlacierBo.github.io/articles/2019/05/16/1558018336000.html">
     </head>
 <body class="fn__flex-column">
 <div id="pjax" class="fn__flex-1">
@@ -13,7 +13,7 @@
     <header class="header header--article">
         <div class="wrapper header__title">
             <h1 class="header__h1 fn__flex-inline">
-                <a href="https://blog.fpdan.cn" rel="start">无人问津的自留地 >>></a>
+                <a href="https://GlacierBo.github.io" rel="start">无人问津的自留地 >>></a>
             </h1>
             <h2 class="header__desc header__desc--title">我始终相信，走过平湖烟雨，岁月山河，<br/>那些经历劫数，尝遍百味的人，会更加生动而干净。</h2>
             <div class="header__desc">
@@ -42,11 +42,11 @@
             </svg>
 
             <div class="side__header">
-                <a href="https://blog.fpdan.cn" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
+                <a href="https://GlacierBo.github.io" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
 
                 <div class="side__meta">
                     44 文章 <br>
-                    <span data-uvstaturl="https://blog.fpdan.cn">0</span> 浏览
+                    <span data-uvstaturl="https://GlacierBo.github.io">0</span> 浏览
                     
                 </div>
             </div>
@@ -56,24 +56,24 @@
             </div>
             <ul class="side__nav">
                 <li>
-                    <a href="https://blog.fpdan.cn" rel="start">
+                    <a href="https://GlacierBo.github.io" rel="start">
                             无人问津的自留地 >>>
                     </a>
                 </li>
                 <li>
-                    <a href="https://blog.fpdan.cn/categories.html">分类</a>
+                    <a href="https://GlacierBo.github.io/categories.html">分类</a>
                 </li>
                 <li>
-                    <a href="https://blog.fpdan.cn/tags.html">标签墙</a>
+                    <a href="https://GlacierBo.github.io/tags.html">标签墙</a>
                 </li>
                 <li>
-                    <a href="https://blog.fpdan.cn/archives.html">存档</a>
+                    <a href="https://GlacierBo.github.io/archives.html">存档</a>
                 </li>
                 <li>
-                    <a href="https://blog.fpdan.cn/links.html">友情链接</a>
+                    <a href="https://GlacierBo.github.io/links.html">友情链接</a>
                 </li>
                 <li>
-                    <a rel="alternate" href="https://blog.fpdan.cn/rss.xml">RSS</a>
+                    <a rel="alternate" href="https://GlacierBo.github.io/rss.xml">RSS</a>
                 </li>
             </ul>
         </div>
@@ -90,7 +90,7 @@
                 </time>
                 /
                     <a rel="tag"
-                       href="https://blog.fpdan.cn/tags/Note">Note</a> &nbsp;
+                       href="https://GlacierBo.github.io/tags/Note">Note</a> &nbsp;
             </div>
             <h2 class="article__title">
                 Redis 如何才能做到高可用
@@ -98,7 +98,7 @@
 <div class="article__share"
      data-title="Redis 如何才能做到高可用"
      data-blogtitle="无人问津的自留地 >>>"
-     data-url="https://blog.fpdan.cn/articles/2019/04/29/1556529773000.html"
+     data-url="https://GlacierBo.github.io/articles/2019/04/29/1556529773000.html"
      data-avatar="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
     <span class="item" data-type="qqz">
         <svg viewBox="0 0 32 32" width="100%" height="100%">
@@ -135,8 +135,8 @@ master node 在故障时，自动检测，并且将某个 slave node 自动切�
                         
 <hr>
 <small>标题：Redis 如何才能做到高可用</small><br>
-<small>版权声明：本文为博主「<a href="https://blog.fpdan.cn" target="_blank">fpdan</a>」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</small><br>
-<small>原文链接：<a href="https://blog.fpdan.cn/articles/2019/04/29/1556529773000.html" target="_blank">https://blog.fpdan.cn/articles/2019/04/29/1556529773000.html</a></small><br>
+<small>版权声明：本文为博主「<a href="https://GlacierBo.github.io" target="_blank">fpdan</a>」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</small><br>
+<small>原文链接：<a href="https://GlacierBo.github.io/articles/2019/04/29/1556529773000.html" target="_blank">https://GlacierBo.github.io/articles/2019/04/29/1556529773000.html</a></small><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -167,7 +167,7 @@ master node 在故障时，自动检测，并且将某个 slave node 自动切�
     
 </div>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/TweenMax.min.js?1590507972043"
+        src="https://GlacierBo.github.io/skins/Bubble/js/TweenMax.min.js?1590580006391"
         charset="utf-8"></script>
 <footer class="footer">
     <div class="wrapper">
@@ -193,7 +193,7 @@ master node 在故障时，自动检测，并且将某个 slave node 自动切�
 
  <br>
         &copy; 2020
-        <a href="https://blog.fpdan.cn">无人问津的自留地 >>></a>
+        <a href="https://GlacierBo.github.io">无人问津的自留地 >>></a>
         
         <span class="footer__heart">❤️</span>
     </div>
@@ -203,8 +203,8 @@ master node 在故障时，自动检测，并且将某个 slave node 自动切�
 </svg>
 <script>
   var Label = {
-    servePath: "https://blog.fpdan.cn",
-    staticServePath: "https://blog.fpdan.cn",
+    servePath: "https://GlacierBo.github.io",
+    staticServePath: "https://GlacierBo.github.io",
     luteAvailable: false,
     hljsStyle: 'github',
     langLabel: "zh_CN",
@@ -214,19 +214,19 @@ master node 在故障时，自动检测，并且将某个 slave node 自动切�
   }
 </script>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/common.min.js?1590507972043"
+        src="https://GlacierBo.github.io/skins/Bubble/js/common.min.js?1590580006391"
         charset="utf-8"></script>
 <script type="text/javascript"
-        src="https://blog.fpdan.cn/skins/Bubble/js/circleMagic.min.js?1590507972043"
+        src="https://GlacierBo.github.io/skins/Bubble/js/circleMagic.min.js?1590580006391"
         charset="utf-8"></script>
 
 
 <script type="text/javascript">
-    Util.addScript('https://blog.fpdan.cn/js/page.min.js?1590507972043', 'soloPageScript')
+    Util.addScript('https://GlacierBo.github.io/js/page.min.js?1590580006391', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1556529773000",
-        "blogHost": "https://blog.fpdan.cn",
+        "blogHost": "https://GlacierBo.github.io",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
     });
@@ -240,4 +240,4 @@ master node 在故障时，自动检测，并且将某个 slave node 自动切�
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 16ms, 2020/05/26 23:47:42 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 18ms, 2020/05/27 19:54:29 -->
