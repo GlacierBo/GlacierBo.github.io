@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>MQ 保证消息消费的幂等性 - 无人问津的自留地 >>></title><meta name="description" content="二次消费 场景： 假设你这条消息已经消费过了，然后你重启了服务，消费过的消息没有同步到 MQ，产生了二次消费。 思路： 比如你拿个数据要写库，你先根据主键查一下，如果这数据都有了，你就别插入了，update 一下好吧。 比如你是写 Redis，那没问题了，反正每次都是 set，天然幂等性。 比如你不是上面两个场景，那做的稍微复杂一点，你需要让生产者发送每条数据的时候，里面加一个全局唯一的 id，类似订单 id 之类的东西，然后你这里消费到了之后，先根据这个 id 去比如 Redis 里查一下，之前消费过吗？如果没有消费过，你就处理，然后这个 id 写 Redis。如果消费过了，那你就别处理了，保证别重复处理相同的消息即可。 比如基于数据库的唯一键来保证重复数据不会重复插入多条。因为有唯一键约束了，重复数据插入只会报错，不会导致数据库中出现脏数据。 真实项目场景中，第一条和最后一条都有用到。 在这边我要提一个新的场景：批量入库效率比较重要的情况下，如何保证呢？ 这里提供一个思路，将唯一 id 写入 Redis，然后在批量操作之前根据 Redis 中的 id 过滤一下写库的数据，另外数...."/><meta property="og:description" content="二次消费 场景： 假设你这条消息已经消费过了，然后你重启了服务，消费过的消息没有同步到 MQ，产生了二次消费。 思路： 比如你拿个数据要写库，你先根据主键查一下，如果这数据都有了，你就别插入了，update 一下好吧。 比如你是写 Redis，那没问题了，反正每次都是 set，天然幂等性。 比如你不是上面两个场景，那做的稍微复杂一点，你需要让生产者发送每条数据的时候，里面加一个全局唯一的 id，类似订单 id 之类的东西，然后你这里消费到了之后，先根据这个 id 去比如 Redis 里查一下，之前消费过吗？如果没有消费过，你就处理，然后这个 id 写 Redis。如果消费过了，那你就别处理了，保证别重复处理相同的消息即可。 比如基于数据库的唯一键来保证重复数据不会重复插入多条。因为有唯一键约束了，重复数据插入只会报错，不会导致数据库中出现脏数据。 真实项目场景中，第一条和最后一条都有用到。 在这边我要提一个新的场景：批量入库效率比较重要的情况下，如何保证呢？ 这里提供一个思路，将唯一 id 写入 Redis，然后在批量操作之前根据 Redis 中的 id 过滤一下写库的数据，另外数...."/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://GlacierBo.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://GlacierBo.github.io"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="MQ 保证消息消费的幂等性 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://GlacierBo.github.io/articles/2019/04/14/1555185688000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="MQ 保证消息消费的幂等性 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://GlacierBo.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://GlacierBo.github.io/manifest.json">        <link rel="canonical" href="https://GlacierBo.github.io/articles/2019/04/14/1555185688000.html">        <link rel="stylesheet"
-              href="https://GlacierBo.github.io/skins/Bubble/css/base.css?1590580006391"/>
-            <link rel="prev" title="Rabbit MQ 和 Erlang 版本不匹配" href="https://GlacierBo.github.io/articles/2019/04/14/1555182707000.html">
-            <link rel="next" title="Redis 如何才能做到高可用" href="https://GlacierBo.github.io/articles/2019/04/29/1556529773000.html">
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>MQ 保证消息消费的幂等性 - 无人问津的自留地 >>></title><meta name="description" content="二次消费 场景： 假设你这条消息已经消费过了，然后你重启了服务，消费过的消息没有同步到 MQ，产生了二次消费。 思路： 比如你拿个数据要写库，你先根据主键查一下，如果这数据都有了，你就别插入了，update 一下好吧。 比如你是写 Redis，那没问题了，反正每次都是 set，天然幂等性。 比如你不是上面两个场景，那做的稍微复杂一点，你需要让生产者发送每条数据的时候，里面加一个全局唯一的 id，类似订单 id 之类的东西，然后你这里消费到了之后，先根据这个 id 去比如 Redis 里查一下，之前消费过吗？如果没有消费过，你就处理，然后这个 id 写 Redis。如果消费过了，那你就别处理了，保证别重复处理相同的消息即可。 比如基于数据库的唯一键来保证重复数据不会重复插入多条。因为有唯一键约束了，重复数据插入只会报错，不会导致数据库中出现脏数据。 真实项目场景中，第一条和最后一条都有用到。 在这边我要提一个新的场景：批量入库效率比较重要的情况下，如何保证呢？ 这里提供一个思路，将唯一 id 写入 Redis，然后在批量操作之前根据 Redis 中的 id 过滤一下写库的数据，另外数...."/><meta property="og:description" content="二次消费 场景： 假设你这条消息已经消费过了，然后你重启了服务，消费过的消息没有同步到 MQ，产生了二次消费。 思路： 比如你拿个数据要写库，你先根据主键查一下，如果这数据都有了，你就别插入了，update 一下好吧。 比如你是写 Redis，那没问题了，反正每次都是 set，天然幂等性。 比如你不是上面两个场景，那做的稍微复杂一点，你需要让生产者发送每条数据的时候，里面加一个全局唯一的 id，类似订单 id 之类的东西，然后你这里消费到了之后，先根据这个 id 去比如 Redis 里查一下，之前消费过吗？如果没有消费过，你就处理，然后这个 id 写 Redis。如果消费过了，那你就别处理了，保证别重复处理相同的消息即可。 比如基于数据库的唯一键来保证重复数据不会重复插入多条。因为有唯一键约束了，重复数据插入只会报错，不会导致数据库中出现脏数据。 真实项目场景中，第一条和最后一条都有用到。 在这边我要提一个新的场景：批量入库效率比较重要的情况下，如何保证呢？ 这里提供一个思路，将唯一 id 写入 Redis，然后在批量操作之前根据 Redis 中的 id 过滤一下写库的数据，另外数...."/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://glacierbo.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://glacierbo.github.io"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="MQ 保证消息消费的幂等性 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://glacierbo.github.io/articles/2019/04/14/1555185688000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="MQ 保证消息消费的幂等性 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://glacierbo.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://glacierbo.github.io/manifest.json">        <link rel="canonical" href="https://glacierbo.github.io/articles/2019/04/14/1555185688000.html">        <link rel="stylesheet"
+              href="https://glacierbo.github.io/skins/Bubble/css/base.css?1590580006391"/>
+            <link rel="prev" title="Rabbit MQ 和 Erlang 版本不匹配" href="https://glacierbo.github.io/articles/2019/04/14/1555182707000.html">
+            <link rel="next" title="Redis 如何才能做到高可用" href="https://glacierbo.github.io/articles/2019/04/29/1556529773000.html">
     </head>
 <body class="fn__flex-column">
 <div id="pjax" class="fn__flex-1">
@@ -13,7 +13,7 @@
     <header class="header header--article">
         <div class="wrapper header__title">
             <h1 class="header__h1 fn__flex-inline">
-                <a href="https://GlacierBo.github.io" rel="start">无人问津的自留地 >>></a>
+                <a href="https://glacierbo.github.io" rel="start">无人问津的自留地 >>></a>
             </h1>
             <h2 class="header__desc header__desc--title">我始终相信，走过平湖烟雨，岁月山河，<br/>那些经历劫数，尝遍百味的人，会更加生动而干净。</h2>
             <div class="header__desc">
@@ -42,11 +42,11 @@
             </svg>
 
             <div class="side__header">
-                <a href="https://GlacierBo.github.io" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
+                <a href="https://glacierbo.github.io" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
 
                 <div class="side__meta">
                     44 文章 <br>
-                    <span data-uvstaturl="https://GlacierBo.github.io">0</span> 浏览
+                    <span data-uvstaturl="https://glacierbo.github.io">0</span> 浏览
                     
                 </div>
             </div>
@@ -56,24 +56,24 @@
             </div>
             <ul class="side__nav">
                 <li>
-                    <a href="https://GlacierBo.github.io" rel="start">
+                    <a href="https://glacierbo.github.io" rel="start">
                             无人问津的自留地 >>>
                     </a>
                 </li>
                 <li>
-                    <a href="https://GlacierBo.github.io/categories.html">分类</a>
+                    <a href="https://glacierbo.github.io/categories.html">分类</a>
                 </li>
                 <li>
-                    <a href="https://GlacierBo.github.io/tags.html">标签墙</a>
+                    <a href="https://glacierbo.github.io/tags.html">标签墙</a>
                 </li>
                 <li>
-                    <a href="https://GlacierBo.github.io/archives.html">存档</a>
+                    <a href="https://glacierbo.github.io/archives.html">存档</a>
                 </li>
                 <li>
-                    <a href="https://GlacierBo.github.io/links.html">友情链接</a>
+                    <a href="https://glacierbo.github.io/links.html">友情链接</a>
                 </li>
                 <li>
-                    <a rel="alternate" href="https://GlacierBo.github.io/rss.xml">RSS</a>
+                    <a rel="alternate" href="https://glacierbo.github.io/rss.xml">RSS</a>
                 </li>
             </ul>
         </div>
@@ -90,7 +90,7 @@
                 </time>
                 /
                     <a rel="tag"
-                       href="https://GlacierBo.github.io/tags/Note">Note</a> &nbsp;
+                       href="https://glacierbo.github.io/tags/Note">Note</a> &nbsp;
             </div>
             <h2 class="article__title">
                 MQ 保证消息消费的幂等性
@@ -98,7 +98,7 @@
 <div class="article__share"
      data-title="MQ 保证消息消费的幂等性"
      data-blogtitle="无人问津的自留地 >>>"
-     data-url="https://GlacierBo.github.io/articles/2019/04/14/1555185688000.html"
+     data-url="https://glacierbo.github.io/articles/2019/04/14/1555185688000.html"
      data-avatar="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
     <span class="item" data-type="qqz">
         <svg viewBox="0 0 32 32" width="100%" height="100%">
@@ -158,8 +158,8 @@ Kafka 消费者消费到了数据之后是写到一个内存的 queue 里先缓�
                         
 <hr>
 <small>标题：MQ 保证消息消费的幂等性</small><br>
-<small>版权声明：本文为博主「<a href="https://GlacierBo.github.io" target="_blank">fpdan</a>」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</small><br>
-<small>原文链接：<a href="https://GlacierBo.github.io/articles/2019/04/14/1555185688000.html" target="_blank">https://GlacierBo.github.io/articles/2019/04/14/1555185688000.html</a></small><br>
+<small>版权声明：本文为博主「<a href="https://glacierbo.github.io" target="_blank">fpdan</a>」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</small><br>
+<small>原文链接：<a href="https://glacierbo.github.io/articles/2019/04/14/1555185688000.html" target="_blank">https://glacierbo.github.io/articles/2019/04/14/1555185688000.html</a></small><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -205,7 +205,7 @@ Kafka 消费者消费到了数据之后是写到一个内存的 queue 里先缓�
     
 </div>
 <script type="text/javascript"
-        src="https://GlacierBo.github.io/skins/Bubble/js/TweenMax.min.js?1590580006391"
+        src="https://glacierbo.github.io/skins/Bubble/js/TweenMax.min.js?1590580006391"
         charset="utf-8"></script>
 <footer class="footer">
     <div class="wrapper">
@@ -231,7 +231,7 @@ Kafka 消费者消费到了数据之后是写到一个内存的 queue 里先缓�
 
  <br>
         &copy; 2020
-        <a href="https://GlacierBo.github.io">无人问津的自留地 >>></a>
+        <a href="https://glacierbo.github.io">无人问津的自留地 >>></a>
         
         <span class="footer__heart">❤️</span>
     </div>
@@ -241,8 +241,8 @@ Kafka 消费者消费到了数据之后是写到一个内存的 queue 里先缓�
 </svg>
 <script>
   var Label = {
-    servePath: "https://GlacierBo.github.io",
-    staticServePath: "https://GlacierBo.github.io",
+    servePath: "https://glacierbo.github.io",
+    staticServePath: "https://glacierbo.github.io",
     luteAvailable: false,
     hljsStyle: 'github',
     langLabel: "zh_CN",
@@ -252,10 +252,10 @@ Kafka 消费者消费到了数据之后是写到一个内存的 queue 里先缓�
   }
 </script>
 <script type="text/javascript"
-        src="https://GlacierBo.github.io/skins/Bubble/js/common.min.js?1590580006391"
+        src="https://glacierbo.github.io/skins/Bubble/js/common.min.js?1590580006391"
         charset="utf-8"></script>
 <script type="text/javascript"
-        src="https://GlacierBo.github.io/skins/Bubble/js/circleMagic.min.js?1590580006391"
+        src="https://glacierbo.github.io/skins/Bubble/js/circleMagic.min.js?1590580006391"
         charset="utf-8"></script>
 
     <svg viewBox="0 0 32 32" width="100%" height="100%" class="side__top side__top--toc">
@@ -263,11 +263,11 @@ Kafka 消费者消费到了数据之后是写到一个内存的 queue 里先缓�
     </svg>
 
 <script type="text/javascript">
-    Util.addScript('https://GlacierBo.github.io/js/page.min.js?1590580006391', 'soloPageScript')
+    Util.addScript('https://glacierbo.github.io/js/page.min.js?1590580006391', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1555185688000",
-        "blogHost": "https://GlacierBo.github.io",
+        "blogHost": "https://glacierbo.github.io",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
     });
@@ -281,4 +281,4 @@ Kafka 消费者消费到了数据之后是写到一个内存的 queue 里先缓�
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 18ms, 2020/05/27 19:54:30 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 17ms, 2020/05/27 20:03:05 -->

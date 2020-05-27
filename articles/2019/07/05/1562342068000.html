@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Java 类加载器 ClassLoader - 无人问津的自留地 >>></title><meta name="description" content="JDK 默认提供了如下几种 ClassLoader： Bootstrp loader Bootstrp 加载器是用 C++语言写的，它是在 Java 虚拟机启动后初始化的，它主要负责加载%JAVA_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA_HOME%/jre/classes中的类。 ExtClassLoader Bootstrp loader 加载 ExtClassLoader,并且将 ExtClassLoader 的父加载器设置为 Bootstrp loader.ExtClassLoader 是用 Java 写的，具体来说就是 sun.misc.Launcher$ExtClassLoader，ExtClassLoader 主要加载%JAVA_HOME%/jre/lib/ext，此路径下的所有 classes 目录以及java.ext.dirs系统变量指定的路径中类库。 AppClassLoader Bootstrp loader 加载完 ExtClassLoader 后，就会加载 AppClass...."/><meta property="og:description" content="JDK 默认提供了如下几种 ClassLoader： Bootstrp loader Bootstrp 加载器是用 C++语言写的，它是在 Java 虚拟机启动后初始化的，它主要负责加载%JAVA_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA_HOME%/jre/classes中的类。 ExtClassLoader Bootstrp loader 加载 ExtClassLoader,并且将 ExtClassLoader 的父加载器设置为 Bootstrp loader.ExtClassLoader 是用 Java 写的，具体来说就是 sun.misc.Launcher$ExtClassLoader，ExtClassLoader 主要加载%JAVA_HOME%/jre/lib/ext，此路径下的所有 classes 目录以及java.ext.dirs系统变量指定的路径中类库。 AppClassLoader Bootstrp loader 加载完 ExtClassLoader 后，就会加载 AppClass...."/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://GlacierBo.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://GlacierBo.github.io"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Java 类加载器 ClassLoader - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://GlacierBo.github.io/articles/2019/07/05/1562342068000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Java 类加载器 ClassLoader - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://GlacierBo.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://GlacierBo.github.io/manifest.json">        <link rel="canonical" href="https://GlacierBo.github.io/articles/2019/07/05/1562342068000.html">        <link rel="stylesheet"
-              href="https://GlacierBo.github.io/skins/Bubble/css/base.css?1590580006391"/>
-            <link rel="prev" title="Cookie 和 Session 的区别" href="https://GlacierBo.github.io/articles/2019/07/05/1562327410000.html">
-            <link rel="next" title="CentOS 部署 gitlab 遇到问题" href="https://GlacierBo.github.io/articles/2019/07/11/1562850825000.html">
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Java 类加载器 ClassLoader - 无人问津的自留地 >>></title><meta name="description" content="JDK 默认提供了如下几种 ClassLoader： Bootstrp loader Bootstrp 加载器是用 C++语言写的，它是在 Java 虚拟机启动后初始化的，它主要负责加载%JAVA_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA_HOME%/jre/classes中的类。 ExtClassLoader Bootstrp loader 加载 ExtClassLoader,并且将 ExtClassLoader 的父加载器设置为 Bootstrp loader.ExtClassLoader 是用 Java 写的，具体来说就是 sun.misc.Launcher$ExtClassLoader，ExtClassLoader 主要加载%JAVA_HOME%/jre/lib/ext，此路径下的所有 classes 目录以及java.ext.dirs系统变量指定的路径中类库。 AppClassLoader Bootstrp loader 加载完 ExtClassLoader 后，就会加载 AppClass...."/><meta property="og:description" content="JDK 默认提供了如下几种 ClassLoader： Bootstrp loader Bootstrp 加载器是用 C++语言写的，它是在 Java 虚拟机启动后初始化的，它主要负责加载%JAVA_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA_HOME%/jre/classes中的类。 ExtClassLoader Bootstrp loader 加载 ExtClassLoader,并且将 ExtClassLoader 的父加载器设置为 Bootstrp loader.ExtClassLoader 是用 Java 写的，具体来说就是 sun.misc.Launcher$ExtClassLoader，ExtClassLoader 主要加载%JAVA_HOME%/jre/lib/ext，此路径下的所有 classes 目录以及java.ext.dirs系统变量指定的路径中类库。 AppClassLoader Bootstrp loader 加载完 ExtClassLoader 后，就会加载 AppClass...."/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://glacierbo.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://glacierbo.github.io"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Java 类加载器 ClassLoader - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://glacierbo.github.io/articles/2019/07/05/1562342068000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Java 类加载器 ClassLoader - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://glacierbo.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://glacierbo.github.io/manifest.json">        <link rel="canonical" href="https://glacierbo.github.io/articles/2019/07/05/1562342068000.html">        <link rel="stylesheet"
+              href="https://glacierbo.github.io/skins/Bubble/css/base.css?1590580006391"/>
+            <link rel="prev" title="Cookie 和 Session 的区别" href="https://glacierbo.github.io/articles/2019/07/05/1562327410000.html">
+            <link rel="next" title="CentOS 部署 gitlab 遇到问题" href="https://glacierbo.github.io/articles/2019/07/11/1562850825000.html">
     </head>
 <body class="fn__flex-column">
 <div id="pjax" class="fn__flex-1">
@@ -13,7 +13,7 @@
     <header class="header header--article">
         <div class="wrapper header__title">
             <h1 class="header__h1 fn__flex-inline">
-                <a href="https://GlacierBo.github.io" rel="start">无人问津的自留地 >>></a>
+                <a href="https://glacierbo.github.io" rel="start">无人问津的自留地 >>></a>
             </h1>
             <h2 class="header__desc header__desc--title">我始终相信，走过平湖烟雨，岁月山河，<br/>那些经历劫数，尝遍百味的人，会更加生动而干净。</h2>
             <div class="header__desc">
@@ -42,11 +42,11 @@
             </svg>
 
             <div class="side__header">
-                <a href="https://GlacierBo.github.io" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
+                <a href="https://glacierbo.github.io" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
 
                 <div class="side__meta">
                     44 文章 <br>
-                    <span data-uvstaturl="https://GlacierBo.github.io">0</span> 浏览
+                    <span data-uvstaturl="https://glacierbo.github.io">0</span> 浏览
                     
                 </div>
             </div>
@@ -56,24 +56,24 @@
             </div>
             <ul class="side__nav">
                 <li>
-                    <a href="https://GlacierBo.github.io" rel="start">
+                    <a href="https://glacierbo.github.io" rel="start">
                             无人问津的自留地 >>>
                     </a>
                 </li>
                 <li>
-                    <a href="https://GlacierBo.github.io/categories.html">分类</a>
+                    <a href="https://glacierbo.github.io/categories.html">分类</a>
                 </li>
                 <li>
-                    <a href="https://GlacierBo.github.io/tags.html">标签墙</a>
+                    <a href="https://glacierbo.github.io/tags.html">标签墙</a>
                 </li>
                 <li>
-                    <a href="https://GlacierBo.github.io/archives.html">存档</a>
+                    <a href="https://glacierbo.github.io/archives.html">存档</a>
                 </li>
                 <li>
-                    <a href="https://GlacierBo.github.io/links.html">友情链接</a>
+                    <a href="https://glacierbo.github.io/links.html">友情链接</a>
                 </li>
                 <li>
-                    <a rel="alternate" href="https://GlacierBo.github.io/rss.xml">RSS</a>
+                    <a rel="alternate" href="https://glacierbo.github.io/rss.xml">RSS</a>
                 </li>
             </ul>
         </div>
@@ -90,7 +90,7 @@
                 </time>
                 /
                     <a rel="tag"
-                       href="https://GlacierBo.github.io/tags/Note">Note</a> &nbsp;
+                       href="https://glacierbo.github.io/tags/Note">Note</a> &nbsp;
             </div>
             <h2 class="article__title">
                 Java 类加载器 ClassLoader
@@ -98,7 +98,7 @@
 <div class="article__share"
      data-title="Java 类加载器 ClassLoader"
      data-blogtitle="无人问津的自留地 >>>"
-     data-url="https://GlacierBo.github.io/articles/2019/07/05/1562342068000.html"
+     data-url="https://glacierbo.github.io/articles/2019/07/05/1562342068000.html"
      data-avatar="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
     <span class="item" data-type="qqz">
         <svg viewBox="0 0 32 32" width="100%" height="100%">
@@ -138,8 +138,8 @@ Bootstrp loader 加载完 ExtClassLoader 后，就会加载 AppClassLoader,并�
                         
 <hr>
 <small>标题：Java 类加载器 ClassLoader</small><br>
-<small>版权声明：本文为博主「<a href="https://GlacierBo.github.io" target="_blank">fpdan</a>」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</small><br>
-<small>原文链接：<a href="https://GlacierBo.github.io/articles/2019/07/05/1562342068000.html" target="_blank">https://GlacierBo.github.io/articles/2019/07/05/1562342068000.html</a></small><br>
+<small>版权声明：本文为博主「<a href="https://glacierbo.github.io" target="_blank">fpdan</a>」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</small><br>
+<small>原文链接：<a href="https://glacierbo.github.io/articles/2019/07/05/1562342068000.html" target="_blank">https://glacierbo.github.io/articles/2019/07/05/1562342068000.html</a></small><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -170,7 +170,7 @@ Bootstrp loader 加载完 ExtClassLoader 后，就会加载 AppClassLoader,并�
     
 </div>
 <script type="text/javascript"
-        src="https://GlacierBo.github.io/skins/Bubble/js/TweenMax.min.js?1590580006391"
+        src="https://glacierbo.github.io/skins/Bubble/js/TweenMax.min.js?1590580006391"
         charset="utf-8"></script>
 <footer class="footer">
     <div class="wrapper">
@@ -196,7 +196,7 @@ Bootstrp loader 加载完 ExtClassLoader 后，就会加载 AppClassLoader,并�
 
  <br>
         &copy; 2020
-        <a href="https://GlacierBo.github.io">无人问津的自留地 >>></a>
+        <a href="https://glacierbo.github.io">无人问津的自留地 >>></a>
         
         <span class="footer__heart">❤️</span>
     </div>
@@ -206,8 +206,8 @@ Bootstrp loader 加载完 ExtClassLoader 后，就会加载 AppClassLoader,并�
 </svg>
 <script>
   var Label = {
-    servePath: "https://GlacierBo.github.io",
-    staticServePath: "https://GlacierBo.github.io",
+    servePath: "https://glacierbo.github.io",
+    staticServePath: "https://glacierbo.github.io",
     luteAvailable: false,
     hljsStyle: 'github',
     langLabel: "zh_CN",
@@ -217,19 +217,19 @@ Bootstrp loader 加载完 ExtClassLoader 后，就会加载 AppClassLoader,并�
   }
 </script>
 <script type="text/javascript"
-        src="https://GlacierBo.github.io/skins/Bubble/js/common.min.js?1590580006391"
+        src="https://glacierbo.github.io/skins/Bubble/js/common.min.js?1590580006391"
         charset="utf-8"></script>
 <script type="text/javascript"
-        src="https://GlacierBo.github.io/skins/Bubble/js/circleMagic.min.js?1590580006391"
+        src="https://glacierbo.github.io/skins/Bubble/js/circleMagic.min.js?1590580006391"
         charset="utf-8"></script>
 
 
 <script type="text/javascript">
-    Util.addScript('https://GlacierBo.github.io/js/page.min.js?1590580006391', 'soloPageScript')
+    Util.addScript('https://glacierbo.github.io/js/page.min.js?1590580006391', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1562342068000",
-        "blogHost": "https://GlacierBo.github.io",
+        "blogHost": "https://glacierbo.github.io",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
     });
@@ -243,4 +243,4 @@ Bootstrp loader 加载完 ExtClassLoader 后，就会加载 AppClassLoader,并�
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 29ms, 2020/05/27 19:54:30 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 28ms, 2020/05/27 20:03:05 -->
