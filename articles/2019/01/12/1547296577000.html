@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Git 常用命令 - 无人问津的自留地 >>></title><meta name="description" content="初始化 # 输入你的github 注册的ID git config --global user.name &quot;Your Name&quot; # 输入你的github 注册的邮箱 git config --global user.email &quot;email@example.com&quot; 生成指定名字的密钥 ssh-keygen -t rsa -C &quot;邮箱地址&quot; -f ~/.ssh/github_jslite 会生成 github_jslite 和 github_jslite.pub 这两个文件 登陆 GitHub，在 settings 里面添加 SSH Keys，添加 SSH Key，在 Key 文本框里粘贴 github_jslite.pub 文件的内容，即可。 提交 # 默认是master分支 git add file1.txt git add file2.txt file3.txt git commit -m &quot;add 3 files.&quot; ## commit 之后github 仓库内容还不会更改，只会在你本地仓库进行修改，还需要push到仓库 ## 推送主分支 git push origin ...."/><meta property="og:description" content="初始化 # 输入你的github 注册的ID git config --global user.name &quot;Your Name&quot; # 输入你的github 注册的邮箱 git config --global user.email &quot;email@example.com&quot; 生成指定名字的密钥 ssh-keygen -t rsa -C &quot;邮箱地址&quot; -f ~/.ssh/github_jslite 会生成 github_jslite 和 github_jslite.pub 这两个文件 登陆 GitHub，在 settings 里面添加 SSH Keys，添加 SSH Key，在 Key 文本框里粘贴 github_jslite.pub 文件的内容，即可。 提交 # 默认是master分支 git add file1.txt git add file2.txt file3.txt git commit -m &quot;add 3 files.&quot; ## commit 之后github 仓库内容还不会更改，只会在你本地仓库进行修改，还需要push到仓库 ## 推送主分支 git push origin ...."/>    <meta name="keywords" content="Solo,Java"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Git 常用命令 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2019/01/12/1547296577000.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Git 常用命令 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2019/01/12/1547296577000.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/css/base.css?1590584250223"/>
-            <link rel="prev" title="Linux 配置定时任务" href="https://blog.fpdan.cn/articles/2019/01/12/1547295057000.html">
-            <link rel="next" title="RULE | 好的代码应该是便于维护的" href="https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html">
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>版本控制 | Git 常用命令 - 无人问津的自留地 >>></title><meta name="description" content="Git 学习笔记，记录一下"/><meta property="og:description" content="Git 学习笔记，记录一下"/>    <meta name="keywords" content="Solo,Java,博客,开源,傅皮蛋"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"><link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="版本控制 | Git 常用命令 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2019/01/12/1547296577000.html?"/><meta property="og:image" content="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="search" type="application/opensearchdescription+xml" title="版本控制 | Git 常用命令 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2019/01/12/1547296577000.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/css/base.css?1590669477106"/>
+            <link rel="next" title="代码规范 | 好的代码应该是便于维护的" href="https://blog.fpdan.cn/articles/2019/01/12/1547296855000.html">
     </head>
 <body class="fn__flex-column">
 <div id="pjax" class="fn__flex-1">
@@ -44,7 +43,7 @@
                 <a href="https://blog.fpdan.cn" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
 
                 <div class="side__meta">
-                    44 文章 <br>
+                    15 文章 <br>
                     <span data-uvstaturl="https://blog.fpdan.cn">0</span> 浏览
                     
                 </div>
@@ -59,6 +58,12 @@
                             无人问津的自留地 >>>
                     </a>
                 </li>
+                    <li>
+                        <a href="/book.html" target="_self">书单</a>
+                    </li>
+                    <li>
+                        <a href="/about.html" target="_self">关于我</a>
+                    </li>
                 <li>
                     <a href="https://blog.fpdan.cn/categories.html">分类</a>
                 </li>
@@ -77,25 +82,25 @@
             </ul>
         </div>
     </div>
-    <div class="article__top" style="background-image: url(https://b3logfile.com/bing/20190901.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)">
-        <div style="background-image: url(https://b3logfile.com/bing/20190901.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
+    <div class="article__top" style="background-image: url(https://b3logfile.com/bing/20171206.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)">
+        <div style="background-image: url(https://b3logfile.com/bing/20171206.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
         <canvas id="articleTop"></canvas>
     </div>
     <div class="article">
         <div class="ft__center">
             <div class="article__meta">
                 <time>
-                    2019-01-12
+                    2020-05-28
                 </time>
                 /
                     <a rel="tag"
-                       href="https://blog.fpdan.cn/tags/Note">Note</a> &nbsp;
+                       href="https://blog.fpdan.cn/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6">版本控制</a> &nbsp;
             </div>
             <h2 class="article__title">
-                Git 常用命令
+                版本控制 | Git 常用命令
             </h2>
 <div class="article__share"
-     data-title="Git 常用命令"
+     data-title="版本控制 | Git 常用命令"
      data-blogtitle="无人问津的自留地 >>>"
      data-url="https://blog.fpdan.cn/articles/2019/01/12/1547296577000.html"
      data-avatar="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
@@ -200,7 +205,7 @@ $ git reset --hard d53a025f3e760fe1f1a7a116750def90cd1aaa5d
                     <div>
                         
 <hr>
-<small>标题：Git 常用命令</small><br>
+<small>标题：版本控制 | Git 常用命令</small><br>
 <small>版权声明：本文为博主「<a href="https://blog.fpdan.cn" target="_blank">fpdan</a>」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</small><br>
 <small>原文链接：<a href="https://blog.fpdan.cn/articles/2019/01/12/1547296577000.html" target="_blank">https://blog.fpdan.cn/articles/2019/01/12/1547296577000.html</a></small><br>
 
@@ -254,7 +259,7 @@ $ git reset --hard d53a025f3e760fe1f1a7a116750def90cd1aaa5d
     
 </div>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/TweenMax.min.js?1590584250223"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/TweenMax.min.js?1590669477106"
         charset="utf-8"></script>
 <footer class="footer">
     <div class="wrapper">
@@ -297,14 +302,14 @@ $ git reset --hard d53a025f3e760fe1f1a7a116750def90cd1aaa5d
     langLabel: "zh_CN",
     version: "4.1.0",
     staticSite: true,
-    showCodeBlockLn: false,
+    showCodeBlockLn: true,
   }
 </script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/common.min.js?1590584250223"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/common.min.js?1590669477106"
         charset="utf-8"></script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/circleMagic.min.js?1590584250223"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/circleMagic.min.js?1590669477106"
         charset="utf-8"></script>
 
     <svg viewBox="0 0 32 32" width="100%" height="100%" class="side__top side__top--toc">
@@ -312,7 +317,7 @@ $ git reset --hard d53a025f3e760fe1f1a7a116750def90cd1aaa5d
     </svg>
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/js/page.min.js?1590584250223', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/js/page.min.js?1590669477106', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1547296577000",
@@ -330,4 +335,4 @@ $ git reset --hard d53a025f3e760fe1f1a7a116750def90cd1aaa5d
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 18ms, 2020/05/27 21:00:07 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 20ms, 2020/05/28 23:34:50 -->
