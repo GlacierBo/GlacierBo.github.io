@@ -6,8 +6,26 @@
     <atom:link href="https://blog.fpdan.cn/rss.xml" rel="self" type="application/rss+xml"/>
     <description>我始终相信，走过平湖烟雨，岁月山河，&lt;br/&gt;那些经历劫数，尝遍百味的人，会更加生动而干净。</description>
     <generator>Solo, v4.1.0, https://solo.b3log.org</generator>
-    <lastBuildDate>Fri, 29 May 2020 00:02:35 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2020 22:51:41 +0800</lastBuildDate>
     <language>zh-cn</language>
+    <item>
+      <title>Scrapy | 豆瓣电影评分爬虫</title>
+      <link>https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html</link>
+      <description><![CDATA[<p>本 demo 只做学习之用，请勿转载和商用，谢谢。]]>🙏<![CDATA[</p>]]></description>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html</guid>
+      <category>Scrapy</category>
+      <pubDate>Fri, 29 May 2020 22:50:04 +0800</pubDate>
+    </item>
+    <item>
+      <title>IDE | IDEA Perhaps you are running on a JRE rather than a JDK</title>
+      <link>https://blog.fpdan.cn/articles/2019/06/06/1559813628000.html</link>
+      <description><![CDATA[<p>IDEA 报错 IDEA Perhaps you are running on a JRE rather than a JDK</p>]]></description>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/articles/2019/06/06/1559813628000.html</guid>
+      <category>IDE</category>
+      <pubDate>Fri, 29 May 2020 22:03:52 +0800</pubDate>
+    </item>
     <item>
       <title>书单 | 花开花落，云舒云卷</title>
       <link>https://blog.fpdan.cn/books.html</link>
@@ -80,24 +98,6 @@
       <guid>https://blog.fpdan.cn/articles/2019/09/18/1568822102000.html</guid>
       <category>Kafka</category>
       <pubDate>Thu, 28 May 2020 23:20:13 +0800</pubDate>
-    </item>
-    <item>
-      <title>Docker | 部署 SpringBoot 项目</title>
-      <link>https://blog.fpdan.cn/articles/2019/02/18/1550500058000.html</link>
-      <description><![CDATA[<p>java 8 环境，Dockerfile spring boot 打好的 jar 包 wechat-0.0.1-SNAPSHOT.jar，放在 Dockerfile 同级目录下</p>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/articles/2019/02/18/1550500058000.html</guid>
-      <category>Docker</category>
-      <pubDate>Thu, 28 May 2020 23:10:52 +0800</pubDate>
-    </item>
-    <item>
-      <title>OS | Linux 问题集锦</title>
-      <link>https://blog.fpdan.cn/articles/2019/08/05/1565001035000.html</link>
-      <description><![CDATA[<p>Linux 下 node cnpm 无法使用</p>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/articles/2019/08/05/1565001035000.html</guid>
-      <category>OS</category>
-      <pubDate>Thu, 28 May 2020 22:52:51 +0800</pubDate>
     </item>
   </channel>
 </rss>

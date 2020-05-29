@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Shiro csrf 拦截请求 - 无人问津的自留地 >>></title><meta name="description" content="今天遇到一个问题，我的 form 表单写的没有错，用 js 生成的 action，不知道什么原因一直提交不上去。 &lt;form method=&quot;post&quot; class=&quot;form-horizontal&quot; role=&quot;form&quot; id=&quot;form&quot;&gt;&lt;/form&gt; function changeState(that) { var id = $(that).attr(&quot;applyid&quot;); $(&quot;#applyId&quot;).val(id); $(&quot;#form&quot;).attr(&quot;action&quot;, &quot;/feedbacks/&quot; + id + &quot;/state&quot;); } 提交表单页面直接跳到登录页面，推测是请求给 shiro 拦截了。 // shiro 拦截器 filterMap.put(&quot;csrf&quot;, new CsrfTokenFilter()); filterChainDefinitionMap.put(&quot;/**&quot;, &quot;authc,csrf&quot;); 最后随便加了个 action。 &lt;form method=&quot;post&quot; class=&quot;form-horizontal&quot; ro...."/><meta property="og:description" content="今天遇到一个问题，我的 form 表单写的没有错，用 js 生成的 action，不知道什么原因一直提交不上去。 &lt;form method=&quot;post&quot; class=&quot;form-horizontal&quot; role=&quot;form&quot; id=&quot;form&quot;&gt;&lt;/form&gt; function changeState(that) { var id = $(that).attr(&quot;applyid&quot;); $(&quot;#applyId&quot;).val(id); $(&quot;#form&quot;).attr(&quot;action&quot;, &quot;/feedbacks/&quot; + id + &quot;/state&quot;); } 提交表单页面直接跳到登录页面，推测是请求给 shiro 拦截了。 // shiro 拦截器 filterMap.put(&quot;csrf&quot;, new CsrfTokenFilter()); filterChainDefinitionMap.put(&quot;/**&quot;, &quot;authc,csrf&quot;); 最后随便加了个 action。 &lt;form method=&quot;post&quot; class=&quot;form-horizontal&quot; ro...."/>    <meta name="keywords" content="Solo,Java,博客,开源,傅皮蛋"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"><link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Shiro csrf 拦截请求 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2019/02/27/1551280797000.html?"/><meta property="og:image" content="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="search" type="application/opensearchdescription+xml" title="Shiro csrf 拦截请求 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2019/02/27/1551280797000.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/css/base.css?1590669477106"/>
-            <link rel="prev" title="WeChat | 微信验证服务器有效性" href="https://blog.fpdan.cn/articles/2019/02/19/1550571718000.html">
-            <link rel="next" title="IDEA Perhaps you are running on a JRE rather than a JDK" href="https://blog.fpdan.cn/articles/2019/06/06/1559813628000.html">
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Scrapy | 豆瓣电影评分爬虫 - 无人问津的自留地 >>></title><meta name="description" content="本 demo 只做学习之用，请勿转载和商用，谢谢。🙏"/><meta property="og:description" content="本 demo 只做学习之用，请勿转载和商用，谢谢。🙏"/>    <meta name="keywords" content="Solo,Java,博客,开源,傅皮蛋"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"><link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Scrapy | 豆瓣电影评分爬虫 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html?"/><meta property="og:image" content="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="search" type="application/opensearchdescription+xml" title="Scrapy | 豆瓣电影评分爬虫 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/css/base.css?1590760490757"/>
+            <link rel="prev" title="书单 | 花开花落，云舒云卷" href="https://blog.fpdan.cn/books.html">
     </head>
 <body class="fn__flex-column">
 <div id="pjax" class="fn__flex-1">
@@ -83,27 +82,27 @@
             </ul>
         </div>
     </div>
-    <div class="article__top" style="background-image: url(https://b3logfile.com/bing/20190318.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)">
-        <div style="background-image: url(https://b3logfile.com/bing/20190318.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
+    <div class="article__top" style="background-image: url(https://b3logfile.com/file/2020/05/image-39f2680f.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100)">
+        <div style="background-image: url(https://b3logfile.com/file/2020/05/image-39f2680f.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100)"></div>
         <canvas id="articleTop"></canvas>
     </div>
     <div class="article">
         <div class="ft__center">
             <div class="article__meta">
                 <time>
-                    2019-02-27
+                    2020-05-29
                 </time>
                 /
                     <a rel="tag"
-                       href="https://blog.fpdan.cn/tags/Note">Note</a> &nbsp;
+                       href="https://blog.fpdan.cn/tags/Scrapy">Scrapy</a> &nbsp;
             </div>
             <h2 class="article__title">
-                Shiro csrf 拦截请求
+                Scrapy | 豆瓣电影评分爬虫
             </h2>
 <div class="article__share"
-     data-title="Shiro csrf 拦截请求"
+     data-title="Scrapy | 豆瓣电影评分爬虫"
      data-blogtitle="无人问津的自留地 >>>"
-     data-url="https://blog.fpdan.cn/articles/2019/02/27/1551280797000.html"
+     data-url="https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html"
      data-avatar="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
     <span class="item" data-type="qqz">
         <svg viewBox="0 0 32 32" width="100%" height="100%">
@@ -132,42 +131,141 @@
 </div>        </div>
         <div class="wrapper">
             <section class="vditor-reset articles article__content">
-                <p>今天遇到一个问题，我的 form 表单写的没有错，用 js 生成的 action，不知道什么原因一直提交不上去。</p>
-<pre><code class="language-html">&lt;form method="post" class="form-horizontal" role="form" id="form"&gt;&lt;/form&gt;
+                <blockquote>
+<p>本 demo 只做学习之用，请勿转载和商用，谢谢 🙏</p>
+</blockquote>
+<h3 id="toc_h3_0">观察链接</h3>
+<blockquote>
+<p><a href="https://movie.douban.com/explore#!type=movie&amp;tag=冷门佳片&amp;sort=recommend&amp;page_limit=20&amp;page_start=0" target="_blank">https://movie.douban.com/explore#!type=movie&amp;tag=冷门佳片&amp;sort=recommend&amp;page_limit=20&amp;page_start=0</a></p>
+</blockquote>
+<p><img src="https://b3logfile.com/file/2020/05/image-39f2680f.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="image.png"></p>
+<h3 id="toc_h3_1">创建爬虫</h3>
+<pre><code class="language-shell"> # 创建项目
+ $ scrapy startproject douban
+ # 创建爬虫
+ $ scrapy genspider doubanSpider https://www.douban.com/
 </code></pre>
-<pre><code class="language-javascript">function changeState(that) {
-  var id = $(that).attr("applyid");
-  $("#applyId").val(id);
-  $("#form").attr("action", "/feedbacks/" + id + "/state");
+<h4 id="toc_h4_2">doubanSpider.py</h4>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+import scrapy
+import json
+from douban.items import DoubanItem
+
+class DoubanspiderSpider(scrapy.Spider):
+    name = 'doubanSpider'
+    allowed_domains = ['https://movie.douban.com/']
+    start_urls = [
+        "https://movie.douban.com/j/search_subjects?type=movie&amp;tag=冷门佳片&amp;sort=recommend&amp;page_limit=20&amp;page_start="
+        + str(x) for x in range(1, 50, 1)]
+
+    def parse(self, response):
+        rs = json.loads(response.text)
+        datas = rs.get("subjects")
+        # items.py 中定义的参数
+        item = DoubanItem()
+        for data in datas:
+            item['title'] = data.get('title')
+            item['rate'] = data.get('rate')
+            item['url'] = data.get('url')
+            item['id'] = data.get('id')
+            yield item
+</code></pre>
+<h4 id="toc_h4_3">items.py</h4>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+import scrapy
+
+class DoubanItem(scrapy.Item):
+    title = scrapy.Field()
+    rate = scrapy.Field()
+    url = scrapy.Field()
+    id = scrapy.Field()
+    cover = scrapy.Field()
+</code></pre>
+<h4 id="toc_h4_4">pipelines.py</h4>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+
+class DoubanPipeline:
+    def process_item(self, item, spider):
+        with open('text.txt', 'a') as f:
+            f.write(item['id'] +","+item['rate']+","+item['title']+","+item['url'] + "\n")
+            f.close()
+        return item
+</code></pre>
+<h4 id="toc_h4_5">特别注意 setting.py 文件</h4>
+<pre><code class="language-python"># Crawl responsibly by identifying yourself (and your website) on the user-agent
+# USER_AGENT 需要，不开启会一直 403 拒绝访问
+USER_AGENT = 'douban (+http://www.yourdomain.com)'
+
+# Obey robots.txt rules
+# 忽略 robots.txt 文件
+ROBOTSTXT_OBEY = False
+
+# 做一个有道德的人 设置一下下载延迟
+DOWNLOAD_DELAY = 3
+
+# Configure item pipelines
+# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+# ITEM_PIPELINES 记得开启一下
+ITEM_PIPELINES = {
+   'douban.pipelines.DoubanPipeline': 300,
 }
 </code></pre>
-<p>提交表单页面直接跳到登录页面，推测是请求给 shiro 拦截了。</p>
-<pre><code class="language-java">// shiro 拦截器
-filterMap.put("csrf", new CsrfTokenFilter());
-filterChainDefinitionMap.put("/**", "authc,csrf");
+<h3 id="toc_h3_6">运行爬虫</h3>
+<pre><code class="language-shell">$ scrapy crawl doubanSpider
 </code></pre>
-<p>最后随便加了个 action。</p>
-<pre><code class="language-javascript">&lt;form
-  method="post"
-  class="form-horizontal"
-  role="form"
-  id="form"
-  th:action="@{/user}"
-&gt;&lt;/form&gt;
+<p><img src="https://b3logfile.com/file/2020/05/solofetchupload4424493443174793288-8669e359.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<h3 id="toc_h3_7">数据入库</h3>
+<p>piplines.py</p>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+
+# Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+
+# 安装 Mysqlclient
+# pip3 install Mysqlclient
+# ln -s /usr/local/mysql/bin/mysql_config /usr/local/bin/mysql_config
+# 参考 https://www.jianshu.com/p/6411c14ce3f1
+
+# scrapy crawl doubanSpider
+# 运行爬虫的时候可能 MySQLdb 遇到个坑
+# ImportError: dlopen(/Users/xxx/.local/share/virtualenvs/MyDjango-c9TXLMy3/lib/python3.6/site-packages/MySQLdb/_mysql.cpython-36m-darwin.so, 2): Library not loaded: libcrypto.1.0.0.dylib
+# 参考这里 https://www.cnblogs.com/Peter2014/p/10937563.html
+import MySQLdb
+
+class DoubanPipeline:
+    def __init__(self):
+        self.conn = MySQLdb.connect('localhost', 'root', '123456', 'python_spider', charset="utf8", use_unicode=True)
+        self.cursor = self.conn.cursor()
+
+    def process_item(self, item, spider):
+        # 写文件
+        # with open('text.txt', 'a') as f:
+        #     f.write(item['id'] +","+item['rate']+","+item['title']+","+item['url'] + "\n")
+        #     f.close()
+        # return item
+
+        # 入库
+        insert_sql = "insert into douban(movie_id, title, rate, url)VALUES (%s, %s, %s, %s)"
+        self.cursor.execute(insert_sql, (item['id'], item['rate'], item['title'], item['url']))
+        self.conn.commit()
+        print('正在插入数据...')
+        return item
+
+    def close_spider(self, spider):
+        # 接收结束信号
+        self.conn.close()
+        print('完成数据插入...')
 </code></pre>
-<p>html 审查元素的时候，页面会增加一个 csrfToken，可以正常提交了。</p>
-<pre><code class="language-html">&lt;input
-  type="hidden"
-  name="csrfToken"
-  value="2bdaaca5-ebf9-450f-a25a-8faacd018965"
-/&gt;
-</code></pre>
+<h3 id="toc_h3_8">项目地址</h3>
+<p><a href="https://github.com/GlacierBo/pycodes/tree/master/douban_spider" target="_blank">https://github.com/GlacierBo/pycodes/tree/master/douban_spider</a></p>
                     <div>
                         
 <hr>
-<small>标题：Shiro csrf 拦截请求</small><br>
+<small>标题：Scrapy | 豆瓣电影评分爬虫</small><br>
 <small>版权声明：本文为博主「<a href="https://blog.fpdan.cn" target="_blank">fpdan</a>」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</small><br>
-<small>原文链接：<a href="https://blog.fpdan.cn/articles/2019/02/27/1551280797000.html" target="_blank">https://blog.fpdan.cn/articles/2019/02/27/1551280797000.html</a></small><br>
+<small>原文链接：<a href="https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html" target="_blank">https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html</a></small><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -176,6 +274,36 @@ filterChainDefinitionMap.put("/**", "authc,csrf");
         </div>
 
     </div>
+        <div class="post__toc">
+<ul class="article__toc">
+        <li class="toc__h3">
+            <a href="#toc_h3_0">观察链接</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_1">创建爬虫</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_2">doubanSpider.py</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_3">items.py</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_4">pipelines.py</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_5">特别注意 setting.py 文件</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_6">运行爬虫</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_7">数据入库</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_8">项目地址</a>
+        </li>
+</ul>        </div>
         <div id="b3logsolocomments"></div>
         <div class="wrapper">
             <div id="vcomment"
@@ -185,7 +313,7 @@ filterChainDefinitionMap.put("/**", "authc,csrf");
         background: rgba(255,255,255,0.9);
         box-shadow: 0 1px 4px rgba(0,0,0,0.04);
         padding: 20px;"
-                 data-name="fpdan" data-postId="1551280797000"></div>
+                 data-name="fpdan" data-postId="1590763804471"></div>
         </div>
     <div class="article__bottom">
         <div class="wrapper">
@@ -198,7 +326,7 @@ filterChainDefinitionMap.put("/**", "authc,csrf");
     
 </div>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/TweenMax.min.js?1590669477106"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/TweenMax.min.js?1590760490757"
         charset="utf-8"></script>
 <footer class="footer">
     <div class="wrapper">
@@ -245,18 +373,21 @@ filterChainDefinitionMap.put("/**", "authc,csrf");
   }
 </script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/common.min.js?1590669477106"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/common.min.js?1590760490757"
         charset="utf-8"></script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/circleMagic.min.js?1590669477106"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/circleMagic.min.js?1590760490757"
         charset="utf-8"></script>
 
+    <svg viewBox="0 0 32 32" width="100%" height="100%" class="side__top side__top--toc">
+        <path d="M30 18h-28c-1.1 0-2-0.9-2-2s0.9-2 2-2h28c1.1 0 2 0.9 2 2s-0.9 2-2 2zM30 6.25h-28c-1.1 0-2-0.9-2-2s0.9-2 2-2h28c1.1 0 2 0.9 2 2s-0.9 2-2 2zM2 25.75h28c1.1 0 2 0.9 2 2s-0.9 2-2 2h-28c-1.1 0-2-0.9-2-2s0.9-2 2-2z"></path>
+    </svg>
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/js/page.min.js?1590669477106', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/js/page.min.js?1590760490757', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
-        "oId": "1551280797000",
+        "oId": "1590763804471",
         "blogHost": "https://blog.fpdan.cn",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
@@ -271,4 +402,4 @@ filterChainDefinitionMap.put("/**", "authc,csrf");
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 29ms, 2020/05/29 00:02:35 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 51ms, 2020/05/29 22:51:42 -->
