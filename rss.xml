@@ -6,8 +6,18 @@
     <atom:link href="https://blog.fpdan.cn/rss.xml" rel="self" type="application/rss+xml"/>
     <description>我始终相信，走过平湖烟雨，岁月山河，&lt;br/&gt;那些经历劫数，尝遍百味的人，会更加生动而干净。</description>
     <generator>Solo, v4.1.0, https://solo.b3log.org</generator>
-    <lastBuildDate>Mon, 01 Jun 2020 19:50:26 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2020 20:43:31 +0800</lastBuildDate>
     <language>zh-cn</language>
+    <item>
+      <title>Solo | 优雅的使用 Solo 静态博客</title>
+      <link>https://blog.fpdan.cn/articles/2020/06/01/1591015397541.html</link>
+      <description><![CDATA[<p>这篇文章只针对部署静态博客的小伙伴，提供一些想法和思路。</p>]]></description>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/articles/2020/06/01/1591015397541.html</guid>
+      <category>Solo</category>
+      <category>Blog</category>
+      <pubDate>Mon, 01 Jun 2020 20:43:17 +0800</pubDate>
+    </item>
     <item>
       <title>Docker 部署说明</title>
       <link>https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html</link>
@@ -89,15 +99,6 @@
       <category>Hexo</category>
       <category>Blog</category>
       <pubDate>Thu, 28 May 2020 23:21:02 +0800</pubDate>
-    </item>
-    <item>
-      <title>About | 关于我</title>
-      <link>https://blog.fpdan.cn/about.html</link>
-      <description><![CDATA[<p>傅皮蛋儿 一位来自苏州的程序员。</p>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/about.html</guid>
-      <category>About</category>
-      <pubDate>Thu, 28 May 2020 23:20:39 +0800</pubDate>
     </item>
   </channel>
 </rss>
