@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Docker 部署说明 - 无人问津的自留地 >>></title><meta name="description" content="环境要求 oracle：版本 11g 及以上 mysql：8.0 及以上 docker：17.12.0 及以上 Docker 镜像构建（可选） 服务端镜像构建 在项目根目录下执行如下语句构建应用 Docker 镜像： ./mvnw -Pprod verify -DskipTests jib:dockerBuild 导出 docker save smarttrain &gt; smarttrain.tar 或直接执行下面语句导出 Tar 文件： ./mvnw -Pprod verify -DskipTests jib:buildTar 在项目编译的 target 目录下便能找到对应版本的 Tar 文件。 客户端镜像构建： 在项目根目录下执行如下语句构建应用 Docker 镜像： docker build . -t smart-train-web 导出 docker save smart-train-web &gt; smart-train-web.tar 开始-导入 在未使用 Docker 仓库的情况下，我们直接导入 Image 文件： 镜像的地址为当前目录的 images...."/><meta property="og:description" content="环境要求 oracle：版本 11g 及以上 mysql：8.0 及以上 docker：17.12.0 及以上 Docker 镜像构建（可选） 服务端镜像构建 在项目根目录下执行如下语句构建应用 Docker 镜像： ./mvnw -Pprod verify -DskipTests jib:dockerBuild 导出 docker save smarttrain &gt; smarttrain.tar 或直接执行下面语句导出 Tar 文件： ./mvnw -Pprod verify -DskipTests jib:buildTar 在项目编译的 target 目录下便能找到对应版本的 Tar 文件。 客户端镜像构建： 在项目根目录下执行如下语句构建应用 Docker 镜像： docker build . -t smart-train-web 导出 docker save smart-train-web &gt; smart-train-web.tar 开始-导入 在未使用 Docker 仓库的情况下，我们直接导入 Image 文件： 镜像的地址为当前目录的 images...."/>    <meta name="keywords" content="Solo,Java,博客,开源,傅皮蛋"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"><link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Docker 部署说明 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html?"/><meta property="og:image" content="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="search" type="application/opensearchdescription+xml" title="Docker 部署说明 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/css/base.css?1590760490757"/>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Docker 部署说明 - 无人问津的自留地 >>></title><meta name="description" content="Docker 服务器部署说明"/><meta property="og:description" content="Docker 服务器部署说明"/>    <meta name="keywords" content="Solo,Java,博客,开源,傅皮蛋"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"><link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Docker 部署说明 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html?"/><meta property="og:image" content="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="search" type="application/opensearchdescription+xml" title="Docker 部署说明 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/css/base.css?1591098696784"/>
             <link rel="prev" title="OS | Mac 问题集锦" href="https://blog.fpdan.cn/articles/2020/01/26/1580048570000.html">
             <link rel="next" title="JAVA | 常用的几种注入方式" href="https://blog.fpdan.cn/articles/2020/05/26/1590490512000.html">
     </head>
@@ -18,6 +18,8 @@
             <h2 class="header__desc header__desc--title">我始终相信，走过平湖烟雨，岁月山河，<br/>那些经历劫数，尝遍百味的人，会更加生动而干净。</h2>
             <div class="header__desc">
                 <!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+
+
             </div>
             <svg class="header__down" id="headerDown" viewBox="0 0 32 32" width="100%" height="100%">
                 <path d="M15.992 25.304c-0 0-0 0-0.001 0-0.516 0-0.981-0.216-1.31-0.563l-0.001-0.001-14.187-14.996c-0.306-0.323-0.494-0.76-0.494-1.241 0-0.998 0.809-1.807 1.807-1.807 0.517 0 0.983 0.217 1.313 0.565l0.001 0.001 12.875 13.612 12.886-13.612c0.331-0.348 0.797-0.565 1.314-0.565 0.481 0 0.918 0.187 1.242 0.493l-0.001-0.001c0.723 0.687 0.755 1.832 0.072 2.555l-14.201 14.996c-0.33 0.348-0.795 0.564-1.311 0.564-0.001 0-0.003 0-0.004 0h0z"></path>
@@ -44,7 +46,7 @@
                 <a href="https://blog.fpdan.cn" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
 
                 <div class="side__meta">
-                    16 文章 <br>
+                    17 文章 <br>
                     <span data-uvstaturl="https://blog.fpdan.cn">0</span> 浏览
                     
                 </div>
@@ -83,19 +85,19 @@
             </ul>
         </div>
     </div>
-    <div class="article__top" style="background-image: url(https://b3logfile.com/bing/20180309.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)">
-        <div style="background-image: url(https://b3logfile.com/bing/20180309.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
+    <div class="article__top" style="background-image: url(https://b3logfile.com/bing/20180610.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)">
+        <div style="background-image: url(https://b3logfile.com/bing/20180610.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
         <canvas id="articleTop"></canvas>
     </div>
     <div class="article">
         <div class="ft__center">
             <div class="article__meta">
                 <time>
-                    2020-05-28
+                    2020-05-30
                 </time>
                 /
                     <a rel="tag"
-                       href="https://blog.fpdan.cn/tags/%E5%BE%85%E5%88%86%E7%B1%BB">待分类</a> &nbsp;
+                       href="https://blog.fpdan.cn/tags/Docker">Docker</a> &nbsp;
             </div>
             <h2 class="article__title">
                 Docker 部署说明
@@ -593,7 +595,7 @@ audio-type: wav
     
 </div>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/TweenMax.min.js?1590760490757"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/TweenMax.min.js?1591098696784"
         charset="utf-8"></script>
 <footer class="footer">
     <div class="wrapper">
@@ -620,7 +622,10 @@ audio-type: wav
  <br>
         &copy; 2020
         <a href="https://blog.fpdan.cn">无人问津的自留地 >>></a>
-        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</br>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+
         <span class="footer__heart">❤️</span>
     </div>
 </footer>
@@ -640,10 +645,10 @@ audio-type: wav
   }
 </script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/common.min.js?1590760490757"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/common.min.js?1591098696784"
         charset="utf-8"></script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/circleMagic.min.js?1590760490757"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/circleMagic.min.js?1591098696784"
         charset="utf-8"></script>
 
     <svg viewBox="0 0 32 32" width="100%" height="100%" class="side__top side__top--toc">
@@ -651,7 +656,7 @@ audio-type: wav
     </svg>
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/js/page.min.js?1590760490757', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/js/page.min.js?1591098696784', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1590412157000",
@@ -669,4 +674,4 @@ audio-type: wav
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 46ms, 2020/05/29 22:51:42 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 55ms, 2020/06/02 19:52:52 -->
