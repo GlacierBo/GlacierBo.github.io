@@ -6,7 +6,7 @@
     <atom:link href="https://blog.fpdan.cn/rss.xml" rel="self" type="application/rss+xml"/>
     <description>我始终相信，走过平湖烟雨，岁月山河，&lt;br/&gt;那些经历劫数，尝遍百味的人，会更加生动而干净。</description>
     <generator>Solo, v4.1.0, https://solo.b3log.org</generator>
-    <lastBuildDate>Mon, 01 Jun 2020 20:43:31 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2020 19:52:52 +0800</lastBuildDate>
     <language>zh-cn</language>
     <item>
       <title>Solo | 优雅的使用 Solo 静态博客</title>
@@ -14,9 +14,9 @@
       <description><![CDATA[<p>这篇文章只针对部署静态博客的小伙伴，提供一些想法和思路。</p>]]></description>
       <author>fpdan</author>
       <guid>https://blog.fpdan.cn/articles/2020/06/01/1591015397541.html</guid>
-      <category>Solo</category>
       <category>Blog</category>
-      <pubDate>Mon, 01 Jun 2020 20:43:17 +0800</pubDate>
+      <category>Solo</category>
+      <pubDate>Mon, 01 Jun 2020 20:56:57 +0800</pubDate>
     </item>
     <item>
       <title>Docker 部署说明</title>
