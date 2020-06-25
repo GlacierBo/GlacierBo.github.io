@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Docker | 部署 SpringBoot 项目 - 无人问津的自留地 >>></title><meta name="description" content="java 8 环境，Dockerfile spring boot 打好的 jar 包 wechat-0.0.1-SNAPSHOT.jar，放在 Dockerfile 同级目录下"/><meta property="og:description" content="java 8 环境，Dockerfile spring boot 打好的 jar 包 wechat-0.0.1-SNAPSHOT.jar，放在 Dockerfile 同级目录下"/>    <meta name="keywords" content="Solo,Java,博客,开源,傅皮蛋"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources"><link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Docker | 部署 SpringBoot 项目 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2019/02/18/1550500058000.html?"/><meta property="og:image" content="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="search" type="application/opensearchdescription+xml" title="Docker | 部署 SpringBoot 项目 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2019/02/18/1550500058000.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/css/base.css?1591696999537"/>
+              href="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/css/base.css?1592915849883"/>
             <link rel="prev" title="Blog | Hexo + GitHub Pages 搭建静态博客" href="https://blog.fpdan.cn/articles/2019/01/12/1547297894000.html">
             <link rel="next" title="Docker | Docker 笔记" href="https://blog.fpdan.cn/articles/2019/02/19/1550568093000.html">
     </head>
@@ -44,10 +44,10 @@
             </svg>
 
             <div class="side__header">
-                <a href="https://blog.fpdan.cn" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100"></a>
+                <a href="https://blog.fpdan.cn" rel="start"><img class="side__logo" alt="无人问津的自留地 >>>" src="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/format/jpg/interlace/0/q/100"></a>
 
                 <div class="side__meta">
-                    19 文章 <br>
+                    20 文章 <br>
                     <span data-uvstaturl="https://blog.fpdan.cn">0</span> 浏览
                     
                 </div>
@@ -107,7 +107,7 @@
      data-title="Docker | 部署 SpringBoot 项目"
      data-blogtitle="无人问津的自留地 >>>"
      data-url="https://blog.fpdan.cn/articles/2019/02/18/1550500058000.html"
-     data-avatar="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
+     data-avatar="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/format/jpg/interlace/0/q/100">
     <span class="item" data-type="qqz">
         <svg viewBox="0 0 32 32" width="100%" height="100%">
             <path d="M22.824 13.989l-8.348 6.287s3.351 0.522 8.404 0.461l-0.23-1.040 7.2-6.549c0.132-0.12 0.183-0.312 0.129-0.487s-0.203-0.299-0.377-0.314l-9.492-0.856-3.708-9.213c-0.068-0.169-0.226-0.279-0.401-0.279s-0.333 0.11-0.401 0.279l-3.708 9.213-9.492 0.856c-0.174 0.015-0.323 0.139-0.377 0.314s-0.004 0.366 0.129 0.487l7.2 6.549-2.158 9.742c-0.040 0.178 0.026 0.365 0.168 0.474 0.142 0.107 0.331 0.115 0.481 0.021l8.158-5.165 8.158 5.165c0.070 0.045 0.147 0.066 0.225 0.066 0.090 0 0.18-0.029 0.256-0.086 0.142-0.109 0.208-0.295 0.168-0.474l-1.707-7.704c0.732-0.386 1.538-1.040 1.538-1.040s-3.195 1.638-14.664 0.838l8.312-6.325s-0.327-0.534-10.744-0.914c-0.697-0.026 8.493-1.83 15.281-0.305z"></path>
@@ -186,7 +186,7 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
     
 </div>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/TweenMax.min.js?1591696999537"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/TweenMax.min.js?1592915849883"
         charset="utf-8"></script>
 <footer class="footer">
     <div class="wrapper">
@@ -238,15 +238,15 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
   }
 </script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/common.min.js?1591696999537"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/common.min.js?1592915849883"
         charset="utf-8"></script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/circleMagic.min.js?1591696999537"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/skins/Bubble/js/circleMagic.min.js?1592915849883"
         charset="utf-8"></script>
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/js/page.min.js?1591696999537', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.1.0/src/main/resources/js/page.min.js?1592915849883', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1550500058000",
@@ -264,4 +264,4 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 24ms, 2020/06/09 18:04:46 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 35ms, 2020/06/25 16:09:24 -->

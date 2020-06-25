@@ -6,8 +6,35 @@
     <atom:link href="https://blog.fpdan.cn/rss.xml" rel="self" type="application/rss+xml"/>
     <description>我始终相信，走过平湖烟雨，岁月山河，&lt;br/&gt;那些经历劫数，尝遍百味的人，会更加生动而干净。</description>
     <generator>Solo, v4.1.0, https://solo.b3log.org</generator>
-    <lastBuildDate>Tue, 09 Jun 2020 18:04:45 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2020 16:09:24 +0800</lastBuildDate>
     <language>zh-cn</language>
+    <item>
+      <title>理财 | 我再也不要买定期理财了</title>
+      <link>https://blog.fpdan.cn/articles/2020/06/25/1593042817922.html</link>
+      <description><![CDATA[<p>支付宝某定期理财产品，年化收益 4.57%。银行活期存款邮政为例 0.3% 左右，整存整取一年 1.75%。相对来说这个收益已经非常不错了，感谢互联网让储户有了更多的选择。</p>]]></description>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/articles/2020/06/25/1593042817922.html</guid>
+      <category>理财</category>
+      <pubDate>Thu, 25 Jun 2020 16:09:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>书单 | 花开花落，云舒云卷</title>
+      <link>https://blog.fpdan.cn/books.html</link>
+      <description><![CDATA[<p>感谢每一位给我们带来好故事的作者。</p>]]></description>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/books.html</guid>
+      <category>书单</category>
+      <pubDate>Wed, 24 Jun 2020 23:24:52 +0800</pubDate>
+    </item>
+    <item>
+      <title>OS | Mac 问题集锦</title>
+      <link>https://blog.fpdan.cn/articles/2020/01/26/1580048570000.html</link>
+      <description><![CDATA[<p>zsh shell 环境配置不生效</p>]]></description>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/articles/2020/01/26/1580048570000.html</guid>
+      <category>OS</category>
+      <pubDate>Sun, 14 Jun 2020 09:32:36 +0800</pubDate>
+    </item>
     <item>
       <title>日志 | 写给五年后的自己</title>
       <link>https://blog.fpdan.cn/articles/2020/05/10/1589108716000.html</link>
@@ -64,15 +91,6 @@
       <pubDate>Fri, 29 May 2020 22:03:52 +0800</pubDate>
     </item>
     <item>
-      <title>书单 | 花开花落，云舒云卷</title>
-      <link>https://blog.fpdan.cn/books.html</link>
-      <description><![CDATA[<p>感谢每一位给我们带来好故事的作者。</p>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/books.html</guid>
-      <category>书单</category>
-      <pubDate>Fri, 29 May 2020 00:01:36 +0800</pubDate>
-    </item>
-    <item>
       <title>Docker | Docker 笔记</title>
       <link>https://blog.fpdan.cn/articles/2019/02/19/1550568093000.html</link>
       <description><![CDATA[<p>Docker 的安装和常用命令集锦，学习&amp;备用。</p>]]></description>
@@ -80,24 +98,6 @@
       <guid>https://blog.fpdan.cn/articles/2019/02/19/1550568093000.html</guid>
       <category>Docker</category>
       <pubDate>Thu, 28 May 2020 23:33:07 +0800</pubDate>
-    </item>
-    <item>
-      <title>WeChat | 微信验证服务器有效性</title>
-      <link>https://blog.fpdan.cn/articles/2019/02/19/1550571718000.html</link>
-      <description><![CDATA[<p>微信验证服务器有效性，附 Java 源码</p>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/articles/2019/02/19/1550571718000.html</guid>
-      <category>WeChat</category>
-      <pubDate>Thu, 28 May 2020 23:24:49 +0800</pubDate>
-    </item>
-    <item>
-      <title>版本控制 | Git 常用命令</title>
-      <link>https://blog.fpdan.cn/articles/2019/01/12/1547296577000.html</link>
-      <description><![CDATA[<p>Git 学习笔记，记录一下</p>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/articles/2019/01/12/1547296577000.html</guid>
-      <category>版本控制</category>
-      <pubDate>Thu, 28 May 2020 23:24:28 +0800</pubDate>
     </item>
   </channel>
 </rss>
