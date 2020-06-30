@@ -23,7 +23,7 @@ window.Vcomment = Vcomment
  *
  * @author <a href="http://vanessa.b3log.org">Liyuan Li</a>
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 2.3.1.0, May 15, 2020
+ * @version 2.3.2.0, Jun 19, 2020
  */
 
 /**
@@ -174,6 +174,7 @@ window.Util = {
       lineNumber: Label.showCodeBlockLn,
       hljsEnable: !Label.luteAvailable,
       hljsStyle: Label.hljsStyle,
+      speech: Label.speech
     })
   },
   /**
@@ -306,7 +307,7 @@ window.Util = {
   loadVditor: function (cb) {
     $.ajax({
       method: 'GET',
-      url: 'https://cdn.jsdelivr.net/npm/vditor@3.2.6/dist/index.min.js',
+      url: 'https://cdn.jsdelivr.net/npm/vditor@3.3.2/dist/index.min.js',
       dataType: 'script',
       cache: true,
       success: () => {
