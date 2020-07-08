@@ -6,16 +6,16 @@
     <atom:link href="https://blog.fpdan.cn/rss.xml" rel="self" type="application/rss+xml"/>
     <description>我始终相信，走过平湖烟雨，岁月山河，&lt;br/&gt;那些经历劫数，尝遍百味的人，会更加生动而干净。</description>
     <generator>Solo, v4.2.0, https://solo.b3log.org</generator>
-    <lastBuildDate>Thu, 02 Jul 2020 22:58:17 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2020 23:34:46 +0800</lastBuildDate>
     <language>zh-cn</language>
     <item>
-      <title>日志 | 写在展策之初</title>
-      <link>https://blog.fpdan.cn/articles/2020/07/02/1593701831198.html</link>
-      <description/>
+      <title>理财 | 第一个 1 万块，写在 3400 点</title>
+      <link>https://blog.fpdan.cn/articles/2020/07/08/1594222476744.html</link>
+      <description><![CDATA[<p>没有人是靠投资理财致富的，最后还是要靠努力和攒钱。</p>]]></description>
       <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/articles/2020/07/02/1593701831198.html</guid>
-      <category>日志</category>
-      <pubDate>Thu, 02 Jul 2020 22:57:11 +0800</pubDate>
+      <guid>https://blog.fpdan.cn/articles/2020/07/08/1594222476744.html</guid>
+      <category>理财</category>
+      <pubDate>Wed, 08 Jul 2020 23:34:36 +0800</pubDate>
     </item>
     <item>
       <title>书单 | 花开花落，云舒云卷</title>
@@ -24,7 +24,16 @@
       <author>fpdan</author>
       <guid>https://blog.fpdan.cn/books.html</guid>
       <category>书单</category>
-      <pubDate>Wed, 01 Jul 2020 06:57:28 +0800</pubDate>
+      <pubDate>Fri, 03 Jul 2020 23:09:44 +0800</pubDate>
+    </item>
+    <item>
+      <title>日志 | 写在展策之初</title>
+      <link>https://blog.fpdan.cn/articles/2020/07/02/1593701831198.html</link>
+      <description/>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/articles/2020/07/02/1593701831198.html</guid>
+      <category>日志</category>
+      <pubDate>Thu, 02 Jul 2020 22:57:11 +0800</pubDate>
     </item>
     <item>
       <title>理财 | 我再也不要买定期理财了</title>
@@ -68,8 +77,8 @@
       <description><![CDATA[<p>这篇文章只针对部署静态博客的小伙伴，提供一些想法和思路。</p>]]></description>
       <author>fpdan</author>
       <guid>https://blog.fpdan.cn/articles/2020/06/01/1591015397541.html</guid>
-      <category>Solo</category>
       <category>Blog</category>
+      <category>Solo</category>
       <pubDate>Mon, 01 Jun 2020 20:56:57 +0800</pubDate>
     </item>
     <item>
@@ -89,15 +98,6 @@
       <guid>https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html</guid>
       <category>Scrapy</category>
       <pubDate>Fri, 29 May 2020 22:50:04 +0800</pubDate>
-    </item>
-    <item>
-      <title>IDE | IDEA Perhaps you are running on a JRE rather than a JDK</title>
-      <link>https://blog.fpdan.cn/articles/2019/06/06/1559813628000.html</link>
-      <description><![CDATA[<p>IDEA 报错 IDEA Perhaps you are running on a JRE rather than a JDK</p>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/articles/2019/06/06/1559813628000.html</guid>
-      <category>IDE</category>
-      <pubDate>Fri, 29 May 2020 22:03:52 +0800</pubDate>
     </item>
   </channel>
 </rss>
