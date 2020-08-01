@@ -6,16 +6,16 @@
     <atom:link href="https://blog.fpdan.cn/rss.xml" rel="self" type="application/rss+xml"/>
     <description>我始终相信，走过平湖烟雨，岁月山河，&lt;br/&gt;那些经历劫数，尝遍百味的人，会更加生动而干净。</description>
     <generator>Solo, v4.2.0, https://solo.b3log.org</generator>
-    <lastBuildDate>Wed, 08 Jul 2020 23:37:10 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 09:44:11 +0800</lastBuildDate>
     <language>zh-cn</language>
     <item>
-      <title>理财 | 第一个 1 万块，写在 3400 点</title>
-      <link>https://blog.fpdan.cn/articles/2020/07/08/1594222476744.html</link>
-      <description><![CDATA[<p>没有人是靠投资理财致富的，最后还是要靠努力和攒钱。</p>]]></description>
+      <title>日志 | 迟来的年中总结</title>
+      <link>https://blog.fpdan.cn/articles/2020/08/01/1596246180214.html</link>
+      <description><![CDATA[<p>2020 上半年流水账账单请签收</p>]]></description>
       <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/articles/2020/07/08/1594222476744.html</guid>
-      <category>理财</category>
-      <pubDate>Wed, 08 Jul 2020 23:37:01 +0800</pubDate>
+      <guid>https://blog.fpdan.cn/articles/2020/08/01/1596246180214.html</guid>
+      <category>日志</category>
+      <pubDate>Sat, 01 Aug 2020 09:43:00 +0800</pubDate>
     </item>
     <item>
       <title>书单 | 花开花落，云舒云卷</title>
@@ -24,7 +24,16 @@
       <author>fpdan</author>
       <guid>https://blog.fpdan.cn/books.html</guid>
       <category>书单</category>
-      <pubDate>Fri, 03 Jul 2020 23:09:44 +0800</pubDate>
+      <pubDate>Sun, 26 Jul 2020 19:29:03 +0800</pubDate>
+    </item>
+    <item>
+      <title>理财 | 第一个 1 万块，写在 3400 点</title>
+      <link>https://blog.fpdan.cn/articles/2020/07/08/1594222476744.html</link>
+      <description><![CDATA[<p>没有人是靠投资理财致富的，最后还是要靠努力和攒钱。</p>]]></description>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/articles/2020/07/08/1594222476744.html</guid>
+      <category>理财</category>
+      <pubDate>Wed, 08 Jul 2020 23:37:01 +0800</pubDate>
     </item>
     <item>
       <title>日志 | 写在展策之初</title>
@@ -89,15 +98,6 @@
       <guid>https://blog.fpdan.cn/articles/2020/05/25/1590412157000.html</guid>
       <category>Docker</category>
       <pubDate>Sat, 30 May 2020 08:46:36 +0800</pubDate>
-    </item>
-    <item>
-      <title>Scrapy | 豆瓣电影评分爬虫</title>
-      <link>https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html</link>
-      <description><![CDATA[<p>本 demo 只做学习之用，请勿转载和商用，谢谢。]]>🙏<![CDATA[</p>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html</guid>
-      <category>Scrapy</category>
-      <pubDate>Fri, 29 May 2020 22:50:04 +0800</pubDate>
     </item>
   </channel>
 </rss>
