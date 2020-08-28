@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>中间件 | Kafka 集群 - 无人问津的自留地 >>></title><meta name="description" content="测试环境搭建的 Kafka，整理一下，发出来备忘。"/><meta property="og:description" content="测试环境搭建的 Kafka，整理一下，发出来备忘。"/>    <meta name="keywords" content="Solo,Java,博客,开源,傅皮蛋"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="中间件 | Kafka 集群 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2019/09/18/1568822102000.html?"/><meta property="og:image" content="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="search" type="application/opensearchdescription+xml" title="中间件 | Kafka 集群 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2019/09/18/1568822102000.html">        <link rel="stylesheet"
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>日志 | 兵荒马乱的八月 - 无人问津的自留地 >>></title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="Solo,Java,博客,开源,傅皮蛋"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="日志 | 兵荒马乱的八月 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2020/08/29/1598633703417.html?"/><meta property="og:image" content="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="search" type="application/opensearchdescription+xml" title="日志 | 兵荒马乱的八月 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2020/08/29/1598633703417.html">        <link rel="stylesheet"
               href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Casper/css/base.css?1598614163497"/>
-            <link rel="prev" title="OS | Linux 问题集锦" href="https://blog.fpdan.cn/articles/2019/08/05/1565001035000.html">
-            <link rel="next" title="OS | Mac 问题集锦" href="https://blog.fpdan.cn/articles/2020/01/26/1580048570000.html">
+            <link rel="prev" title="日志 | 迟来的年中总结" href="https://blog.fpdan.cn/articles/2020/08/01/1596246180214.html">
     </head>
 <body class="fn__flex-column">
 <div id="pjax" class="fn__flex-1">
@@ -61,11 +60,11 @@
     <div class="article__top">
         <div class="fn__clear">
             <div class="toc fn__none" onclick="$('.post__toc').slideToggle()">目录</div>
-            <div class="title fn__pointer" onclick="Util.goTop()">中间件 | Kafka 集群</div>
+            <div class="title fn__pointer" onclick="Util.goTop()">日志 | 兵荒马乱的八月</div>
 <div class="article__share"
-     data-title="中间件 | Kafka 集群"
+     data-title="日志 | 兵荒马乱的八月"
      data-blogtitle="无人问津的自留地 >>>"
-     data-url="https://blog.fpdan.cn/articles/2019/09/18/1568822102000.html"
+     data-url="https://blog.fpdan.cn/articles/2020/08/29/1598633703417.html"
      data-avatar="https://b3logfile.com/avatar/1590022388205_1590060052984.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
     <span class="item" data-type="qqz">
         <svg viewBox="0 0 32 32" width="100%" height="100%">
@@ -98,105 +97,50 @@
         <div class="ft__center">
             <div class="item__meta">
                 <time>
-                    2020-05-28
+                    2020-08-29
                 </time>
                 /
                     <a class="tag" rel="tag"
-                       href="https://blog.fpdan.cn/tags/Kafka">Kafka</a> &nbsp;
+                       href="https://blog.fpdan.cn/tags/%E6%97%A5%E5%BF%97">日志</a> &nbsp;
             </div>
             <h2 class="item__title">
-                中间件 | Kafka 集群
+                日志 | 兵荒马乱的八月
             </h2>
         </div>
-        <div class="item__cover" style="background-image: url(https://b3logfile.com/bing/20190705.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
+        <div class="item__cover" style="background-image: url(https://b3logfile.com/bing/20200310.jpg?imageView2/1/w/960/h/540/interlace/1/q/100)"></div>
         <div class="wrapper">
             <section class="item__content item__content--article vditor-reset">
-                <pre><code class="language-shell"># 192.168.2.128
-Kafka
-</code></pre>
-<pre><code class="language-shell"># 192.168.2.129
-Kafka
-</code></pre>
-<pre><code class="language-shell"># 192.168.2.130
-Redis
-Zookeeper
-Kafka
-</code></pre>
-<h4 id="toc_h4_0">配置源</h4>
-<pre><code>deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties
-deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe #Added by software-properties
-deb http://mirrors.aliyun.com/ubuntu/ xenial universe
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
-deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse #Added by software-properties
-deb http://archive.canonical.com/ubuntu xenial partner
-deb-src http://archive.canonical.com/ubuntu xenial partner
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe #Added by software-properties
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
-</code></pre>
-<h4 id="toc_h4_1">安装 docker</h4>
-<pre><code class="language-shell"> $ wget -qO- https://get.docker.com/ | sh
-</code></pre>
-<p>配置不用 sudo</p>
-<pre><code class="language-shell">sudo usermod -aG docker $USER
-</code></pre>
-<ul>
-<li>安装 Zookeeper 和 Kafka</li>
-</ul>
-<pre><code class="language-shell">$ docker pull wurstmeister/zookeeper
-$ docker pull wurstmeister/kafka
-</code></pre>
-<h4 id="toc_h4_2">Zookeeper</h4>
-<pre><code class="language-shell">$ docker run -d --name zookeeper -p 2181:2181 -t wurstmeister/zookeeper
-</code></pre>
-<h4 id="toc_h4_3">Kafka</h4>
-<pre><code class="language-shell">$ docker run -d --name kafka -p 9092:9092 \
--e KAFKA_BROKER_ID=0 \
--e KAFKA_ZOOKEEPER_CONNECT=192.168.2.130:2181 \
--e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.2.130:9092 \
--e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 988f4a6ca13c(镜像ID)
-</code></pre>
-<p>其他两台 Kafka 也连接到 130 的 <strong>Zookeeper</strong></p>
-<p>kafka01&nbsp; 128</p>
-<pre><code class="language-shell">$ docker run -d --name kafka01 -p 9092:9092 \
--e KAFKA_BROKER_ID=1 \
--e KAFKA_ZOOKEEPER_CONNECT=192.168.2.130:2181 \
--e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.2.128:9092 \
--e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 988f4a6ca13c
-</code></pre>
-<p>kafka02 129</p>
-<pre><code class="language-shell">$ docker run -d --name kafka02 -p 9092:9092 \
--e KAFKA_BROKER_ID=2 \
--e KAFKA_ZOOKEEPER_CONNECT=192.168.2.130:2181 \
--e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.2.129:9092 \
--e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 988f4a6ca13c
-</code></pre>
-<h4 id="toc_h4_4">查看 Zookeeper 状态</h4>
-<ul>
-<li>进入容器</li>
-</ul>
-<pre><code class="language-shell">$ docker exec -it bb189e36e49a /bin/bash
-</code></pre>
-<ul>
-<li>查看 ids</li>
-</ul>
-<pre><code class="language-shell">[zk: localhost:2181(CONNECTED) 3] ls /brokers/ids
-[2, 1, 0]
-</code></pre>
-<p>这边的这个 id&nbsp;就是我们刚才设置的 <strong>KAFKA_BROKER_ID</strong></p>
+                <p><img src="https://b3logfile.com/bing/20200310.jpg?imageView2/1/w/960/h/540/interlace/1/q/100" alt=""></p>
+<h3 id="toc_h3_0">工作只是生活的一部分</h3>
+<p>这个月一直在连轴转，微纳研究所的检测仪项目摄像头一直有问题，华为 P30 摄像头录制 4K 视频吊起摄像头就卡住，小老鼠研究的头发都白了，周五拿来了他们的 P30 测试机，说来项目方确实大方。</p>
+<p>因为腿腿的关系认识了饭哥，接到了一个 OA 的项目，饭哥公司的那个项目经理一直在催进度，仅仅是合作关系而非上下级关系，合同也签到 10 月中旬签完没一周就开始催，很想回怼，碍于情面，私下密了饭哥说信不过就把钱退了找别人吧。</p>
+<p>都是打工的，何必表现的高人一等，合着我做个外包您还当我是您公司员工一样压榨？</p>
+<p>公司 SRM（供应商关系管理系统）一直在做供应商这块的业务，加班已经是家常便饭，常常有负面情绪，会把自己的薪资和股票收益、外包收益去做对比，常常会觉得不值，是真的不值。资本社会是真的只有剥削。</p>
+<p>一直在考虑第二条路，工作不等于上班，也不该这么压抑，外包和基金都是我作出的尝试，高强度的工作确实会让人麻木，上班下班，没时间看书、思考、尝试。</p>
+<p>私下和 Wood 吃了顿饭，聊了下 GSP 系统的开发，40 多岁的老项目经理胡诌诌，喝喝啤酒脸也红了。我好多比我年长的朋友，小老鼠 30 多，云云、杨洁 30 多，宋总 40 多......跟年纪稍长些的朋友在一起确实会成长很多，不管是做人还是做事都能学到挺多。</p>
+<p>我确实厌恶上班。</p>
+<p>我知道我应该早点离开，可是去哪儿不都是一样吗，打工不能解决根本问题，外包也不能，外包只能赚个辛苦钱。</p>
+<h3 id="toc_h3_1">关于癌症</h3>
+<p>老天就是喜欢乱开玩笑，在你生活稍微有点起色的时候给你来那么一下。</p>
+<p>奶奶一直说自己牙疼，家里带她去医院看了几次也没当回事，说牙齿掉了就好了，最近去医院检查得了癌症，还是中期。动了刀，从鼻子割到了上牙，吃饭只能靠管子通到胃里。听我爸说的，我没有去看，我也不敢多想。</p>
+<p>花了挺多钱的，我奶奶生了3个：我姑姑、我爸爸和我叔叔，老来一场病，姑姑上班不愿陪，出钱也支支吾吾。我爸作为长子忙前忙后，我妈也被安排回去照顾奶奶。</p>
+<p>有时候觉得很奇怪，明明是一家人，真到有难同当的时候，真的很难。</p>
+<p>今天出去上厕所，看到爸爸蹲在厨房关着门抽烟，挺心疼的，50岁的人，上有老下有小，外公外婆爷爷奶奶都尚在。</p>
+<p>这个月我想了很久，跟我舅舅（外公外婆的儿子，我妈的弟弟）说，要不来做软件开发吧舅舅，不管怎么说他都不同意。舅舅 31 了，血浓于水，我就你这个亲舅舅，我能坑你不成，不会我可以找人带你，教你，花钱点钱也没事。你好好一个本科，现在混的要去水泥厂打工，老了咋办？混能混一辈子吗？我外公外婆年纪也那么大了，以后呢？31 了，没房没车没结婚，混的不好终是会被人看不起的。我没有同他说这些，我只是有点难过，很难过。</p>
+<p>想到我外公捡铜丝攒的钱，扫菜场攒的钱，一点点供我舅舅读书。</p>
+<p>想到我爸爸骗我奶奶说看病吧，不要多少钱。</p>
+<p>钱钱钱，最后还是落到了钱上。</p>
+<p>钱终究是冰冷的，爱人的手才是暖的。</p>
+<h3 id="toc_h3_2">其他</h3>
+<p>因为《小狗钱钱》的原因一直在写成功日记，坚持了两个月，目前感觉自己做的还不错，除了很有成就感之外，感觉这个月没有白忙活，干了啥特别的事情都会记录下来。</p>
+<p>因为老钱的原因，一直在做资产表格，最近也找到了适合自己的记账方式。我也是个怪胎，家里也没人理财投资、记支出收入，全是自学和自律。</p>
+<p>感谢这个互联网时代，让我能够读书学习，让我思考，让我有更多选择，可以坚定、自信的走自己的路。</p>
                     <div>
                         
 <hr>
-<small>标题：中间件 | Kafka 集群</small><br>
+<small>标题：日志 | 兵荒马乱的八月</small><br>
 <small>版权声明：本文为博主「<a href="https://blog.fpdan.cn" target="_blank">fpdan</a>」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</small><br>
-<small>原文链接：<a href="https://blog.fpdan.cn/articles/2019/09/18/1568822102000.html" target="_blank">https://blog.fpdan.cn/articles/2019/09/18/1568822102000.html</a></small><br>
+<small>原文链接：<a href="https://blog.fpdan.cn/articles/2020/08/29/1598633703417.html" target="_blank">https://blog.fpdan.cn/articles/2020/08/29/1598633703417.html</a></small><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -206,24 +150,18 @@ $ docker pull wurstmeister/kafka
     </div>
         <div class="post__toc">
 <ul class="article__toc">
-        <li class="toc__h4">
-            <a href="#toc_h4_0">配置源</a>
+        <li class="toc__h3">
+            <a href="#toc_h3_0">工作只是生活的一部分</a>
         </li>
-        <li class="toc__h4">
-            <a href="#toc_h4_1">安装 docker</a>
+        <li class="toc__h3">
+            <a href="#toc_h3_1">关于癌症</a>
         </li>
-        <li class="toc__h4">
-            <a href="#toc_h4_2">Zookeeper</a>
-        </li>
-        <li class="toc__h4">
-            <a href="#toc_h4_3">Kafka</a>
-        </li>
-        <li class="toc__h4">
-            <a href="#toc_h4_4">查看 Zookeeper 状态</a>
+        <li class="toc__h3">
+            <a href="#toc_h3_2">其他</a>
         </li>
 </ul>        </div>
         <div id="b3logsolocomments"></div>
-        <div id="vcomment" class="comment__wrapper wrapper" style="margin: 40px auto" data-name="fpdan" data-postId="1568822102000"></div>
+        <div id="vcomment" class="comment__wrapper wrapper" style="margin: 40px auto" data-name="fpdan" data-postId="1598633703417"></div>
     <div class="article__bottom">
         <div class="wrapper">
             <div class="fn__flex">
@@ -290,7 +228,7 @@ $ docker pull wurstmeister/kafka
     Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1598614163497', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
-        "oId": "1568822102000",
+        "oId": "1598633703417",
         "blogHost": "https://blog.fpdan.cn",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
@@ -299,9 +237,9 @@ $ docker pull wurstmeister/kafka
         page.load();
     page.tips.externalRelevantArticlesDisplayCount = "5";
         page.loadRandomArticles('<h3>随机阅读</h3>');
-        page.loadExternalRelevantArticles("Kafka",
+        page.loadExternalRelevantArticles("日志",
         '<h3>站外相关阅读</h3>');
-        page.loadRelevantArticles('1568822102000', '<h3>相关阅读</h3>');
+        page.loadRelevantArticles('1598633703417', '<h3>相关阅读</h3>');
     Skin.initArticle()
     });
 </script>
@@ -309,4 +247,4 @@ $ docker pull wurstmeister/kafka
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 56ms, 2020/08/29 00:56:45 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 44ms, 2020/08/29 00:56:45 -->
