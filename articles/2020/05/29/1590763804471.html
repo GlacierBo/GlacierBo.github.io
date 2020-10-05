@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Scrapy | 豆瓣电影评分爬虫 - 无人问津的自留地 >>></title><meta name="description" content="本 demo 只做学习之用，请勿转载和商用，谢谢。🙏"/><meta property="og:description" content="本 demo 只做学习之用，请勿转载和商用，谢谢。🙏"/>    <meta name="keywords" content="Solo,Java,博客,开源,傅皮蛋"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Scrapy | 豆瓣电影评分爬虫 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html?"/><meta property="og:image" content="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="search" type="application/opensearchdescription+xml" title="Scrapy | 豆瓣电影评分爬虫 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Casper/css/base.css?1598614163497"/>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Scrapy | 豆瓣电影评分爬虫 - 无人问津的自留地 >>></title><meta name="description" content="本 demo 只做学习之用，请勿转载和商用，谢谢。🙏"/><meta property="og:description" content="本 demo 只做学习之用，请勿转载和商用，谢谢。🙏"/>    <meta name="keywords" content="Solo,Java,博客,开源,傅皮蛋"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources"><link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Scrapy | 豆瓣电影评分爬虫 - 无人问津的自留地 >>>"/><meta property="og:site_name" content="无人问津的自留地 &gt;&gt;&gt;"/><meta property="og:url"      content="https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html?"/><meta property="og:image" content="https://cdn.jsdelivr.net/gh/GlacierBo/pic-bed/img/西瓜.png"/><link rel="search" type="application/opensearchdescription+xml" title="Scrapy | 豆瓣电影评分爬虫 - 无人问津的自留地 >>>" href="/opensearch.xml"><link href="https://blog.fpdan.cn/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://blog.fpdan.cn/manifest.json">        <link rel="canonical" href="https://blog.fpdan.cn/articles/2020/05/29/1590763804471.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources/skins/Casper/css/base.css?1601872855842"/>
             <link rel="prev" title="书单 | 花开花落，云舒云卷" href="https://blog.fpdan.cn/books.html">
             <link rel="next" title="Solo | 优雅的使用 Solo 静态博客" href="https://blog.fpdan.cn/articles/2020/06/01/1591015397541.html">
-    </head>
+    <script src="https://cdn.jsdelivr.net/npm/vditor@3.5.3/dist/js/icons/ant.js" async="" id="vditorIconScript"></script></head>
 <body class="fn__flex-column">
 <div id="pjax" class="fn__flex-1">
     
@@ -31,8 +31,8 @@
 
 
             <div class="fn__right">
-    <a href="https://hacpai.com/member/fpdan"
-       title="https://hacpai.com/member/fpdan"
+    <a href="https://ld246.com/member/fpdan"
+       title="https://ld246.com/member/fpdan"
        class="user__site"
        target="_blank" rel="noopener nofollow">
         <svg viewBox="0 0 32 32" width="100%" height="100%">
@@ -283,6 +283,7 @@ class DoubanPipeline:
             <a href="#toc_h3_8">项目地址</a>
         </li>
 </ul>        </div>
+        <div id="gitalk-container" class="comment__wrapper wrapper" style="margin: 40px auto"></div>
         <div id="b3logsolocomments"></div>
         <div id="vcomment" class="comment__wrapper wrapper" style="margin: 40px auto" data-name="fpdan" data-postId="1590763804471"></div>
     <div class="article__bottom">
@@ -319,7 +320,7 @@ class DoubanPipeline:
             </a>
             &nbsp;•&nbsp;
             <a rel="archive" href="https://blog.fpdan.cn/links.html">
-            友情链接
+            友链
             </a>
             <br>
             24 文章 &nbsp;
@@ -333,24 +334,25 @@ class DoubanPipeline:
   var Label = {
     speech: false,
     servePath: "https://blog.fpdan.cn",
-    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources",
     luteAvailable: false,
     hljsStyle: 'github',
     langLabel: "zh_CN",
-    version: "4.2.0",
+    version: "4.3.1",
     staticSite: true,
     showCodeBlockLn: true,
+    articleId: "1590763804471",
   }
 </script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Casper/js/common.min.js?1598614163497"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources/skins/Casper/js/common.min.js?1601872855842"
         charset="utf-8"></script>
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1598614163497', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources/js/page.min.js?1601872855842', 'soloPageScript')
     var page = new Page({
-        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "commentContentCannotEmptyLabel": "评论不能为空",
         "oId": "1590763804471",
         "blogHost": "https://blog.fpdan.cn",
         "randomArticles1Label": "随机阅读：",
@@ -370,4 +372,4 @@ class DoubanPipeline:
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 47ms, 2020/08/29 00:56:45 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 52ms, 2020/10/05 12:47:46 -->
