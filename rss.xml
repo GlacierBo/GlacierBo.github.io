@@ -6,8 +6,17 @@
     <atom:link href="https://blog.fpdan.cn/rss.xml" rel="self" type="application/rss+xml"/>
     <description>我始终相信，走过平湖烟雨，岁月山河，&lt;br/&gt;那些经历劫数，尝遍百味的人，会更加生动而干净。</description>
     <generator>Solo, v4.3.1, https://b3log.org/solo</generator>
-    <lastBuildDate>Mon, 05 Oct 2020 12:50:58 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Dec 2020 17:24:02 +0800</lastBuildDate>
     <language>zh-cn</language>
+    <item>
+      <title>书单 | 花开花落，云舒云卷</title>
+      <link>https://blog.fpdan.cn/books.html</link>
+      <description><![CDATA[<p>感谢每一位给我们带来好故事的作者。</p>]]></description>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/books.html</guid>
+      <category>书单</category>
+      <pubDate>Wed, 16 Dec 2020 18:48:59 +0800</pubDate>
+    </item>
     <item>
       <title>日志 | 兵荒马乱的八月</title>
       <link>https://blog.fpdan.cn/articles/2020/08/29/1598633703417.html</link>
@@ -16,15 +25,6 @@
       <guid>https://blog.fpdan.cn/articles/2020/08/29/1598633703417.html</guid>
       <category>日志</category>
       <pubDate>Sat, 29 Aug 2020 00:56:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>书单 | 花开花落，云舒云卷</title>
-      <link>https://blog.fpdan.cn/books.html</link>
-      <description><![CDATA[<p>感谢每一位给我们带来好故事的作者。</p>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/books.html</guid>
-      <category>书单</category>
-      <pubDate>Sat, 01 Aug 2020 09:48:32 +0800</pubDate>
     </item>
     <item>
       <title>日志 | 迟来的年中总结</title>
