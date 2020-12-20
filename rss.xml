@@ -6,8 +6,17 @@
     <atom:link href="https://blog.fpdan.cn/rss.xml" rel="self" type="application/rss+xml"/>
     <description>我始终相信，走过平湖烟雨，岁月山河，&lt;br/&gt;那些经历劫数，尝遍百味的人，会更加生动而干净。</description>
     <generator>Solo, v4.3.1, https://b3log.org/solo</generator>
-    <lastBuildDate>Sun, 20 Dec 2020 17:24:02 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Dec 2020 17:53:25 +0800</lastBuildDate>
     <language>zh-cn</language>
+    <item>
+      <title>日志 | 2020 年终总结</title>
+      <link>https://blog.fpdan.cn/articles/2020/12/20/1608457995016.html</link>
+      <description><![CDATA[<p>读书的时候感觉自己是个废物，现在被社会毒打的脱胎换骨，肩上多了很多责任，</p>]]></description>
+      <author>fpdan</author>
+      <guid>https://blog.fpdan.cn/articles/2020/12/20/1608457995016.html</guid>
+      <category>日志</category>
+      <pubDate>Sun, 20 Dec 2020 17:53:15 +0800</pubDate>
+    </item>
     <item>
       <title>书单 | 花开花落，云舒云卷</title>
       <link>https://blog.fpdan.cn/books.html</link>
@@ -88,16 +97,6 @@
       <guid>https://blog.fpdan.cn/articles/2018/10/19/1539958579000.html</guid>
       <category>日志</category>
       <pubDate>Tue, 02 Jun 2020 23:14:17 +0800</pubDate>
-    </item>
-    <item>
-      <title>Solo | 优雅的使用 Solo 静态博客</title>
-      <link>https://blog.fpdan.cn/articles/2020/06/01/1591015397541.html</link>
-      <description><![CDATA[<p>这篇文章只针对部署静态博客的小伙伴，提供一些想法和思路。</p>]]></description>
-      <author>fpdan</author>
-      <guid>https://blog.fpdan.cn/articles/2020/06/01/1591015397541.html</guid>
-      <category>Blog</category>
-      <category>Solo</category>
-      <pubDate>Mon, 01 Jun 2020 20:56:57 +0800</pubDate>
     </item>
   </channel>
 </rss>
